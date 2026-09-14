@@ -1,5 +1,13 @@
 # Status
 
+Compatibility validation is in progress on branch `palomar-lean-4.33.0`.
+Lean and mathlib now use their matching 4.33.0 releases. All project Lean
+sources are unchanged from the checked 4.33.1 revision
+`d1901c2bb6ae776e587f2351df3ed586aa5312b8`, which remains preserved on `main`.
+The new clean build, axiom/type audits, kernel checks and Linux CI are pending;
+the verification results below describe the earlier 4.33.1 build until replaced
+by newly observed evidence.
+
 The proof development is complete: the Lean library and its public submission
 wrapper compile with no admitted proofs or unproved literature dependencies.
 The correspondence with [paper/nivat.tex](paper/nivat.tex) has been reviewed by
@@ -7,9 +15,10 @@ AI agents and checked through expanded theorem statements. No human expert
 review or mathematical digestion is claimed.
 
 The public repository is [boonsuan/nivat](https://github.com/boonsuan/nivat).
-It is prepared for submission to Palomar; no submission or registration has
-been performed. The additional submission-check results and procedure are recorded in
-[docs/PALOMAR.md](docs/PALOMAR.md).
+Palomar submission of commit `d1901c2bb6ae776e587f2351df3ed586aa5312b8`
+stopped at dependency provenance, before proof checking; see the blocker below.
+No registration has been performed. The local submission-check results and
+procedure are recorded in [docs/PALOMAR.md](docs/PALOMAR.md).
 
 ## Public results
 
@@ -91,10 +100,39 @@ negative checks of the validator passed. The CI workflow was checked locally
 for YAML and shell syntax. Remote outcomes are recorded in
 [GitHub Actions](https://github.com/boonsuan/nivat/actions/workflows/ci.yml).
 
-There are no unresolved Lean proof obligations. The maintainer has authorized
-GitHub publication and preparation of the Palomar form. The form must remain
-unsubmitted for the maintainer to review and submit personally. Palomar intake,
-editorial review, and registration have not been performed.
+There are no unresolved Lean proof obligations. The maintainer authorized
+GitHub publication and the fresh Palomar submission. Final registration remains
+for the maintainer after reviewing Palomar's results.
+
+## Palomar dependency-provenance blocker — 14 September 2026
+
+[Palomar run 34798095200](https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/34798095200)
+reported `status: fail`, `stage: dependency-provenance`: mathlib revision
+`0df444a360eaa60ab8c11dca51a86af692955474` is not an ancestor of
+`refs/heads/master`. Palomar did not reach Comparator or either proof kernel.
+
+This pin is the official mathlib v4.33.1 release. Its sole change from its
+mainline parent `db584cd6d46c92f209a44c0f1c829460d327499d` (v4.33.0) is the
+`lean-toolchain` file. The mathematical sources and dependency manifest are
+identical. Palomar's current accepted-repository configuration checks only
+master ancestry for mathlib and has no exception for this official release.
+The same failure is already reported in
+[upstream issue 136](https://github.com/PalomarRegistry/PalomarSubmission/issues/136).
+
+Changing only the mathlib pin to the parent is not compatible with the ordinary
+cache workflow: `Cache.Requests.checkForToolchainMismatch` compares the project
+and mathlib toolchain files exactly and exits before downloading on a mismatch.
+No dependency or toolchain change has been made in response to this failure.
+The next obligation is to resolve acceptance of the official release with
+Palomar, or separately validate a complete migration to an accepted compatible
+toolchain/dependency pair, before retrying the submission.
+
+The repository's own
+[first Linux CI run](https://github.com/boonsuan/nivat/actions/runs/34796906668)
+passed the build, axiom audits, sandboxed Comparator, NanoDa and Lean replay.
+Those checks do not include Palomar's dependency-provenance admission rule.
+The public mechanical-report artifact was inspected; its local copy is under
+the ignored `.tools/palomar-run-34798095200/` directory.
 
 ## Reproducibility and evidence
 

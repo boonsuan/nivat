@@ -61,7 +61,7 @@ jobs:
         run: |
           elan toolchain install leanprover/lean4:v4.34.0-rc1
           rustup toolchain install 1.90.0 --profile minimal --no-self-update
-          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.33.1"
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.33.0"
 
       - name: Build pinned Comparator, exporter, NanoDa, and Landrun
         run: bash scripts/palomar_setup.sh

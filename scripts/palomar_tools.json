@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "project_toolchain": "leanprover/lean4:v4.33.1",
+  "project_toolchain": "leanprover/lean4:v4.33.0",
   "comparator_toolchain": "leanprover/lean4:v4.34.0-rc1",
   "rust_version": "1.90.0",
   "go_version": "1.24.0",

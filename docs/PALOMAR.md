@@ -17,7 +17,7 @@ personally; preparing the form does not initiate a Palomar submission.
 | Formalization metadata | `formalization.yaml` |
 | Responsible maintainer | Boon Suan Ho |
 | Repository license | MIT, in the root `LICENSE` |
-| Project toolchain | `leanprover/lean4:v4.33.1` |
+| Project toolchain | `leanprover/lean4:v4.33.0` |
 
 The Challenge contains one theorem, with no project-specific definitions. Its
 five imports belong to mathlib. The theorem explicitly quantifies over arbitrary
@@ -32,6 +32,23 @@ intentional `sorry` is the Challenge's statement placeholder; the Solution and
 the proof library must remain free of proof holes and extra axioms. The
 configuration permits only `propext`, `Classical.choice`, and `Quot.sound` and
 requests NanoDa checking. No definition is left for the Solution to choose.
+
+## Compatibility branch
+
+This branch pairs Lean **4.33.0** with the official mathlib v4.33.0 commit
+`db584cd6d46c92f209a44c0f1c829460d327499d`, which belongs to canonical `master`
+history. The official mathlib v4.33.1 release is one commit beyond that parent
+on `stable`, so Palomar's canonical-branch ancestry check rejects it. Changing
+only the mathlib pin would instead fail its exact toolchain-match cache check.
+
+The two mathlib revisions have identical mathematical sources and dependency
+manifests; only their `lean-toolchain` files differ. The project's proof and
+paper sources are unchanged. The previous patched Lean **4.33.1** verification
+is retained at [immutable commit d1901c2](https://github.com/boonsuan/nivat/tree/d1901c2bb6ae776e587f2351df3ed586aa5312b8).
+That evidence remains available alongside the compatibility work. New 4.33.0
+build, axiom, kernel, Comparator, NanoDa, and Linux CI checks are **pending**;
+the prior evidence does not establish their outcome. Passing those checks would
+also not establish a Palomar intake or editorial result.
 
 ## Verification
 
@@ -62,7 +79,7 @@ public taxonomy data, not project data. After the first run,
 `--offline` reuses the checked taxonomy cache. It does not verify identities,
 source authorship, or semantic fidelity.
 
-For Comparator, the project compiler remains Lean **4.33.1**, and `lean4export`
+For Comparator, the project compiler is Lean **4.33.0**, and `lean4export`
 uses that same compiler. The pinned Comparator itself requires a separate
 **4.34.0-rc1** compiler. These checker prerequisites do not change the project's
 `lean-toolchain`, mathlib revision, or global defaults. Tool revisions and
@@ -108,7 +125,12 @@ logs and a report under `.tools/`. These distinguish the local development
 check from Linux confinement. [STATUS.md](../STATUS.md) records observed results;
 a passing local check is not a Palomar mechanical report or editorial decision.
 
-## Observed local results — 14 September 2026
+## Retained Lean 4.33.1 results — 14 September 2026
+
+The following records describe the prior 4.33.1 revision, not a completed
+verification of this compatibility branch. Its [complete verification log](https://github.com/boonsuan/nivat/blob/d1901c2bb6ae776e587f2351df3ed586aa5312b8/logs/verification.log)
+and [version record](https://github.com/boonsuan/nivat/blob/d1901c2bb6ae776e587f2351df3ed586aa5312b8/docs/versions.json)
+remain immutable.
 
 | Check | Observed result |
 | --- | --- |
@@ -119,21 +141,21 @@ a passing local check is not a Palomar mechanical report or editorial decision.
 | Comparator statement and axiom comparison | Passed |
 | Independent NanoDa replay | Passed |
 | Comparator's Lean kernel replay | Passed |
-| Linux process confinement and GitHub CI | Prepared, not run on this Mac |
-| Palomar intake, editorial review, and registration | Not performed |
+| Linux process confinement and GitHub CI | Passed remotely for the unchanged proof/configuration at [da92ad4](https://github.com/boonsuan/nivat/actions/runs/34796906668) |
+| Palomar intake, editorial review, and registration | Not established by these checks |
 
 The actual local checker command was
 `bash scripts/palomar_check.sh --development-unsandboxed`.
-The retained [check summary](../logs/palomar-check.log),
-[actual checker output](../logs/palomar-output.log),
-[machine-readable report](../logs/palomar-check.json), and
-[tool and binary manifest](../logs/palomar-tools.json) record its mode, source
+The retained [check summary](https://github.com/boonsuan/nivat/blob/d1901c2bb6ae776e587f2351df3ed586aa5312b8/logs/palomar-check.log),
+[actual checker output](https://github.com/boonsuan/nivat/blob/d1901c2bb6ae776e587f2351df3ed586aa5312b8/logs/palomar-output.log),
+[machine-readable report](https://github.com/boonsuan/nivat/blob/d1901c2bb6ae776e587f2351df3ed586aa5312b8/logs/palomar-check.json), and
+[tool and binary manifest](https://github.com/boonsuan/nivat/blob/d1901c2bb6ae776e587f2351df3ed586aa5312b8/logs/palomar-tools.json) record its mode, source
 hashes, tool revisions, and exit status. This run substituted only the process
 sandbox adapter; the genuine pinned Comparator, NanoDa, and Lean kernel ran.
 No kernel check was bypassed.
 
-The [metadata log](../logs/metadata-validation.log) records the current metadata
-check. Root `LICENSE` has SHA-256
+The retained [metadata log](https://github.com/boonsuan/nivat/blob/d1901c2bb6ae776e587f2351df3ed586aa5312b8/logs/metadata-validation.log)
+records that revision's metadata check. Root `LICENSE` has SHA-256
 `97182fa2b484a3bda028b0eef349d2b2a8e321a4b4234a4f63922546477bcea5`.
 The validator also rejects malformed metadata in targeted negative checks;
 that is validation of the local script, not an additional review of the proof.

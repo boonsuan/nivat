@@ -127,12 +127,21 @@ lake build
 bash scripts/verify.sh --clean
 ```
 
-Lean is pinned to **4.33.1** and mathlib to
-`0df444a360eaa60ab8c11dca51a86af692955474`.
+This compatibility branch pins Lean to **4.33.0** and mathlib to
+`db584cd6d46c92f209a44c0f1c829460d327499d`.
 [lake-manifest.json](lake-manifest.json) locks all transitive dependencies;
 [docs/versions.json](docs/versions.json) records the observed local versions.
 The cache command downloads dependency build artifacts. The clean verification
 command rebuilds the project while retaining that dependency cache.
+
+The mathlib mathematical sources and dependency manifest are identical to those
+in the previous 4.33.1 release; only mathlib's `lean-toolchain` file differs.
+The project proof sources are unchanged. The prior checks under patched Lean
+**4.33.1** remain available at [immutable commit d1901c2](https://github.com/boonsuan/nivat/tree/d1901c2bb6ae776e587f2351df3ed586aa5312b8),
+including its [verification log](https://github.com/boonsuan/nivat/blob/d1901c2bb6ae776e587f2351df3ed586aa5312b8/logs/verification.log)
+and [Comparator/NanoDa report](https://github.com/boonsuan/nivat/blob/d1901c2bb6ae776e587f2351df3ed586aa5312b8/logs/palomar-check.json).
+The new 4.33.0 build and checker runs are pending; these retained results do not
+certify the compatibility branch's new toolchain.
 
 The proof audit checks elaborated theorem types, expanded definitions, and axiom
 dependencies. The proved declarations use only `propext`, `Classical.choice`,
@@ -150,8 +159,9 @@ NanoDa, is described in [the Palomar preparation notes](docs/PALOMAR.md).
 
 [Challenge.lean](Challenge.lean), [Solution.lean](Solution.lean),
 [comparator.json](comparator.json), and [formalization.yaml](formalization.yaml)
-provide the submission interface. The local Comparator and NanoDa checks have
-passed in explicitly unsandboxed macOS mode.
+provide the submission interface. The Lean 4.33.0 compatibility checks are
+pending. The retained Lean 4.33.1 Comparator and NanoDa checks passed in
+explicitly unsandboxed macOS mode, as recorded in the immutable report above.
 [GitHub Actions](https://github.com/boonsuan/nivat/actions/workflows/ci.yml) records
 the Linux checks. [docs/PALOMAR.md](docs/PALOMAR.md) contains the evidence,
 validation commands, and submission procedure. No Palomar review outcome or
