@@ -2,6 +2,10 @@
 
 A Lean 4 + mathlib formalization of [*Pattern complexity and Nivat’s conjecture*](paper/nivat.pdf), proving that low rectangular pattern complexity forces a nonzero period.
 
+Registered in Palomar as [PALOMAR-2026-09-14-000003, version 1](https://palomar-registry.org/entry.html?id=PALOMAR-2026-09-14-000003&version=1), with mechanical verification and automated editorial review.
+
+**Update (14 September 2026):** I have just become aware of [Bryna Kra’s guest post on Terence Tao’s blog](https://terrytao.wordpress.com/2026/09/13/deep-theorems-were-scarce-and-difficult-and-so-became-an-effective-mechanism-to-identify-deep-thought-ai-has-broken-this-system/), discussing Nivat’s conjecture and AI-generated mathematics. It went up around 3 hours before my first commit to this repository, though I completed the proof-generation and formalization work reported here before learning of the post. As emphasized below, GPT-6 Pro found the proof; I did not. My role was prompting the model and arranging formal verification. I am sharing the material because it may be useful, and welcome experienced mathematicians who wish to undertake that work.
+
 **Disclaimer**
 The proof was found entirely by **GPT-6 Pro**, in response to my prompts. The
 paper was written by AI, not by humans, and it has **not been mathematically
