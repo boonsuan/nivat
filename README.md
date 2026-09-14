@@ -36,13 +36,13 @@ digestion** discussed in [Terence Tao’s writings on AI and mathematics](https:
 Let $A$ be any finite alphabet and $c : \mathbb Z^2 \to A$ any configuration.
 For positive integers $m,n$, put
 
-$$R_{m,n}=\{0,\ldots,m-1\}\times\{0,\ldots,n-1\}.$$
+$$R_{m,n}=\lbrace 0,\ldots,m-1\rbrace\times\lbrace 0,\ldots,n-1\rbrace.$$
 
 Let $P_c(R_{m,n})$ count the distinct functions
 $z\mapsto c(z+t)$ on this rectangle, as $t$ ranges over **all** of
 $\mathbb Z^2$. If $P_c(R_{m,n})\le mn$ for some such rectangle, then
 
-$$\exists h\in\mathbb Z^2\setminus\{(0,0)\},\quad
+$$\exists h\in\mathbb Z^2\setminus\lbrace (0,0)\rbrace,\quad
   \forall z\in\mathbb Z^2,\quad c(z+h)=c(z).$$
 
 The public library theorem is `Nivat.nivat`. Its statement, inside
@@ -174,8 +174,7 @@ checks passed in explicitly unsandboxed macOS mode. The retained Lean 4.33.1
 checks also passed, as recorded in the immutable report above.
 [GitHub Actions](https://github.com/boonsuan/nivat/actions/workflows/ci.yml) records
 the Linux checks. [docs/PALOMAR.md](docs/PALOMAR.md) contains the evidence,
-validation commands, and submission procedure. No Palomar review outcome or
-registration is claimed.
+validation commands, and submission procedure.
 
 ## License and contributions
 
