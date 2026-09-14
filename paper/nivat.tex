@@ -4,7 +4,7 @@
 \usepackage[a4paper,margin=28mm]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools,microtype}
 \usepackage[hidelinks,unicode]{hyperref}
-\hypersetup{pdftitle={Pattern complexity and Nivat's conjecture},pdfsubject={Rectangular pattern complexity and polynomial annihilators},pdfauthor={}}
+\hypersetup{pdftitle={Pattern complexity and Nivat's conjecture},pdfsubject={Rectangular pattern complexity and polynomial annihilators},pdfauthor={GPT-6 Pro}}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -27,13 +27,13 @@
 \setlength{\emergencystretch}{2em}
 \allowdisplaybreaks[1]
 \title[Pattern complexity and Nivat's conjecture]{Pattern complexity and Nivat's conjecture}
-% Author metadata is omitted; no authorship or affiliation is asserted.
+\author{GPT-6 Pro}
 \date{September 14, 2026}
 \subjclass[2020]{37B10, 68R15}
 \keywords{Nivat's conjecture, rectangular complexity, polynomial annihilators, symbolic dynamics}
 \begin{document}
 \begin{abstract}
-We prove Nivat's conjecture: a finite-alphabet configuration on $\Z^2$ with at most $mn$ distinct $m\times n$ patterns has a nonzero period. The proof reduces the area of a rectangle on which this complexity bound holds. Its main estimate concerns a linear combination of translates of the configuration. The corresponding map on rectangular patterns loses some coordinates, but, under an exact annihilator hypothesis, it identifies at least as many input patterns as the number of lost coordinates. We obtain this hypothesis from the difference of two orbit-closure points that agree on a half-plane. A minimal polynomial in the direction parallel to the boundary generates the entire annihilator ideal of this difference. The reduction ends with a configuration annihilated by two difference operators. We include a proof of periodicity in this case, following the boundary-extension method of Cyr--Kra and Szabados and using a finite recurrence to extend periodicity from a strip.
+We prove Nivat's conjecture: a configuration on $\Z^2$ over a finite alphabet with at most $mn$ distinct $m\times n$ patterns, for some positive integers $m,n$, has a nonzero global period. After labeling the alphabet by rationals, we construct a Laurent polynomial operator that reduces the pattern count by at least the decrease in the window's area. The construction identifies a line polynomial generating the full annihilator ideal of the difference of two distinct orbit-closure points agreeing on a half-plane. Induction on rectangle area then reduces the conjecture to configurations annihilated by a product of two difference operators. We prove this case using the boundary-extension methods of Cyr--Kra and Szabados. The full proof is formalized in Lean using mathlib.
 \end{abstract}
 \maketitle
 

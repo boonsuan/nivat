@@ -1,16 +1,20 @@
-Paper PDF build and visual review
+Paper PDF build and visual review — 14 September 2026
 Working directory: /Users/hbsv/code/lean/nivat
+Change: approved abstract; GPT-6 Pro author line and PDF author metadata.
+Mathematical body after the abstract is byte-for-byte unchanged.
 Command: latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error -outdir=.tools/paper-build paper/nivat.tex
 Observed command exit status: 0
 Output: paper/nivat.pdf (copied unchanged from .tools/paper-build/nivat.pdf)
-Source SHA-256 before and after compilation: 569a7fcfac903ff9c8aea0d97fd084d497b139dd5749bd1baa7a41ef04b4979c
-PDF SHA-256: 813d4c76ec328acf4217be7d6ec45cc9e003d40f51270a42c14aaee68371bbfa
-Final TeX pass: no undefined references/citations, LaTeX warnings, overfull or underfull boxes.
-Initial-pass unresolved references were resolved by the second latexmk pass.
+The same TeX and PDF bytes were copied to the palomar-lean-4.33.0 worktree.
+Source SHA-256: 4f5f6eba63d10d56d1705b27d92f8e471b3c3f0b2c31cdae836394deb53a78b0
+PDF SHA-256: b1ca9cbf34a2d966091e6638b33e7d558c61575f64d86392451eb6d0e707a891
+Final TeX pass: no undefined references/citations, LaTeX warnings, overfull or underfull boxes, or missing-character diagnostics.
 Visual review: all 13 pages rendered with pdftoppm -r 100 -png and inspected individually.
+Pages 1–6 inspected by the primary agent; pages 7–13 independently inspected by the review agent.
 Observed no clipping, overlap, missing glyphs, broken references or other layout defects.
-Source bytes preserved; no Lean or metadata files changed by this PDF build.
-PDF skill authoring marker ran successfully exactly once before the first PDF authoring command.
+PDF author metadata and the rendered author line identify GPT-6 Pro.
+No Lean sources changed. The manuscript hash in formalization.yaml was updated.
+PDF skill authoring marker ran successfully exactly once before the first authoring command.
 
 Latexmk, John Collins, 15 June 2025. Version 4.87
 pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026/Homebrew)
@@ -18,11 +22,11 @@ pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026/Homebrew)
 Title:           Pattern complexity and Nivat's conjecture
 Subject:         Rectangular pattern complexity and polynomial annihilators
 Keywords:        
-Author:          
+Author:          GPT-6 Pro
 Creator:         LaTeX with hyperref
 Producer:        pdfTeX-1.40.29
-CreationDate:    Mon Sep 14 10:35:46 2026 KST
-ModDate:         Mon Sep 14 10:35:46 2026 KST
+CreationDate:    Mon Sep 14 14:23:43 2026 KST
+ModDate:         Mon Sep 14 14:23:43 2026 KST
 Custom Metadata: yes
 Metadata Stream: no
 Tagged:          no
@@ -34,6 +38,6 @@ Pages:           13
 Encrypted:       no
 Page size:       595.276 x 841.89 pts (A4)
 Page rot:        0
-File size:       406870 bytes
+File size:       407412 bytes
 Optimized:       no
 PDF version:     1.7
