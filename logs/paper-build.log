@@ -1,20 +1,23 @@
 Paper PDF build and visual review — 14 September 2026
 Working directory: /Users/hbsv/code/lean/nivat
-Change: approved abstract; GPT-6 Pro author line and PDF author metadata.
-Mathematical body after the abstract is byte-for-byte unchanged.
+Change: final maintainer-approved abstract, stating the alphabet/map and spelling out the polynomial action, smaller rectangle and two-factor case.
+Only the abstract changed in the TeX; the preamble, GPT-6 Pro author and mathematical body are byte-for-byte unchanged.
 Command: latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error -outdir=.tools/paper-build paper/nivat.tex
 Observed command exit status: 0
 Output: paper/nivat.pdf (copied unchanged from .tools/paper-build/nivat.pdf)
 The same TeX and PDF bytes were copied to the palomar-lean-4.33.0 worktree.
-Source SHA-256: 4f5f6eba63d10d56d1705b27d92f8e471b3c3f0b2c31cdae836394deb53a78b0
-PDF SHA-256: b1ca9cbf34a2d966091e6638b33e7d558c61575f64d86392451eb6d0e707a891
+Source SHA-256: a735fc3bf599741cd509bb80aca1b4e76a92aab5abe5b1171fcd677d5bb0071e
+PDF SHA-256: 546fd64a53ba3812b9ecadad2adfea0efb32f995a3bcbe8f39ca13a5c5d3e450
 Final TeX pass: no undefined references/citations, LaTeX warnings, overfull or underfull boxes, or missing-character diagnostics.
-Visual review: all 13 pages rendered with pdftoppm -r 100 -png and inspected individually.
-Pages 1–6 inspected by the primary agent; pages 7–13 independently inspected by the review agent.
+Rendering command: pdftoppm -r 100 -png .tools/paper-build/nivat.pdf .tools/paper-review-final-abstract/page
+The rebuilt PDF has 13 pages. Page 1 was visually inspected by both the primary and review agents.
+Rendered pages 2–13 are byte-identical to the previous individually inspected rendering.
 Observed no clipping, overlap, missing glyphs, broken references or other layout defects.
-PDF author metadata and the rendered author line identify GPT-6 Pro.
+PDF author metadata and the rendered author line remain GPT-6 Pro.
 No Lean sources changed. The manuscript hash in formalization.yaml was updated.
 PDF skill authoring marker ran successfully exactly once before the first authoring command.
+
+Attribution check: Szabados, arXiv:1710.05360v1, Theorem 1 proves the sum-of-two-periodic-configurations case under the same rectangular complexity bound. The two-difference formulation used here is equivalent for finite-range rational configurations: nonparallel directions give a sum decomposition on each lattice coset; parallel directions force periodicity by bounded second differences. Section 5 already distinguishes these formulations.
 
 Latexmk, John Collins, 15 June 2025. Version 4.87
 pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026/Homebrew)
@@ -25,8 +28,8 @@ Keywords:
 Author:          GPT-6 Pro
 Creator:         LaTeX with hyperref
 Producer:        pdfTeX-1.40.29
-CreationDate:    Mon Sep 14 14:23:43 2026 KST
-ModDate:         Mon Sep 14 14:23:43 2026 KST
+CreationDate:    Mon Sep 14 14:44:22 2026 KST
+ModDate:         Mon Sep 14 14:44:22 2026 KST
 Custom Metadata: yes
 Metadata Stream: no
 Tagged:          no
@@ -38,6 +41,6 @@ Pages:           13
 Encrypted:       no
 Page size:       595.276 x 841.89 pts (A4)
 Page rot:        0
-File size:       407412 bytes
+File size:       410420 bytes
 Optimized:       no
 PDF version:     1.7

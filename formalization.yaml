@@ -44,7 +44,7 @@ sources:
       The maintainer reports that GPT-6 Pro found the proof entirely in response
       to his prompts. The paper was not written or mathematically digested by
       humans. The source is included in this repository, with SHA-256
-      4f5f6eba63d10d56d1705b27d92f8e471b3c3f0b2c31cdae836394deb53a78b0.
+      a735fc3bf599741cd509bb80aca1b4e76a92aab5abe5b1171fcd677d5bb0071e.
       Proof-generation conversation transcripts are not included, so the
       attribution is a maintainer disclosure rather than a separately audited
       history. Bibliographic influences are recorded below and in the paper.
