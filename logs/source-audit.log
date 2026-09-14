@@ -1,0 +1,22 @@
+$ python3 scripts/source_audit.py
+All 29 project modules are covered by the acyclic root import.
+All 377 explicit declarations have docstrings with paper locations.
+All cited LaTeX labels exist in paper/nivat.tex.
+No proof placeholders or additional trust mechanisms found in project source.
+Two-factor project imports are confined to Core and TwoFactors:
+Nivat.Core.Basic
+Nivat.Core.BoundedDifferences
+Nivat.Core.Lattice
+Nivat.Core.Patterns
+Nivat.Core.Reindex
+Nivat.TwoFactors.BoundaryCounting
+Nivat.TwoFactors.BoundaryPeriod
+Nivat.TwoFactors.FiniteState
+Nivat.TwoFactors.Main
+Nivat.TwoFactors.PeriodicRows
+Nivat.TwoFactors.StripStates
+Nivat.TwoFactors.Window
+Nivat.TwoFactors.WindowCriterion
+Nivat.TwoFactors.WindowNormalization
+These source checks supplement the Lean build, theorem-type audit and kernel replay.
+EXIT_CODE=0

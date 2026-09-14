@@ -1,0 +1,3379 @@
+{
+  "sha256": {
+    "Nivat.lean": "82885d3ec77051fc68c6cb161ea69707c73b8b090ff47ec477f99c09097c0504",
+    "Nivat/Algebra/Action.lean": "f34de31d6a6e047d07c31bf66b1818d85e241882d835d1955c7cef5976ca9ca8",
+    "Nivat/Algebra/ExactLine.lean": "6e5eb3a281e0d1868bb4c44a2d0d0f31cbfad3e8352cb0d04351e5054652590c",
+    "Nivat/Algebra/LineErosion.lean": "b71ea5202ce93cf4851a77d5f0dda701e524a5a58d9ef8842a5bfac90141fc67",
+    "Nivat/Algebra/LowComplexity.lean": "fbe493c723e4922609b860d594ae4d171adadaf5b308a56c1c377641f92e8922",
+    "Nivat/Algebra/ProductDifferences.lean": "859dc76f84bee0a69854c4f7aa4bb33f87a2d79b4daa1b4629312d1c2030299f",
+    "Nivat/Algebra/RationalScaling.lean": "02cf6a311a075f2c18aac4dd4a58b7938293d9ed7c095a24a1631ab3b8275d9a",
+    "Nivat/Algebra/RectangleSupport.lean": "98b4181c5dea6f34083e77a1b16b34e65088add3275619350eaf09a91446640d",
+    "Nivat/Core/Alphabet.lean": "d5ec6ebb8b48858be85647b5361e175010d6f9116d87e086e1efce39e677ccf0",
+    "Nivat/Core/Basic.lean": "1ffd0277c59d167a72cd7b9e076171433aaddf2fe25de598d836987d28607719",
+    "Nivat/Core/BoundedDifferences.lean": "069012fd20bf4fb19bc27fa078c1a46cb1bdabb8f36059fbfaed628af5a6abca",
+    "Nivat/Core/Lattice.lean": "65097764c616c1fb84b60d1c3162fefc602f727647418efa7f028e2b1ad92662",
+    "Nivat/Core/Patterns.lean": "d1feecb38a168a11f34bab507da2ff636127e7f1e5242e4dd9dbfd36f924c4ff",
+    "Nivat/Core/Reindex.lean": "3a2e6ede819b55cc1340bcf9c15b658a8cec7bc1c487156cc6f9731188166e0f",
+    "Nivat/Descent/ExactDescent.lean": "aea2cf4f5523d85e8b11991c0712295f0d5dfe2158fa1573f61181c10ba314af",
+    "Nivat/Descent/FiberBudget.lean": "6ef59e9d5f9cf22945380d0273a71cfb65137b0aa73ed1d583b106bdb43c8628",
+    "Nivat/Dynamics/HalfPlanePair.lean": "ddaa81a146ed9420052729a6facf3fe6ba34bc000a1918e4dd9c4d48796f9f4f",
+    "Nivat/Dynamics/OrbitClosure.lean": "a7b935bf181c8e205b3e11f3482be325d1508ddc0c1e6718e4158bf775e96e57",
+    "Nivat/Dynamics/PeriodicDifference.lean": "f69ba560508742ae0eabe582f23027613094f76c687d939031700423e708ea97",
+    "Nivat/Main.lean": "0a32992d07f1b2dbb39d5651fc151f1f9f4d003f571f9ce65557c9fa7c193850",
+    "Nivat/TwoFactors/BoundaryCounting.lean": "db5ae249826f740b8de72461f144954168aa014d826ce039d05d02081a9108d3",
+    "Nivat/TwoFactors/BoundaryPeriod.lean": "4f022899ba274b26a12e89570a74b1695e8093f99d9df5b1f406f20284bbe912",
+    "Nivat/TwoFactors/FiniteState.lean": "20ee568ec09f91f6a7ae78fa0eb282c51e888c15454fc7d6e72e12c4fafd1196",
+    "Nivat/TwoFactors/Main.lean": "73493f76b7973bc9c414efc90701bcd5818ba087b7377476dd956bb54e2b6ad0",
+    "Nivat/TwoFactors/PeriodicRows.lean": "5b72c407f5b1599ede5bc19e8ad01b988118d05821ee158b54c5881535b3b4de",
+    "Nivat/TwoFactors/StripStates.lean": "8cc212b00b8ade649565cfec16905081231c26332d91b8a50398ce470ba4e80f",
+    "Nivat/TwoFactors/Window.lean": "91675619fb2c0b524d0cbecce1fd8faf786fa1a8afe32ebe8110d60347b91d81",
+    "Nivat/TwoFactors/WindowCriterion.lean": "27c8fbad79f571ada9800d7a2e54de40d0705f185467fe8dc6c073c6a5743297",
+    "Nivat/TwoFactors/WindowNormalization.lean": "5554afc7e3f6946afc37dd047e3bb36b7f4d264879e9cdec07578e166f7a66f5"
+  },
+  "project_imports": {
+    "Nivat": [
+      "Nivat.Main"
+    ],
+    "Nivat.Algebra.Action": [
+      "Nivat.Core.Basic"
+    ],
+    "Nivat.Algebra.ExactLine": [
+      "Nivat.Algebra.Action"
+    ],
+    "Nivat.Algebra.LineErosion": [
+      "Nivat.Algebra.RectangleSupport"
+    ],
+    "Nivat.Algebra.LowComplexity": [
+      "Nivat.Algebra.Action",
+      "Nivat.Core.Patterns"
+    ],
+    "Nivat.Algebra.ProductDifferences": [
+      "Nivat.Algebra.RationalScaling"
+    ],
+    "Nivat.Algebra.RationalScaling": [
+      "Nivat.Algebra.Action"
+    ],
+    "Nivat.Algebra.RectangleSupport": [
+      "Nivat.Algebra.Action",
+      "Nivat.Core.Patterns"
+    ],
+    "Nivat.Core.Alphabet": [
+      "Nivat.Core.Patterns"
+    ],
+    "Nivat.Core.Basic": [],
+    "Nivat.Core.BoundedDifferences": [
+      "Nivat.Core.Basic"
+    ],
+    "Nivat.Core.Lattice": [
+      "Nivat.Core.Basic"
+    ],
+    "Nivat.Core.Patterns": [
+      "Nivat.Core.Basic"
+    ],
+    "Nivat.Core.Reindex": [
+      "Nivat.Core.Patterns"
+    ],
+    "Nivat.Descent.ExactDescent": [
+      "Nivat.Algebra.LowComplexity",
+      "Nivat.Algebra.LineErosion",
+      "Nivat.Descent.FiberBudget"
+    ],
+    "Nivat.Descent.FiberBudget": [],
+    "Nivat.Dynamics.HalfPlanePair": [
+      "Nivat.Core.Basic"
+    ],
+    "Nivat.Dynamics.OrbitClosure": [
+      "Nivat.Core.Patterns",
+      "Nivat.Dynamics.HalfPlanePair"
+    ],
+    "Nivat.Dynamics.PeriodicDifference": [
+      "Nivat.Dynamics.OrbitClosure",
+      "Nivat.Core.Lattice",
+      "Nivat.Core.BoundedDifferences",
+      "Nivat.Algebra.Action",
+      "Nivat.Algebra.ProductDifferences"
+    ],
+    "Nivat.Main": [
+      "Nivat.Core.Alphabet",
+      "Nivat.Algebra.ExactLine",
+      "Nivat.Descent.ExactDescent",
+      "Nivat.Dynamics.PeriodicDifference",
+      "Nivat.TwoFactors.Main"
+    ],
+    "Nivat.TwoFactors.BoundaryCounting": [
+      "Nivat.Core.Patterns",
+      "Nivat.TwoFactors.PeriodicRows"
+    ],
+    "Nivat.TwoFactors.BoundaryPeriod": [
+      "Nivat.TwoFactors.BoundaryCounting"
+    ],
+    "Nivat.TwoFactors.FiniteState": [],
+    "Nivat.TwoFactors.Main": [
+      "Nivat.Core.Lattice",
+      "Nivat.Core.BoundedDifferences",
+      "Nivat.TwoFactors.WindowNormalization",
+      "Nivat.TwoFactors.WindowCriterion"
+    ],
+    "Nivat.TwoFactors.PeriodicRows": [
+      "Nivat.Core.Basic",
+      "Nivat.TwoFactors.FiniteState"
+    ],
+    "Nivat.TwoFactors.StripStates": [
+      "Nivat.Core.Basic",
+      "Nivat.TwoFactors.FiniteState"
+    ],
+    "Nivat.TwoFactors.Window": [
+      "Nivat.Core.Lattice",
+      "Nivat.TwoFactors.BoundaryCounting"
+    ],
+    "Nivat.TwoFactors.WindowCriterion": [
+      "Nivat.TwoFactors.BoundaryPeriod",
+      "Nivat.TwoFactors.StripStates"
+    ],
+    "Nivat.TwoFactors.WindowNormalization": [
+      "Nivat.TwoFactors.Window",
+      "Nivat.Core.Reindex"
+    ]
+  },
+  "two_factor_closure": [
+    "Nivat.Core.Basic",
+    "Nivat.Core.BoundedDifferences",
+    "Nivat.Core.Lattice",
+    "Nivat.Core.Patterns",
+    "Nivat.Core.Reindex",
+    "Nivat.TwoFactors.BoundaryCounting",
+    "Nivat.TwoFactors.BoundaryPeriod",
+    "Nivat.TwoFactors.FiniteState",
+    "Nivat.TwoFactors.Main",
+    "Nivat.TwoFactors.PeriodicRows",
+    "Nivat.TwoFactors.StripStates",
+    "Nivat.TwoFactors.Window",
+    "Nivat.TwoFactors.WindowCriterion",
+    "Nivat.TwoFactors.WindowNormalization"
+  ],
+  "declarations": [
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 23,
+      "kind": "abbrev",
+      "name": "Laurent",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 28,
+      "kind": "def",
+      "name": "shiftLinear",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 34,
+      "kind": "theorem",
+      "name": "shiftLinear_apply",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 38,
+      "kind": "def",
+      "name": "shiftRepresentation",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 48,
+      "kind": "def",
+      "name": "actionHom",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 53,
+      "kind": "def",
+      "name": "act",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 58,
+      "kind": "theorem",
+      "name": "act_apply",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 65,
+      "kind": "theorem",
+      "name": "act_zero",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 69,
+      "kind": "theorem",
+      "name": "act_one",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 73,
+      "kind": "theorem",
+      "name": "act_add",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 78,
+      "kind": "theorem",
+      "name": "act_mul",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 83,
+      "kind": "theorem",
+      "name": "act_sub",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 88,
+      "kind": "theorem",
+      "name": "act_neg",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 92,
+      "kind": "theorem",
+      "name": "act_config_zero",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 96,
+      "kind": "theorem",
+      "name": "act_config_add",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 101,
+      "kind": "theorem",
+      "name": "act_config_sub",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 107,
+      "kind": "theorem",
+      "name": "act_config_smul",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 112,
+      "kind": "theorem",
+      "name": "act_smul",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 117,
+      "kind": "theorem",
+      "name": "act_single",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 122,
+      "kind": "def",
+      "name": "monomial",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 125,
+      "kind": "theorem",
+      "name": "monomial_zero",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 128,
+      "kind": "theorem",
+      "name": "monomial_mul",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 133,
+      "kind": "theorem",
+      "name": "monomial_pow",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 138,
+      "kind": "theorem",
+      "name": "monomial_isUnit",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 142,
+      "kind": "theorem",
+      "name": "monomial_ne_zero",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 146,
+      "kind": "theorem",
+      "name": "monomial_injective",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 150,
+      "kind": "theorem",
+      "name": "monomial_sub_one_ne_zero",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 157,
+      "kind": "theorem",
+      "name": "act_monomial",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 162,
+      "kind": "theorem",
+      "name": "act_difference",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 167,
+      "kind": "theorem",
+      "name": "act_shift",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 172,
+      "kind": "theorem",
+      "name": "act_difference_comm",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 177,
+      "kind": "theorem",
+      "name": "finiteRange_const",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 181,
+      "kind": "theorem",
+      "name": "finiteRange_add",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 188,
+      "kind": "theorem",
+      "name": "finiteRange_smul",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 194,
+      "kind": "theorem",
+      "name": "finiteRange_act",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 206,
+      "kind": "def",
+      "name": "lineEval",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 210,
+      "kind": "theorem",
+      "name": "lineEval_X",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 215,
+      "kind": "theorem",
+      "name": "lineEval_C",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 221,
+      "kind": "theorem",
+      "name": "lineEval_dvd",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 226,
+      "kind": "theorem",
+      "name": "lineEval_X_pow",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 231,
+      "kind": "theorem",
+      "name": "lineEval_X_pow_sub_one",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/Action.lean",
+      "line": 236,
+      "kind": "theorem",
+      "name": "act_lineEval_X_pow_sub_one",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 35,
+      "kind": "def",
+      "name": "horizontal",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 39,
+      "kind": "def",
+      "name": "RowZero",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 43,
+      "kind": "def",
+      "name": "horizontalAnnihilator",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 57,
+      "kind": "theorem",
+      "name": "exists_monic_horizontal_generator",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 78,
+      "kind": "theorem",
+      "name": "exists_horizontal_period_generator",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 99,
+      "kind": "theorem",
+      "name": "lineEval_monomial",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 106,
+      "kind": "theorem",
+      "name": "rowZero_horizontal_act",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 122,
+      "kind": "theorem",
+      "name": "rowZero_of_isCoprime",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 140,
+      "kind": "theorem",
+      "name": "rowZero_of_irreducible",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 151,
+      "kind": "theorem",
+      "name": "exists_first_nonzero_row",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 172,
+      "kind": "theorem",
+      "name": "act_lineEval_eq_zero_of_dvd",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 180,
+      "kind": "theorem",
+      "name": "act_comm",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 186,
+      "kind": "theorem",
+      "name": "act_config_finset_sum",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 192,
+      "kind": "theorem",
+      "name": "act_transverse_sum",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 205,
+      "kind": "theorem",
+      "name": "irreducible_dvd_coefficients_of_sum_eq_zero",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 248,
+      "kind": "theorem",
+      "name": "horizontal_generator_dvd_coefficients",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 314,
+      "kind": "abbrev",
+      "name": "TransversePolynomial",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 318,
+      "kind": "def",
+      "name": "verticalRepresentation",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 325,
+      "kind": "def",
+      "name": "transverseEval",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 331,
+      "kind": "theorem",
+      "name": "transverseEval_single",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 338,
+      "kind": "theorem",
+      "name": "transverseEval_eq_sum",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 346,
+      "kind": "theorem",
+      "name": "act_filter_finset_sum",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 354,
+      "kind": "theorem",
+      "name": "act_transverseEval",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 362,
+      "kind": "theorem",
+      "name": "lineEval_dvd_transverseEval",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 387,
+      "kind": "theorem",
+      "name": "transverseEval_annihilates_iff",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 402,
+      "kind": "theorem",
+      "name": "transverseEval_horizontal",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 412,
+      "kind": "theorem",
+      "name": "exists_horizontal_clear",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 436,
+      "kind": "theorem",
+      "name": "horizontal_annihilates_iff",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 463,
+      "kind": "theorem",
+      "name": "exact_horizontal_line",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 475,
+      "kind": "def",
+      "name": "laurentReindex",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 480,
+      "kind": "theorem",
+      "name": "act_reindex_apply",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 492,
+      "kind": "theorem",
+      "name": "act_reindex_eq_zero_iff",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 508,
+      "kind": "theorem",
+      "name": "laurentReindex_lineEval",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ExactLine.lean",
+      "line": 522,
+      "kind": "theorem",
+      "name": "exact_line_in_basis",
+      "paper_labels": [
+        "thm:exact-ideal"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/LineErosion.lean",
+      "line": 25,
+      "kind": "theorem",
+      "name": "mem_erodedWindow_iff_bounds",
+      "paper_labels": [
+        "cor:line-descent"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/LineErosion.lean",
+      "line": 57,
+      "kind": "theorem",
+      "name": "exists_smaller_rectangle_of_erodedWindow_nonempty",
+      "paper_labels": [
+        "cor:line-descent"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/LineErosion.lean",
+      "line": 123,
+      "kind": "theorem",
+      "name": "one_lt_support_card_of_annihilates",
+      "paper_labels": [
+        "cor:line-descent"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/LineErosion.lean",
+      "line": 148,
+      "kind": "theorem",
+      "name": "exists_smaller_rectangle_of_annihilator",
+      "paper_labels": [
+        "cor:line-descent"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/LowComplexity.lean",
+      "line": 24,
+      "kind": "def",
+      "name": "windowPolynomial",
+      "paper_labels": [
+        "lem:ann-exists"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/LowComplexity.lean",
+      "line": 29,
+      "kind": "theorem",
+      "name": "windowPolynomial_coeff",
+      "paper_labels": [
+        "lem:ann-exists"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/LowComplexity.lean",
+      "line": 36,
+      "kind": "theorem",
+      "name": "windowPolynomial_injective",
+      "paper_labels": [
+        "lem:ann-exists"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/LowComplexity.lean",
+      "line": 44,
+      "kind": "theorem",
+      "name": "windowPolynomial_support",
+      "paper_labels": [
+        "lem:ann-exists"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/LowComplexity.lean",
+      "line": 56,
+      "kind": "theorem",
+      "name": "act_windowPolynomial",
+      "paper_labels": [
+        "lem:ann-exists"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/LowComplexity.lean",
+      "line": 64,
+      "kind": "theorem",
+      "name": "windowPolynomial_reconstruct",
+      "paper_labels": [
+        "lem:ann-exists"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/LowComplexity.lean",
+      "line": 75,
+      "kind": "def",
+      "name": "windowPolynomialLinear",
+      "paper_labels": [
+        "lem:ann-exists"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/LowComplexity.lean",
+      "line": 86,
+      "kind": "theorem",
+      "name": "exists_affine_annihilator",
+      "paper_labels": [
+        "lem:ann-exists"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/LowComplexity.lean",
+      "line": 143,
+      "kind": "theorem",
+      "name": "exists_nonzero_annihilator",
+      "paper_labels": [
+        "lem:ann-exists"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 41,
+      "kind": "def",
+      "name": "coefficientShift",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 48,
+      "kind": "def",
+      "name": "coefficientShiftRepresentation",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 61,
+      "kind": "def",
+      "name": "coefficientActionHom",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 67,
+      "kind": "def",
+      "name": "coefficientAct",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 72,
+      "kind": "theorem",
+      "name": "coefficientAct_apply",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 80,
+      "kind": "theorem",
+      "name": "coefficientAct_zero",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 85,
+      "kind": "theorem",
+      "name": "coefficientAct_one",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 90,
+      "kind": "theorem",
+      "name": "coefficientAct_config_zero",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 95,
+      "kind": "theorem",
+      "name": "coefficientAct_add",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 101,
+      "kind": "theorem",
+      "name": "coefficientAct_mul",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 107,
+      "kind": "theorem",
+      "name": "coefficientAct_finset_sum",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 116,
+      "kind": "theorem",
+      "name": "coefficientAct_single",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 122,
+      "kind": "theorem",
+      "name": "coefficientAct_rat",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 129,
+      "kind": "theorem",
+      "name": "coefficientAct_map",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 147,
+      "kind": "def",
+      "name": "dilationLattice",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 154,
+      "kind": "def",
+      "name": "dilate",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 159,
+      "kind": "theorem",
+      "name": "dilate_single",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 165,
+      "kind": "theorem",
+      "name": "dilate_one",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 173,
+      "kind": "theorem",
+      "name": "dilate_dilate",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 182,
+      "kind": "theorem",
+      "name": "map_dilate",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 192,
+      "kind": "theorem",
+      "name": "coefficientAct_pow_eq_zero",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 201,
+      "kind": "theorem",
+      "name": "finite_dilate_values",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 223,
+      "kind": "theorem",
+      "name": "zmod_pow_eq_dilate",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 236,
+      "kind": "theorem",
+      "name": "exists_uniform_dilate_bound",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 247,
+      "kind": "theorem",
+      "name": "prime_dilate_annihilates",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 279,
+      "kind": "theorem",
+      "name": "prime_gt_of_coprime_factorial",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 288,
+      "kind": "theorem",
+      "name": "coprime_dilate_annihilates",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 312,
+      "kind": "theorem",
+      "name": "progression_dilate_annihilates",
+      "paper_labels": [
+        "prop:product",
+        "app:product",
+        "eq:dilation-family"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 329,
+      "kind": "theorem",
+      "name": "dilate_eq_sum",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 336,
+      "kind": "theorem",
+      "name": "single_affine_dilate",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 346,
+      "kind": "theorem",
+      "name": "dilation_interpolation_identity",
+      "paper_labels": [
+        "prop:product",
+        "app:product",
+        "eq:interpolation"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 367,
+      "kind": "theorem",
+      "name": "integer_centered_product",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 414,
+      "kind": "theorem",
+      "name": "exists_integer_product_differences",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/ProductDifferences.lean",
+      "line": 444,
+      "kind": "theorem",
+      "name": "exists_product_differences_of_annihilator",
+      "paper_labels": [
+        "prop:product",
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/RationalScaling.lean",
+      "line": 19,
+      "kind": "abbrev",
+      "name": "IntegerLaurent",
+      "paper_labels": [
+        "app:product",
+        "prop:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/RationalScaling.lean",
+      "line": 23,
+      "kind": "def",
+      "name": "intLaurentCast",
+      "paper_labels": [
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/RationalScaling.lean",
+      "line": 28,
+      "kind": "theorem",
+      "name": "intLaurentCast_coeff",
+      "paper_labels": [
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/RationalScaling.lean",
+      "line": 34,
+      "kind": "theorem",
+      "name": "finite_set_integer_scale",
+      "paper_labels": [
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/RationalScaling.lean",
+      "line": 47,
+      "kind": "theorem",
+      "name": "finiteRange_integer_scale",
+      "paper_labels": [
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/RationalScaling.lean",
+      "line": 67,
+      "kind": "theorem",
+      "name": "integer_filter_scale",
+      "paper_labels": [
+        "app:product"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/RectangleSupport.lean",
+      "line": 29,
+      "kind": "theorem",
+      "name": "exists_mul_support_extreme",
+      "paper_labels": [
+        "lem:supported"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/RectangleSupport.lean",
+      "line": 66,
+      "kind": "theorem",
+      "name": "support_sum_coord_le",
+      "paper_labels": [
+        "lem:supported"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/RectangleSupport.lean",
+      "line": 80,
+      "kind": "def",
+      "name": "erosion",
+      "paper_labels": [
+        "eq:erosion-definition",
+        "lem:supported"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/RectangleSupport.lean",
+      "line": 85,
+      "kind": "theorem",
+      "name": "erosion_finite",
+      "paper_labels": [
+        "lem:supported"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/RectangleSupport.lean",
+      "line": 94,
+      "kind": "def",
+      "name": "erodedWindow",
+      "paper_labels": [
+        "lem:supported"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/RectangleSupport.lean",
+      "line": 98,
+      "kind": "theorem",
+      "name": "mem_erodedWindow",
+      "paper_labels": [
+        "lem:supported"
+      ]
+    },
+    {
+      "file": "Nivat/Algebra/RectangleSupport.lean",
+      "line": 105,
+      "kind": "theorem",
+      "name": "support_mul_subset_rectangle_iff",
+      "paper_labels": [
+        "lem:supported"
+      ]
+    },
+    {
+      "file": "Nivat/Core/Alphabet.lean",
+      "line": 15,
+      "kind": "def",
+      "name": "rationalLabel",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Alphabet.lean",
+      "line": 24,
+      "kind": "theorem",
+      "name": "exists_rational_model",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 20,
+      "kind": "abbrev",
+      "name": "Lattice",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 23,
+      "kind": "abbrev",
+      "name": "Configuration",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 26,
+      "kind": "def",
+      "name": "shift",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 30,
+      "kind": "def",
+      "name": "FiniteRange",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 34,
+      "kind": "def",
+      "name": "IsPeriod",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 38,
+      "kind": "def",
+      "name": "Periodic",
+      "paper_labels": [
+        "thm:main"
+      ]
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 42,
+      "kind": "def",
+      "name": "difference",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 46,
+      "kind": "theorem",
+      "name": "shift_apply",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 50,
+      "kind": "theorem",
+      "name": "shift_zero",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 55,
+      "kind": "theorem",
+      "name": "shift_add",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 61,
+      "kind": "theorem",
+      "name": "shift_comm",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 66,
+      "kind": "theorem",
+      "name": "isPeriod_iff_shift_eq",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 71,
+      "kind": "theorem",
+      "name": "IsPeriod.zero",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 76,
+      "kind": "theorem",
+      "name": "IsPeriod.add",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 82,
+      "kind": "theorem",
+      "name": "IsPeriod.neg",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 88,
+      "kind": "theorem",
+      "name": "IsPeriod.nsmul",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 97,
+      "kind": "theorem",
+      "name": "IsPeriod.zsmul",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 110,
+      "kind": "theorem",
+      "name": "isPeriod_shift_iff",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 119,
+      "kind": "theorem",
+      "name": "periodic_shift_iff",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 124,
+      "kind": "theorem",
+      "name": "FiniteRange.map",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 129,
+      "kind": "theorem",
+      "name": "FiniteRange.shift",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 136,
+      "kind": "theorem",
+      "name": "finiteRange_of_finite",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 140,
+      "kind": "theorem",
+      "name": "isPeriod_map_iff",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 146,
+      "kind": "theorem",
+      "name": "periodic_map_iff",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 151,
+      "kind": "theorem",
+      "name": "difference_apply",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 156,
+      "kind": "theorem",
+      "name": "difference_eq_zero_iff",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Basic.lean",
+      "line": 161,
+      "kind": "theorem",
+      "name": "difference_comm",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/BoundedDifferences.lean",
+      "line": 28,
+      "kind": "theorem",
+      "name": "FiniteRange.sub",
+      "paper_labels": [
+        "cor:periodic-difference"
+      ]
+    },
+    {
+      "file": "Nivat/Core/BoundedDifferences.lean",
+      "line": 36,
+      "kind": "theorem",
+      "name": "FiniteRange.difference",
+      "paper_labels": [
+        "lem:repeated"
+      ]
+    },
+    {
+      "file": "Nivat/Core/BoundedDifferences.lean",
+      "line": 43,
+      "kind": "theorem",
+      "name": "difference_eq_zero_of_second_of_bounded",
+      "paper_labels": [
+        "lem:repeated"
+      ]
+    },
+    {
+      "file": "Nivat/Core/BoundedDifferences.lean",
+      "line": 73,
+      "kind": "theorem",
+      "name": "FiniteRange.exists_abs_le",
+      "paper_labels": [
+        "lem:repeated"
+      ]
+    },
+    {
+      "file": "Nivat/Core/BoundedDifferences.lean",
+      "line": 80,
+      "kind": "theorem",
+      "name": "difference_eq_zero_of_second",
+      "paper_labels": [
+        "lem:repeated"
+      ]
+    },
+    {
+      "file": "Nivat/Core/BoundedDifferences.lean",
+      "line": 88,
+      "kind": "theorem",
+      "name": "abs_difference_le",
+      "paper_labels": [
+        "lem:repeated"
+      ]
+    },
+    {
+      "file": "Nivat/Core/BoundedDifferences.lean",
+      "line": 96,
+      "kind": "theorem",
+      "name": "difference_eq_zero_of_iterate_of_bounded",
+      "paper_labels": [
+        "lem:repeated"
+      ]
+    },
+    {
+      "file": "Nivat/Core/BoundedDifferences.lean",
+      "line": 113,
+      "kind": "theorem",
+      "name": "difference_eq_zero_of_iterate",
+      "paper_labels": [
+        "lem:repeated"
+      ]
+    },
+    {
+      "file": "Nivat/Core/BoundedDifferences.lean",
+      "line": 122,
+      "kind": "theorem",
+      "name": "difference_eq_zero_of_mixed_common_multiple",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/BoundedDifferences.lean",
+      "line": 141,
+      "kind": "theorem",
+      "name": "periodic_of_parallel_mixed_difference",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Lattice.lean",
+      "line": 24,
+      "kind": "theorem",
+      "name": "lattice_addEquiv_coordinates",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Lattice.lean",
+      "line": 34,
+      "kind": "def",
+      "name": "bezoutLatticeEquiv",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Lattice.lean",
+      "line": 62,
+      "kind": "theorem",
+      "name": "exists_lattice_basis_for_nonzero",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Lattice.lean",
+      "line": 79,
+      "kind": "def",
+      "name": "latticeRatCast",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Lattice.lean",
+      "line": 83,
+      "kind": "def",
+      "name": "latticeEquivRatLinear",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Lattice.lean",
+      "line": 92,
+      "kind": "theorem",
+      "name": "latticeEquivRatLinear_compatible",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Lattice.lean",
+      "line": 100,
+      "kind": "theorem",
+      "name": "transverse_coordinate_ne_zero",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 21,
+      "kind": "def",
+      "name": "rectangle",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 25,
+      "kind": "theorem",
+      "name": "mem_rectangle",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 30,
+      "kind": "theorem",
+      "name": "card_rectangle",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 34,
+      "kind": "def",
+      "name": "patternAt",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 38,
+      "kind": "def",
+      "name": "patterns",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 44,
+      "kind": "def",
+      "name": "complexity",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 48,
+      "kind": "def",
+      "name": "discrepancy",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 52,
+      "kind": "theorem",
+      "name": "patterns_nonempty",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 56,
+      "kind": "theorem",
+      "name": "patterns_finite",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 63,
+      "kind": "theorem",
+      "name": "complexity_pos",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 68,
+      "kind": "theorem",
+      "name": "complexity_empty",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 80,
+      "kind": "theorem",
+      "name": "patterns_shift",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 90,
+      "kind": "theorem",
+      "name": "complexity_shift",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 95,
+      "kind": "def",
+      "name": "restrictPattern",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 99,
+      "kind": "theorem",
+      "name": "restrict_patterns",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 109,
+      "kind": "theorem",
+      "name": "complexity_mono",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 116,
+      "kind": "theorem",
+      "name": "patterns_map",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 126,
+      "kind": "theorem",
+      "name": "complexity_map",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 138,
+      "kind": "theorem",
+      "name": "equal_complexity_unique_extension",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 150,
+      "kind": "theorem",
+      "name": "patternAt_mem_of_language",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Core/Patterns.lean",
+      "line": 163,
+      "kind": "theorem",
+      "name": "complexity_translate_window",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Reindex.lean",
+      "line": 17,
+      "kind": "theorem",
+      "name": "FiniteRange.precomp",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Core/Reindex.lean",
+      "line": 26,
+      "kind": "theorem",
+      "name": "complexity_affine_reindex",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/Core/Reindex.lean",
+      "line": 49,
+      "kind": "theorem",
+      "name": "isPeriod_affine_reindex_iff",
+      "paper_labels": [
+        "thm:twofactor"
+      ]
+    },
+    {
+      "file": "Nivat/Core/Reindex.lean",
+      "line": 62,
+      "kind": "theorem",
+      "name": "difference_affine_reindex",
+      "paper_labels": [
+        "thm:twofactor"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/ExactDescent.lean",
+      "line": 28,
+      "kind": "def",
+      "name": "translatedSpan",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/ExactDescent.lean",
+      "line": 33,
+      "kind": "theorem",
+      "name": "dotProduct_patternAt",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/ExactDescent.lean",
+      "line": 44,
+      "kind": "theorem",
+      "name": "dotProduct_mem_dualAnnihilator_iff",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/ExactDescent.lean",
+      "line": 72,
+      "kind": "def",
+      "name": "coefficientRestriction",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Descent/ExactDescent.lean",
+      "line": 79,
+      "kind": "def",
+      "name": "multiplierMap",
+      "paper_labels": [
+        "lem:supported"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/ExactDescent.lean",
+      "line": 84,
+      "kind": "theorem",
+      "name": "multiplierMap_apply",
+      "paper_labels": [
+        "lem:supported"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/ExactDescent.lean",
+      "line": 89,
+      "kind": "theorem",
+      "name": "multiplierMap_reconstruct",
+      "paper_labels": [
+        "lem:supported"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/ExactDescent.lean",
+      "line": 96,
+      "kind": "theorem",
+      "name": "multiplierMap_injective",
+      "paper_labels": [
+        "lem:supported"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/ExactDescent.lean",
+      "line": 107,
+      "kind": "theorem",
+      "name": "dualAnnihilator_eq_multiplier_range",
+      "paper_labels": [
+        "eq:full-kernel"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/ExactDescent.lean",
+      "line": 139,
+      "kind": "theorem",
+      "name": "translatedSpan_finrank_add",
+      "paper_labels": [
+        "thm:descent",
+        "eq:filter-dimension"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/ExactDescent.lean",
+      "line": 159,
+      "kind": "def",
+      "name": "localFilter",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/ExactDescent.lean",
+      "line": 173,
+      "kind": "theorem",
+      "name": "localFilter_patternAt",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/ExactDescent.lean",
+      "line": 187,
+      "kind": "theorem",
+      "name": "localFilter_patterns_image",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/ExactDescent.lean",
+      "line": 200,
+      "kind": "theorem",
+      "name": "localFilter_transpose",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/ExactDescent.lean",
+      "line": 221,
+      "kind": "theorem",
+      "name": "translatedSpan_eq_ker",
+      "paper_labels": [
+        "eq:full-kernel",
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/ExactDescent.lean",
+      "line": 236,
+      "kind": "theorem",
+      "name": "complexity_descent_of_supported_multiples",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/ExactDescent.lean",
+      "line": 272,
+      "kind": "theorem",
+      "name": "exact_complexity_descent",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/ExactDescent.lean",
+      "line": 290,
+      "kind": "theorem",
+      "name": "exists_smaller_low_complexity_rectangle",
+      "paper_labels": [
+        "cor:line-descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/FiberBudget.lean",
+      "line": 22,
+      "kind": "def",
+      "name": "fiberDifferences",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/FiberBudget.lean",
+      "line": 26,
+      "kind": "def",
+      "name": "fiberRepresentatives",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/FiberBudget.lean",
+      "line": 31,
+      "kind": "def",
+      "name": "representativeDifferences",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/FiberBudget.lean",
+      "line": 35,
+      "kind": "theorem",
+      "name": "fiberRepresentatives_subset",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/FiberBudget.lean",
+      "line": 40,
+      "kind": "theorem",
+      "name": "fiberRepresentatives_ncard",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/FiberBudget.lean",
+      "line": 45,
+      "kind": "theorem",
+      "name": "representativeDifferences_subset",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/FiberBudget.lean",
+      "line": 54,
+      "kind": "theorem",
+      "name": "representativeDifference_mem_span",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/FiberBudget.lean",
+      "line": 69,
+      "kind": "theorem",
+      "name": "span_fiberDifferences_eq",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/FiberBudget.lean",
+      "line": 85,
+      "kind": "theorem",
+      "name": "representative_index_budget",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/FiberBudget.lean",
+      "line": 92,
+      "kind": "theorem",
+      "name": "finiteDimensional_fiberDifferences",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Descent/FiberBudget.lean",
+      "line": 100,
+      "kind": "theorem",
+      "name": "finite_fiber_budget",
+      "paper_labels": [
+        "thm:descent"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/HalfPlanePair.lean",
+      "line": 33,
+      "kind": "abbrev",
+      "name": "RealPlane",
+      "paper_labels": [
+        "lem:halfplane-pair"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/HalfPlanePair.lean",
+      "line": 37,
+      "kind": "def",
+      "name": "latticeReal",
+      "paper_labels": [
+        "lem:halfplane-pair"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/HalfPlanePair.lean",
+      "line": 41,
+      "kind": "def",
+      "name": "latticeSqNorm",
+      "paper_labels": [
+        "lem:halfplane-pair"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/HalfPlanePair.lean",
+      "line": 45,
+      "kind": "theorem",
+      "name": "latticeReal_add",
+      "paper_labels": [
+        "lem:halfplane-pair"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/HalfPlanePair.lean",
+      "line": 52,
+      "kind": "theorem",
+      "name": "latticeReal_zero",
+      "paper_labels": [
+        "lem:halfplane-pair"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/HalfPlanePair.lean",
+      "line": 58,
+      "kind": "theorem",
+      "name": "latticeReal_norm_sq",
+      "paper_labels": [
+        "lem:halfplane-pair"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/HalfPlanePair.lean",
+      "line": 64,
+      "kind": "theorem",
+      "name": "latticeSqNorm_cast",
+      "paper_labels": [
+        "lem:halfplane-pair"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/HalfPlanePair.lean",
+      "line": 72,
+      "kind": "theorem",
+      "name": "exists_ne_agree_on_finite",
+      "paper_labels": [
+        "lem:halfplane-pair"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/HalfPlanePair.lean",
+      "line": 87,
+      "kind": "theorem",
+      "name": "exists_nearest_disagreement",
+      "paper_labels": [
+        "lem:halfplane-pair"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/HalfPlanePair.lean",
+      "line": 110,
+      "kind": "theorem",
+      "name": "exists_far_nearest_disagreement",
+      "paper_labels": [
+        "lem:halfplane-pair"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/HalfPlanePair.lean",
+      "line": 139,
+      "kind": "theorem",
+      "name": "eventually_norm_add_lt_of_normal_tendsto",
+      "paper_labels": [
+        "lem:halfplane-pair"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/HalfPlanePair.lean",
+      "line": 164,
+      "kind": "theorem",
+      "name": "eventually_eq_at_of_tendsto",
+      "paper_labels": [
+        "lem:halfplane-pair"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/HalfPlanePair.lean",
+      "line": 173,
+      "kind": "theorem",
+      "name": "exists_halfPlane_pair",
+      "paper_labels": [
+        "lem:halfplane-pair"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/HalfPlanePair.lean",
+      "line": 230,
+      "kind": "theorem",
+      "name": "inner_latticeReal",
+      "paper_labels": [
+        "lem:halfplane-pair"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/HalfPlanePair.lean",
+      "line": 236,
+      "kind": "theorem",
+      "name": "exists_halfPlane_pair_coordinates",
+      "paper_labels": [
+        "lem:halfplane-pair"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/OrbitClosure.lean",
+      "line": 24,
+      "kind": "def",
+      "name": "orbit",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Dynamics/OrbitClosure.lean",
+      "line": 28,
+      "kind": "def",
+      "name": "orbitClosure",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Dynamics/OrbitClosure.lean",
+      "line": 33,
+      "kind": "theorem",
+      "name": "continuous_shift",
+      "paper_labels": [
+        "lem:halfplane-pair"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/OrbitClosure.lean",
+      "line": 38,
+      "kind": "theorem",
+      "name": "isClosed_orbitClosure",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Dynamics/OrbitClosure.lean",
+      "line": 43,
+      "kind": "theorem",
+      "name": "shift_mem_orbitClosure",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Dynamics/OrbitClosure.lean",
+      "line": 47,
+      "kind": "theorem",
+      "name": "mem_orbitClosure",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Dynamics/OrbitClosure.lean",
+      "line": 52,
+      "kind": "theorem",
+      "name": "shift_orbitClosure",
+      "paper_labels": [
+        "lem:halfplane-pair"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/OrbitClosure.lean",
+      "line": 66,
+      "kind": "theorem",
+      "name": "finite_pattern_occurs",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Dynamics/OrbitClosure.lean",
+      "line": 80,
+      "kind": "theorem",
+      "name": "patternAt_mem_patterns_of_mem_orbitClosure",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Dynamics/OrbitClosure.lean",
+      "line": 92,
+      "kind": "theorem",
+      "name": "infinite_orbitClosure_of_not_periodic",
+      "paper_labels": [
+        "cor:periodic-difference"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/OrbitClosure.lean",
+      "line": 107,
+      "kind": "theorem",
+      "name": "halfPlane_pair_of_finiteRange_not_periodic",
+      "paper_labels": [
+        "lem:halfplane-pair"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 28,
+      "kind": "def",
+      "name": "normalHom",
+      "paper_labels": [
+        "prop:tangent-period"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 35,
+      "kind": "def",
+      "name": "ZeroBelow",
+      "paper_labels": [
+        "prop:tangent-period"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 40,
+      "kind": "theorem",
+      "name": "ZeroBelow.shift",
+      "paper_labels": [
+        "prop:tangent-period"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 49,
+      "kind": "theorem",
+      "name": "ZeroBelow.sub",
+      "paper_labels": [
+        "prop:tangent-period"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 60,
+      "kind": "theorem",
+      "name": "ZeroBelow.difference",
+      "paper_labels": [
+        "prop:tangent-period"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 66,
+      "kind": "theorem",
+      "name": "zero_of_zeroBelow_periodic_pos",
+      "paper_labels": [
+        "prop:tangent-period"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 83,
+      "kind": "theorem",
+      "name": "zero_of_zeroBelow_difference",
+      "paper_labels": [
+        "prop:tangent-period"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 95,
+      "kind": "theorem",
+      "name": "act_eq_zero_of_origin_language",
+      "paper_labels": [
+        "eq:inheritance",
+        "cor:periodic-difference"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 118,
+      "kind": "def",
+      "name": "differenceProduct",
+      "paper_labels": [
+        "prop:tangent-period"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 123,
+      "kind": "theorem",
+      "name": "differenceProduct_nil",
+      "paper_labels": [
+        "prop:tangent-period"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 127,
+      "kind": "theorem",
+      "name": "differenceProduct_cons",
+      "paper_labels": [
+        "prop:tangent-period"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 132,
+      "kind": "theorem",
+      "name": "act_differenceProduct_cons",
+      "paper_labels": [
+        "prop:tangent-period"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 139,
+      "kind": "theorem",
+      "name": "ZeroBelow.act_differenceProduct",
+      "paper_labels": [
+        "prop:tangent-period"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 148,
+      "kind": "theorem",
+      "name": "cancel_transverse_factors",
+      "paper_labels": [
+        "prop:tangent-period"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 167,
+      "kind": "theorem",
+      "name": "normal_in_basis",
+      "paper_labels": [
+        "prop:tangent-period"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 176,
+      "kind": "theorem",
+      "name": "exists_oriented_tangent_basis",
+      "paper_labels": [
+        "prop:tangent-period"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 207,
+      "kind": "theorem",
+      "name": "tangent_coordinate_zero",
+      "paper_labels": [
+        "prop:tangent-period"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 219,
+      "kind": "theorem",
+      "name": "iterate_difference_eq_zero_of_common_multiple",
+      "paper_labels": [
+        "prop:tangent-period"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 240,
+      "kind": "theorem",
+      "name": "exists_common_multiple_on_basis_line",
+      "paper_labels": [
+        "prop:tangent-period"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 278,
+      "kind": "theorem",
+      "name": "periodic_of_tangential_product",
+      "paper_labels": [
+        "lem:repeated",
+        "prop:tangent-period"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 300,
+      "kind": "theorem",
+      "name": "exists_tangent_period_of_nonzero_annihilator",
+      "paper_labels": [
+        "prop:tangent-period"
+      ]
+    },
+    {
+      "file": "Nivat/Dynamics/PeriodicDifference.lean",
+      "line": 336,
+      "kind": "theorem",
+      "name": "periodic_difference_of_nonzero_annihilator",
+      "paper_labels": [
+        "cor:periodic-difference"
+      ]
+    },
+    {
+      "file": "Nivat/Main.lean",
+      "line": 24,
+      "kind": "theorem",
+      "name": "line_filter_ne_zero_of_period_divisor",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Main.lean",
+      "line": 36,
+      "kind": "theorem",
+      "name": "periodic_of_periodic_line_filter",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/Main.lean",
+      "line": 57,
+      "kind": "theorem",
+      "name": "nivat_rational",
+      "paper_labels": [
+        "thm:main"
+      ]
+    },
+    {
+      "file": "Nivat/Main.lean",
+      "line": 95,
+      "kind": "theorem",
+      "name": "nivat",
+      "paper_labels": [
+        "thm:main"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/BoundaryCounting.lean",
+      "line": 18,
+      "kind": "def",
+      "name": "rowPrefix",
+      "paper_labels": [
+        "lem:boundary-window",
+        "eq:boundary-rule-domain"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/BoundaryCounting.lean",
+      "line": 23,
+      "kind": "theorem",
+      "name": "mem_rowPrefix",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/BoundaryCounting.lean",
+      "line": 29,
+      "kind": "theorem",
+      "name": "rowPrefix_zero",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/BoundaryCounting.lean",
+      "line": 33,
+      "kind": "theorem",
+      "name": "rowPrefix_mono",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/BoundaryCounting.lean",
+      "line": 39,
+      "kind": "def",
+      "name": "prefixWindow",
+      "paper_labels": [
+        "lem:boundary-window",
+        "eq:boundary-rule-domain"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/BoundaryCounting.lean",
+      "line": 43,
+      "kind": "theorem",
+      "name": "prefixWindow_zero",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/BoundaryCounting.lean",
+      "line": 48,
+      "kind": "theorem",
+      "name": "prefixWindow_mono",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/BoundaryCounting.lean",
+      "line": 54,
+      "kind": "theorem",
+      "name": "exists_plateau_of_small_increase",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/BoundaryCounting.lean",
+      "line": 73,
+      "kind": "theorem",
+      "name": "boundaryRule_of_small_cost",
+      "paper_labels": [
+        "lem:boundary-window",
+        "eq:boundary-rule"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/BoundaryCounting.lean",
+      "line": 99,
+      "kind": "theorem",
+      "name": "ambiguous_output_budget",
+      "paper_labels": [
+        "lem:periodic-interior"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/BoundaryPeriod.lean",
+      "line": 17,
+      "kind": "theorem",
+      "name": "agreement_extends_right",
+      "paper_labels": [
+        "lem:periodic-interior"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/BoundaryPeriod.lean",
+      "line": 37,
+      "kind": "theorem",
+      "name": "periodic_zero_of_right_ray",
+      "paper_labels": [
+        "lem:periodic-interior"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/BoundaryPeriod.lean",
+      "line": 56,
+      "kind": "theorem",
+      "name": "boundaryRule_shift",
+      "paper_labels": [
+        "lem:row-lifting"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/BoundaryPeriod.lean",
+      "line": 69,
+      "kind": "theorem",
+      "name": "every_edge_differs",
+      "paper_labels": [
+        "lem:periodic-interior"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/BoundaryPeriod.lean",
+      "line": 107,
+      "kind": "def",
+      "name": "innerOrbit",
+      "paper_labels": [
+        "lem:periodic-interior"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/BoundaryPeriod.lean",
+      "line": 112,
+      "kind": "theorem",
+      "name": "innerOrbit_finite",
+      "paper_labels": [
+        "lem:periodic-interior"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/BoundaryPeriod.lean",
+      "line": 121,
+      "kind": "theorem",
+      "name": "innerOrbit_budget",
+      "paper_labels": [
+        "lem:periodic-interior"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/BoundaryPeriod.lean",
+      "line": 151,
+      "kind": "theorem",
+      "name": "common_inner_period",
+      "paper_labels": [
+        "lem:periodic-interior"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/FiniteState.lean",
+      "line": 25,
+      "kind": "theorem",
+      "name": "periodic_of_deterministic_successor_bounded",
+      "paper_labels": [
+        "lem:finite-states"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/FiniteState.lean",
+      "line": 71,
+      "kind": "theorem",
+      "name": "periodic_of_deterministic_successor",
+      "paper_labels": [
+        "lem:finite-states"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/FiniteState.lean",
+      "line": 80,
+      "kind": "theorem",
+      "name": "periodic_of_deterministic_predecessor_bounded",
+      "paper_labels": [
+        "lem:finite-states"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/FiniteState.lean",
+      "line": 102,
+      "kind": "theorem",
+      "name": "periodic_of_deterministic_predecessor",
+      "paper_labels": [
+        "lem:finite-states"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/FiniteState.lean",
+      "line": 111,
+      "kind": "theorem",
+      "name": "periodic_eq_of_emod_eq",
+      "paper_labels": [
+        "lem:forcing"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/FiniteState.lean",
+      "line": 122,
+      "kind": "theorem",
+      "name": "periodic_of_periodic_forcing",
+      "paper_labels": [
+        "lem:forcing"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/FiniteState.lean",
+      "line": 164,
+      "kind": "def",
+      "name": "word",
+      "paper_labels": [
+        "cor:morse"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/FiniteState.lean",
+      "line": 169,
+      "kind": "def",
+      "name": "wordComplexity",
+      "paper_labels": [
+        "cor:morse"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/FiniteState.lean",
+      "line": 174,
+      "kind": "theorem",
+      "name": "finite_word_range",
+      "paper_labels": [
+        "cor:morse"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/FiniteState.lean",
+      "line": 182,
+      "kind": "theorem",
+      "name": "wordComplexity_zero",
+      "paper_labels": [
+        "cor:morse"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/FiniteState.lean",
+      "line": 195,
+      "kind": "theorem",
+      "name": "word_restriction_image",
+      "paper_labels": [
+        "cor:morse"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/FiniteState.lean",
+      "line": 207,
+      "kind": "theorem",
+      "name": "wordComplexity_mono",
+      "paper_labels": [
+        "cor:morse"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/FiniteState.lean",
+      "line": 216,
+      "kind": "theorem",
+      "name": "exists_wordComplexity_plateau",
+      "paper_labels": [
+        "cor:morse"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/FiniteState.lean",
+      "line": 236,
+      "kind": "theorem",
+      "name": "word_extension_unique_of_complexity_eq",
+      "paper_labels": [
+        "cor:morse"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/FiniteState.lean",
+      "line": 253,
+      "kind": "theorem",
+      "name": "morse_hedlund",
+      "paper_labels": [
+        "cor:morse"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Main.lean",
+      "line": 23,
+      "kind": "theorem",
+      "name": "wordComplexity_row_le",
+      "paper_labels": [
+        "thm:twofactor",
+        "cor:morse"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Main.lean",
+      "line": 40,
+      "kind": "theorem",
+      "name": "isPeriod_factorial_of_lowcomplex_rowPrefix",
+      "paper_labels": [
+        "thm:twofactor"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Main.lean",
+      "line": 56,
+      "kind": "theorem",
+      "name": "mixed_difference_neg_right",
+      "paper_labels": [
+        "thm:twofactor"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Main.lean",
+      "line": 68,
+      "kind": "theorem",
+      "name": "directional_period_of_short_window_transverse",
+      "paper_labels": []
+    },
+    {
+      "file": "Nivat/TwoFactors/Main.lean",
+      "line": 105,
+      "kind": "theorem",
+      "name": "directional_period_of_latticeConvex_mixed_difference",
+      "paper_labels": [
+        "thm:twofactor"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Main.lean",
+      "line": 136,
+      "kind": "theorem",
+      "name": "periodic_of_directional_period",
+      "paper_labels": [
+        "thm:twofactor"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Main.lean",
+      "line": 152,
+      "kind": "theorem",
+      "name": "two_factors_nonparallel",
+      "paper_labels": [
+        "thm:twofactor"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Main.lean",
+      "line": 201,
+      "kind": "theorem",
+      "name": "two_factors",
+      "paper_labels": [
+        "thm:twofactor"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Main.lean",
+      "line": 212,
+      "kind": "theorem",
+      "name": "difference_add",
+      "paper_labels": [
+        "thm:twofactor"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Main.lean",
+      "line": 222,
+      "kind": "theorem",
+      "name": "two_periodic_summands",
+      "paper_labels": [
+        "sec:twofactor"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/PeriodicRows.lean",
+      "line": 23,
+      "kind": "def",
+      "name": "RowPeriodic",
+      "paper_labels": [
+        "lem:row-lifting"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/PeriodicRows.lean",
+      "line": 28,
+      "kind": "def",
+      "name": "BoundaryRule",
+      "paper_labels": [
+        "eq:boundary-rule",
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/PeriodicRows.lean",
+      "line": 36,
+      "kind": "theorem",
+      "name": "common_period_of_finite",
+      "paper_labels": [
+        "lem:row-lifting"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/PeriodicRows.lean",
+      "line": 54,
+      "kind": "theorem",
+      "name": "eq_const_of_periodic_of_strip",
+      "paper_labels": [
+        "lem:row-lifting"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/PeriodicRows.lean",
+      "line": 79,
+      "kind": "theorem",
+      "name": "propagate_rows_downward",
+      "paper_labels": [
+        "lem:row-lifting"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/PeriodicRows.lean",
+      "line": 99,
+      "kind": "theorem",
+      "name": "interior_forcing_periodic",
+      "paper_labels": [
+        "lem:row-lifting"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/PeriodicRows.lean",
+      "line": 119,
+      "kind": "theorem",
+      "name": "rowPeriodic_of_boundaryRule",
+      "paper_labels": [
+        "lem:row-lifting",
+        "lem:forcing"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/PeriodicRows.lean",
+      "line": 144,
+      "kind": "theorem",
+      "name": "difference_multiple_period",
+      "paper_labels": [
+        "eq:telescoping-lift",
+        "lem:row-lifting"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/PeriodicRows.lean",
+      "line": 157,
+      "kind": "theorem",
+      "name": "periodic_of_rows_boundaryRule",
+      "paper_labels": [
+        "lem:row-lifting"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/StripStates.lean",
+      "line": 20,
+      "kind": "def",
+      "name": "Strip",
+      "paper_labels": [
+        "lem:strip-states"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/StripStates.lean",
+      "line": 24,
+      "kind": "def",
+      "name": "stripState",
+      "paper_labels": [
+        "lem:strip-states"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/StripStates.lean",
+      "line": 29,
+      "kind": "theorem",
+      "name": "translate_difference_periodic",
+      "paper_labels": [
+        "lem:strip-states"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/StripStates.lean",
+      "line": 53,
+      "kind": "theorem",
+      "name": "strip_eq_of_finite_test",
+      "paper_labels": [
+        "lem:strip-states"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/StripStates.lean",
+      "line": 74,
+      "kind": "theorem",
+      "name": "finite_stripState_range",
+      "paper_labels": [
+        "lem:strip-states"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/StripStates.lean",
+      "line": 101,
+      "kind": "theorem",
+      "name": "exists_transverse_strip_representative",
+      "paper_labels": [
+        "lem:strip-states"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/StripStates.lean",
+      "line": 120,
+      "kind": "theorem",
+      "name": "global_period_of_stripState_period",
+      "paper_labels": [
+        "lem:strip-states"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/StripStates.lean",
+      "line": 131,
+      "kind": "theorem",
+      "name": "shift_at_greatest_disagreement",
+      "paper_labels": [
+        "lem:strip-states"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/StripStates.lean",
+      "line": 163,
+      "kind": "theorem",
+      "name": "finite_strip_dichotomy",
+      "paper_labels": [
+        "lem:strip-states"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 26,
+      "kind": "def",
+      "name": "LatticeConvex",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 31,
+      "kind": "def",
+      "name": "RowBandSubset",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 36,
+      "kind": "theorem",
+      "name": "RowBandSubset.refl",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 41,
+      "kind": "theorem",
+      "name": "RowBandSubset.filter_gt",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 53,
+      "kind": "theorem",
+      "name": "RowBandSubset.filter_lt",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 66,
+      "kind": "theorem",
+      "name": "exists_minimal_lowcomplex_rowBand",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 83,
+      "kind": "theorem",
+      "name": "convex_horizontal_interval",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 94,
+      "kind": "theorem",
+      "name": "LatticeConvex.row_interval",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 106,
+      "kind": "theorem",
+      "name": "LatticeConvex.row_interpolation",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 143,
+      "kind": "theorem",
+      "name": "latticeConvex_rectangle",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 162,
+      "kind": "theorem",
+      "name": "LatticeConvex.linear_preimage",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 173,
+      "kind": "def",
+      "name": "rowSites",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 177,
+      "kind": "def",
+      "name": "rowCoordinates",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 181,
+      "kind": "theorem",
+      "name": "mem_rowCoordinates",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 193,
+      "kind": "theorem",
+      "name": "card_rowCoordinates",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 202,
+      "kind": "theorem",
+      "name": "RowBandSubset.row_interval",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 211,
+      "kind": "theorem",
+      "name": "row_exact_block",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 252,
+      "kind": "theorem",
+      "name": "small_cost_of_minimal_rowBand_endpoint",
+      "paper_labels": [
+        "lem:boundary-window",
+        "eq:boundary-cost"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 293,
+      "kind": "structure",
+      "name": "ShapeWindow",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 335,
+      "kind": "theorem",
+      "name": "exists_shapeWindow",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/Window.lean",
+      "line": 388,
+      "kind": "theorem",
+      "name": "ShapeWindow.interior_row_blocks",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/WindowCriterion.lean",
+      "line": 19,
+      "kind": "theorem",
+      "name": "directional_period_of_short_window",
+      "paper_labels": [
+        "thm:twofactor"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/WindowNormalization.lean",
+      "line": 18,
+      "kind": "def",
+      "name": "normalSignEquiv",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/WindowNormalization.lean",
+      "line": 27,
+      "kind": "def",
+      "name": "normalAffineEquiv",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/WindowNormalization.lean",
+      "line": 33,
+      "kind": "theorem",
+      "name": "normalAffineEquiv_apply",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/WindowNormalization.lean",
+      "line": 39,
+      "kind": "theorem",
+      "name": "normalAffineEquiv_add",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/WindowNormalization.lean",
+      "line": 47,
+      "kind": "structure",
+      "name": "NormalizedWindow",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    },
+    {
+      "file": "Nivat/TwoFactors/WindowNormalization.lean",
+      "line": 75,
+      "kind": "theorem",
+      "name": "ShapeWindow.normalize",
+      "paper_labels": [
+        "lem:boundary-window"
+      ]
+    }
+  ]
+}

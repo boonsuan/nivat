@@ -1,0 +1,3 @@
+$ lake build
+Build completed successfully (2502 jobs).
+EXIT_CODE=0

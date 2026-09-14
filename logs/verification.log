@@ -1,0 +1,586 @@
+$ lake build
+Build completed successfully (2502 jobs).
+EXIT_CODE=0
+$ lake env lean scripts/Audit.lean
+@Nivat.exists_rational_model : ∀ {A : Type u_1} [Finite A] (c : Nivat.Configuration A),
+  ∃ d,
+    Nivat.FiniteRange d ∧
+      (∀ (D : Finset Nivat.Lattice), Nivat.complexity d D = Nivat.complexity c D) ∧
+        ∀ (h : Nivat.Lattice), Nivat.IsPeriod d h ↔ Nivat.IsPeriod c h
+'Nivat.exists_rational_model' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.Algebra.act_mul : ∀ (f g : Nivat.Laurent) (c : Nivat.Configuration ℚ),
+  Nivat.Algebra.act (f * g) c = Nivat.Algebra.act f (Nivat.Algebra.act g c)
+'Nivat.Algebra.act_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.Algebra.finiteRange_act : ∀ (f : Nivat.Laurent) {c : Nivat.Configuration ℚ},
+  Nivat.FiniteRange c → Nivat.FiniteRange (Nivat.Algebra.act f c)
+'Nivat.Algebra.finiteRange_act' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.Algebra.support_mul_subset_rectangle_iff : ∀ (Φ : Nivat.Laurent) (hΦ : Φ ≠ 0) (g : Nivat.Laurent) (m n : ℕ),
+  (Φ * g).coeff.support ⊆ Nivat.rectangle m n ↔ g.coeff.support ⊆ Nivat.Algebra.erodedWindow Φ hΦ (Nivat.rectangle m n)
+'Nivat.Algebra.support_mul_subset_rectangle_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.Descent.multiplierMap_injective : ∀ (Φ : Nivat.Laurent),
+  Φ ≠ 0 →
+    ∀ (R S : Finset Nivat.Lattice),
+      (∀ (g : Nivat.Laurent), (Φ * g).coeff.support ⊆ R ↔ g.coeff.support ⊆ S) →
+        Function.Injective ⇑(Nivat.Descent.multiplierMap Φ R S)
+'Nivat.Descent.multiplierMap_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.Descent.localFilter_transpose : ∀ (Φ : Nivat.Laurent) (R S : Finset Nivat.Lattice),
+  (∀ (g : Nivat.Laurent), (Φ * g).coeff.support ⊆ R ↔ g.coeff.support ⊆ S) →
+    ∀ (hS : ∀ z ∈ S, ∀ a ∈ Φ.coeff.support, z + a ∈ R),
+      (Nivat.Descent.localFilter Φ R S hS).dualMap ∘ₗ ↑(dotProductEquiv ℚ ↥S) =
+        ↑(dotProductEquiv ℚ ↥R) ∘ₗ Nivat.Descent.multiplierMap Φ R S
+'Nivat.Descent.localFilter_transpose' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.Descent.translatedSpan_eq_ker : ∀ (d : Nivat.Configuration ℚ) (Φ : Nivat.Laurent) (R S : Finset Nivat.Lattice),
+  (∀ (f : Nivat.Laurent), Nivat.Algebra.act f d = 0 ↔ Φ ∣ f) →
+    (∀ (g : Nivat.Laurent), (Φ * g).coeff.support ⊆ R ↔ g.coeff.support ⊆ S) →
+      ∀ (hS : ∀ z ∈ S, ∀ a ∈ Φ.coeff.support, z + a ∈ R),
+        Nivat.Descent.translatedSpan d R = (Nivat.Descent.localFilter Φ R S hS).ker
+'Nivat.Descent.translatedSpan_eq_ker' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.Descent.translatedSpan_finrank_add : ∀ (d : Nivat.Configuration ℚ) (Φ : Nivat.Laurent),
+  Φ ≠ 0 →
+    ∀ (R S : Finset Nivat.Lattice),
+      (∀ (f : Nivat.Laurent), Nivat.Algebra.act f d = 0 ↔ Φ ∣ f) →
+        (∀ (g : Nivat.Laurent), (Φ * g).coeff.support ⊆ R ↔ g.coeff.support ⊆ S) →
+          Module.finrank ℚ ↥(Nivat.Descent.translatedSpan d R) + S.card = R.card
+'Nivat.Descent.translatedSpan_finrank_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Nivat.Descent.finite_fiber_budget : ∀ {K : Type u_1} {V : Type u_2} {W : Type u_3} [inst : Field K]
+  [inst_1 : AddCommGroup V] [inst_2 : Module K V] (F : V → W) {P : Set V},
+  P.Finite → Module.finrank K ↥(Submodule.span K (Nivat.Descent.fiberDifferences F P)) + (F '' P).ncard ≤ P.ncard
+'Nivat.Descent.finite_fiber_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.Descent.exact_complexity_descent : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c →
+    ∀ (x y : Nivat.Configuration ℚ),
+      (∀ (D : Finset Nivat.Lattice), Nivat.patternAt x D 0 ∈ Nivat.patterns c D) →
+        (∀ (D : Finset Nivat.Lattice), Nivat.patternAt y D 0 ∈ Nivat.patterns c D) →
+          ∀ (Φ : Nivat.Laurent) (hΦ : Φ ≠ 0),
+            (∀ (f : Nivat.Laurent), Nivat.Algebra.act f (x - y) = 0 ↔ Φ ∣ f) →
+              ∀ (m n : ℕ),
+                Nivat.complexity (Nivat.Algebra.act Φ c) (Nivat.Algebra.erodedWindow Φ hΦ (Nivat.rectangle m n)) +
+                    (Nivat.rectangle m n).card ≤
+                  Nivat.complexity c (Nivat.rectangle m n) +
+                    (Nivat.Algebra.erodedWindow Φ hΦ (Nivat.rectangle m n)).card
+'Nivat.Descent.exact_complexity_descent' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.Descent.exists_smaller_low_complexity_rectangle : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c →
+    ∀ (x y : Nivat.Configuration ℚ),
+      (∀ (D : Finset Nivat.Lattice), Nivat.patternAt x D 0 ∈ Nivat.patterns c D) →
+        (∀ (D : Finset Nivat.Lattice), Nivat.patternAt y D 0 ∈ Nivat.patterns c D) →
+          x - y ≠ 0 →
+            ∀ (Φ : Nivat.Laurent),
+              Φ ≠ 0 →
+                (∀ (f : Nivat.Laurent), Nivat.Algebra.act f (x - y) = 0 ↔ Φ ∣ f) →
+                  ∀ (m n : ℕ),
+                    Nivat.complexity c (Nivat.rectangle m n) ≤ m * n →
+                      ∃ m' n',
+                        0 < m' ∧
+                          0 < n' ∧
+                            m' * n' < m * n ∧ Nivat.complexity (Nivat.Algebra.act Φ c) (Nivat.rectangle m' n') ≤ m' * n'
+'Nivat.Descent.exists_smaller_low_complexity_rectangle' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Nivat.Dynamics.exists_halfPlane_pair : ∀ {A : Type u_1} [inst : TopologicalSpace A] [DiscreteTopology A] [Finite A]
+  (X : Set (Nivat.Configuration A)),
+  X.Infinite →
+    IsClosed X →
+      (∀ (h : Nivat.Lattice), ∀ c ∈ X, Nivat.shift h c ∈ X) →
+        ∃ x ∈ X,
+          ∃ y ∈ X,
+            ∃ ν, ‖ν‖ = 1 ∧ x 0 ≠ y 0 ∧ ∀ (z : Nivat.Lattice), inner ℝ ν (Nivat.Dynamics.latticeReal z) < 0 → x z = y z
+'Nivat.Dynamics.exists_halfPlane_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Nivat.Dynamics.halfPlane_pair_of_finiteRange_not_periodic : ∀ {A : Type u_1} (c : Nivat.Configuration A),
+  Nivat.FiniteRange c →
+    ¬Nivat.Periodic c →
+      ∃ x y ν,
+        Nivat.FiniteRange x ∧
+          Nivat.FiniteRange y ∧
+            ν.1 ^ 2 + ν.2 ^ 2 = 1 ∧
+              x 0 ≠ y 0 ∧
+                (∀ (D : Finset Nivat.Lattice), Nivat.patternAt x D 0 ∈ Nivat.patterns c D) ∧
+                  (∀ (D : Finset Nivat.Lattice), Nivat.patternAt y D 0 ∈ Nivat.patterns c D) ∧
+                    ∀ (z : Nivat.Lattice), ν.1 * ↑z.1 + ν.2 * ↑z.2 < 0 → x z = y z
+'Nivat.Dynamics.halfPlane_pair_of_finiteRange_not_periodic' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.Algebra.exists_nonzero_annihilator : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c →
+    ∀ (D : Finset Nivat.Lattice), Nivat.complexity c D ≤ D.card → ∃ f, f ≠ 0 ∧ Nivat.Algebra.act f c = 0
+'Nivat.Algebra.exists_nonzero_annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Nivat.Algebra.exists_product_differences_of_annihilator : ∀ {c : Nivat.Configuration ℚ},
+  Nivat.FiniteRange c →
+    c ≠ 0 →
+      ∀ {f : Nivat.Laurent},
+        f ≠ 0 →
+          Nivat.Algebra.act f c = 0 →
+            ∃ hs,
+              hs ≠ [] ∧
+                (∀ h ∈ hs, h ≠ 0) ∧ Nivat.Algebra.act (List.map (fun h => Nivat.Algebra.monomial h - 1) hs).prod c = 0
+'Nivat.Algebra.exists_product_differences_of_annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.difference_eq_zero_of_iterate_of_bounded : ∀ (c : Nivat.Configuration ℚ) (B : ℚ),
+  (∀ (z : Nivat.Lattice), |c z| ≤ B) →
+    ∀ (h : Nivat.Lattice) (s : ℕ), 0 < s → (Nivat.difference h)^[s] c = 0 → Nivat.difference h c = 0
+'Nivat.difference_eq_zero_of_iterate_of_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.Dynamics.exists_tangent_period_of_nonzero_annihilator : ∀ (d : Nivat.Configuration ℚ),
+  Nivat.FiniteRange d →
+    d ≠ 0 →
+      ∀ (ν : ℝ × ℝ),
+        ν ≠ 0 →
+          (∀ (z : Nivat.Lattice), (Nivat.Dynamics.normalHom ν) z < 0 → d z = 0) →
+            ∀ (f : Nivat.Laurent),
+              f ≠ 0 →
+                Nivat.Algebra.act f d = 0 →
+                  ∃ e q,
+                    0 < q ∧
+                      (Nivat.Dynamics.normalHom ν) (e (1, 0)) = 0 ∧
+                        0 < (Nivat.Dynamics.normalHom ν) (e (0, 1)) ∧ Nivat.IsPeriod d (e (↑q, 0))
+'Nivat.Dynamics.exists_tangent_period_of_nonzero_annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.Dynamics.periodic_difference_of_nonzero_annihilator : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c →
+    ¬Nivat.Periodic c →
+      ∀ (f : Nivat.Laurent),
+        f ≠ 0 →
+          Nivat.Algebra.act f c = 0 →
+            ∃ x y e q,
+              Nivat.FiniteRange x ∧
+                Nivat.FiniteRange y ∧
+                  (∀ (D : Finset Nivat.Lattice), Nivat.patternAt x D 0 ∈ Nivat.patterns c D) ∧
+                    (∀ (D : Finset Nivat.Lattice), Nivat.patternAt y D 0 ∈ Nivat.patterns c D) ∧
+                      x - y ≠ 0 ∧
+                        0 < q ∧ Nivat.IsPeriod (x - y) (e (↑q, 0)) ∧ ∀ b < 0, ∀ (a : ℤ), (x - y) (e (a, b)) = 0
+'Nivat.Dynamics.periodic_difference_of_nonzero_annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.Algebra.exact_line_in_basis : ∀ (e : Nivat.Lattice ≃+ Nivat.Lattice) {d : Nivat.Configuration ℚ},
+  d ≠ 0 →
+    ∀ {q : ℕ},
+      0 < q →
+        Nivat.IsPeriod d (e (↑q, 0)) →
+          (∀ b < 0, ∀ (a : ℤ), d (e (a, b)) = 0) →
+            ∃ φ,
+              φ.Monic ∧
+                0 < φ.natDegree ∧
+                  φ ∣ Polynomial.X ^ q - 1 ∧
+                    ∀ (f : Nivat.Laurent), Nivat.Algebra.act f d = 0 ↔ (Nivat.Algebra.lineEval (e (1, 0))) φ ∣ f
+'Nivat.Algebra.exact_line_in_basis' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.two_factors : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c →
+    ∀ (m n : ℕ),
+      0 < m →
+        0 < n →
+          ∀ (h t : Nivat.Lattice),
+            h ≠ 0 →
+              t ≠ 0 →
+                Nivat.complexity c (Nivat.rectangle m n) ≤ m * n →
+                  Nivat.difference h (Nivat.difference t c) = 0 → Nivat.Periodic c
+'Nivat.two_factors' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.two_factors_nonparallel : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c →
+    ∀ (m n : ℕ),
+      0 < m →
+        0 < n →
+          ∀ (h t : Nivat.Lattice),
+            h ≠ 0 →
+              t ≠ 0 →
+                Nivat.complexity c (Nivat.rectangle m n) ≤ m * n →
+                  Nivat.difference h (Nivat.difference t c) = 0 →
+                    h.1 * t.2 ≠ h.2 * t.1 → ∃ k, k ≠ 0 ∧ (Nivat.IsPeriod c (k • h) ∨ Nivat.IsPeriod c (k • t))
+'Nivat.two_factors_nonparallel' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.two_periodic_summands : ∀ (c a b : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c →
+    c = a + b →
+      ∀ (m n : ℕ),
+        0 < m →
+          0 < n →
+            ∀ (h t : Nivat.Lattice),
+              h ≠ 0 →
+                t ≠ 0 →
+                  Nivat.IsPeriod a h →
+                    Nivat.IsPeriod b t → Nivat.complexity c (Nivat.rectangle m n) ≤ m * n → Nivat.Periodic c
+'Nivat.two_periodic_summands' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Nivat.TwoFactors.periodic_of_deterministic_successor_bounded : ∀ {A : Type u_1} (s : ℤ → A),
+  (Set.range s).Finite →
+    (∀ (i j : ℤ), s i = s j → s (i + 1) = s (j + 1)) → ∃ p, 0 < p ∧ p ≤ (Set.range s).ncard ∧ Function.Periodic s ↑p
+'Nivat.TwoFactors.periodic_of_deterministic_successor_bounded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@Nivat.TwoFactors.morse_hedlund : ∀ {A : Type u_1} (a : ℤ → A),
+  (Set.range a).Finite →
+    ∀ (k : ℕ), 0 < k → Nivat.TwoFactors.wordComplexity a k ≤ k → ∃ p, 0 < p ∧ p ≤ k ∧ Function.Periodic a ↑p
+'Nivat.TwoFactors.morse_hedlund' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Nivat.TwoFactors.periodic_of_periodic_forcing : ∀ {A : Type u_1} {F : Type u_2} (a : ℤ → A) (f : ℤ → F),
+  (Set.range a).Finite →
+    ∀ (p k : ℕ),
+      0 < p →
+        Function.Periodic f ↑p →
+          (∀ (i j : ℤ), f i = f j → (∀ (r : Fin k), a (i + ↑↑r) = a (j + ↑↑r)) → a (i + ↑k) = a (j + ↑k)) →
+            ∃ q, 0 < q ∧ Function.Periodic a ↑q
+'Nivat.TwoFactors.periodic_of_periodic_forcing' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Nivat.TwoFactors.exists_shapeWindow : ∀ {A : Type u_1} (c : Nivat.Configuration A),
+  Nivat.FiniteRange c →
+    ∀ (D₀ : Finset Nivat.Lattice),
+      Nivat.TwoFactors.LatticeConvex D₀ → Nivat.complexity c D₀ ≤ D₀.card → Nonempty (Nivat.TwoFactors.ShapeWindow c D₀)
+'Nivat.TwoFactors.exists_shapeWindow' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Nivat.TwoFactors.ShapeWindow.normalize : ∀ {A : Type u_1} {c : Nivat.Configuration A} {D₀ : Finset Nivat.Lattice}
+  (w : Nivat.TwoFactors.ShapeWindow c D₀), Nonempty (Nivat.TwoFactors.NormalizedWindow c)
+'Nivat.TwoFactors.ShapeWindow.normalize' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Nivat.TwoFactors.boundaryRule_of_small_cost : ∀ {A : Type u_1} (c : Nivat.Configuration A),
+  Nivat.FiniteRange c →
+    ∀ (C : Finset Nivat.Lattice) (e : ℕ),
+      Nivat.complexity c (Nivat.TwoFactors.prefixWindow C e) < Nivat.complexity c C + e →
+        ∃ k < e, Nivat.TwoFactors.BoundaryRule c C k
+'Nivat.TwoFactors.boundaryRule_of_small_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Nivat.TwoFactors.finite_strip_dichotomy : ∀ {A : Type u_1} [inst : AddCommGroup A] (c : Nivat.Configuration A),
+  Nivat.FiniteRange c →
+    ∀ (q W : ℕ),
+      0 < q →
+        ∀ (a M : ℤ),
+          0 < M →
+            M ≤ ↑W →
+              Nivat.difference (↑q, 0) (Nivat.difference (a, M) c) = 0 →
+                (∃ p, 0 < p ∧ Nivat.IsPeriod c (p • (a, M))) ∨
+                  ∃ u v,
+                    (∀ (z : Nivat.Lattice), 1 ≤ z.2 → z.2 ≤ ↑W → Nivat.shift u c z = Nivat.shift v c z) ∧
+                      (∃ i, Nivat.shift u c (i, 0) ≠ Nivat.shift v c (i, 0)) ∧
+                        Nivat.IsPeriod (Nivat.shift u c - Nivat.shift v c) (↑q, 0) ∧ ∃ k, v - u = k • (a, M)
+'Nivat.TwoFactors.finite_strip_dichotomy' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Nivat.TwoFactors.common_inner_period : ∀ {A : Type u_1} (x : Nivat.Configuration A),
+  Nivat.FiniteRange x →
+    ∀ (C : Finset Nivat.Lattice) (H r : ℕ),
+      0 < r →
+        ∀ (α : Fin H → ℤ),
+          (∀ (j : Fin H) (t : Fin r), (α j + ↑↑t, ↑↑j + 1) ∈ C) →
+            (Nivat.TwoFactors.innerOrbit x C).ncard ≤ r →
+              ∃ p, 0 < p ∧ p ≤ r ∧ ∀ (j : Fin H), Function.Periodic (fun i => x (i, ↑↑j + 1)) ↑p
+'Nivat.TwoFactors.common_inner_period' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.TwoFactors.periodic_of_rows_boundaryRule : ∀ (x : Nivat.Configuration ℚ),
+  Nivat.FiniteRange x →
+    ∀ (C : Finset Nivat.Lattice) (k H : ℕ),
+      0 < H →
+        (∀ u ∈ C, 1 ≤ u.2 ∧ u.2 ≤ ↑H) →
+          Nivat.TwoFactors.BoundaryRule x C k →
+            ∀ (q : ℕ),
+              0 < q →
+                ∀ (a M : ℤ),
+                  0 < M →
+                    Nivat.difference (↑q, 0) (Nivat.difference (a, M) x) = 0 →
+                      (∀ (j : ℤ), 1 ≤ j → j ≤ ↑H → Nivat.TwoFactors.RowPeriodic x j) →
+                        ∃ L, 0 < L ∧ Nivat.IsPeriod x (↑(L * q), 0)
+'Nivat.TwoFactors.periodic_of_rows_boundaryRule' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.TwoFactors.directional_period_of_short_window : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c →
+    ∀ (C : Finset Nivat.Lattice) (e H : ℕ),
+      0 < H →
+        (∀ z ∈ C, 1 ≤ z.2 ∧ z.2 ≤ ↑H) →
+          (∀ (j : Fin H), ∃ α, ∀ s < e - 1, (α + ↑s, ↑↑j + 1) ∈ C) →
+            Nivat.complexity c (Nivat.TwoFactors.prefixWindow C e) < Nivat.complexity c C + e →
+              ∀ (q : ℕ),
+                0 < q →
+                  ∀ (a M : ℤ),
+                    0 < M →
+                      Nivat.difference (↑q, 0) (Nivat.difference (a, M) c) = 0 →
+                        ∃ k, k ≠ 0 ∧ (Nivat.IsPeriod c (k • (↑q, 0)) ∨ Nivat.IsPeriod c (k • (a, M)))
+'Nivat.TwoFactors.directional_period_of_short_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.periodic_of_parallel_mixed_difference : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c →
+    ∀ (h t : Nivat.Lattice),
+      h ≠ 0 → t ≠ 0 → h.1 * t.2 = h.2 * t.1 → Nivat.difference h (Nivat.difference t c) = 0 → Nivat.Periodic c
+'Nivat.periodic_of_parallel_mixed_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+Nivat.nivat_rational : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c → ∀ (m n : ℕ), 0 < m → 0 < n → Nivat.complexity c (Nivat.rectangle m n) ≤ m * n → Nivat.Periodic c
+'Nivat.nivat_rational' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Nivat.nivat : ∀ {A : Type u_1} [Finite A] (c : Nivat.Configuration A) (m n : ℕ),
+  0 < m → 0 < n → Nivat.complexity c (Nivat.rectangle m n) ≤ m * n → ∃ h, h ≠ 0 ∧ ∀ (z : Nivat.Lattice), c (z + h) = c z
+'Nivat.nivat' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NivatSubmission.nivat : ∀ {A : Type u_1} [Finite A] (c : ℤ × ℤ → A),
+  (∃ m n, 0 < m ∧ 0 < n ∧ (Set.range fun t z => c (↑z + t)).ncard ≤ m * n) →
+    ∃ h, h ≠ (0, 0) ∧ ∀ (z : ℤ × ℤ), c (z + h) = c z
+'NivatSubmission.nivat' depends on axioms: [propext, Classical.choice, Quot.sound]
+@[reducible] def Nivat.Lattice : Type :=
+ℤ × ℤ
+@[reducible] def Nivat.Configuration.{u_1} : Type u_1 → Type u_1 :=
+fun A => Nivat.Lattice → A
+def Nivat.FiniteRange.{u_1} : {A : Type u_1} → Nivat.Configuration A → Prop :=
+fun {A} c => (Set.range c).Finite
+def Nivat.shift.{u_1} : {A : Type u_1} → Nivat.Lattice → Nivat.Configuration A → Nivat.Configuration A :=
+fun {A} h c z => c (z + h)
+def Nivat.difference.{u_1} : {A : Type u_1} →
+  [AddCommGroup A] → Nivat.Lattice → Nivat.Configuration A → Nivat.Configuration A :=
+fun {A} [AddCommGroup A] h c => Nivat.shift h c - c
+def Nivat.Periodic.{u_1} : {A : Type u_1} → Nivat.Configuration A → Prop :=
+fun {A} c => ∃ h, h ≠ 0 ∧ Nivat.IsPeriod c h
+def Nivat.IsPeriod.{u_1} : {A : Type u_1} → Nivat.Configuration A → Nivat.Lattice → Prop :=
+fun {A} c h => ∀ (z : Nivat.Lattice), c (z + h) = c z
+def Nivat.patternAt.{u_1} : {A : Type u_1} →
+  Nivat.Configuration A → (D : Finset Nivat.Lattice) → Nivat.Lattice → ↥D → A :=
+fun {A} c D u z => c (↑z + u)
+def Nivat.patterns.{u_1} : {A : Type u_1} → Nivat.Configuration A → (D : Finset Nivat.Lattice) → Set (↥D → A) :=
+fun {A} c D => Set.range (Nivat.patternAt c D)
+def Nivat.complexity.{u_1} : {A : Type u_1} → Nivat.Configuration A → Finset Nivat.Lattice → ℕ :=
+fun {A} c D => (Nivat.patterns c D).ncard
+def Nivat.rectangle : ℕ → ℕ → Finset Nivat.Lattice :=
+fun m n => (Finset.Ico 0 ↑m).product (Finset.Ico 0 ↑n)
+@Nivat.nivat.{u_1} : ∀ {A : Type u_1} [Finite.{u_1 + 1} A] (c : Nivat.Configuration.{u_1} A) (m n : Nat),
+  @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) m →
+    @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n →
+      @LE.le.{0} Nat instLENat (@Nivat.complexity.{u_1} A c (Nivat.rectangle m n))
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) m n) →
+        ∃ h,
+          And
+            (@Ne.{1} Nivat.Lattice h
+              (@OfNat.ofNat.{0} Nivat.Lattice (nat_lit 0)
+                (@Zero.toOfNat0.{0} Nivat.Lattice
+                  (@Prod.instZero.{0, 0} Int Int
+                    (@MulZeroClass.toZero.{0} Int (@instMulZeroClassOfSemiring.{0} Int Int.instSemiring))
+                    (@MulZeroClass.toZero.{0} Int (@instMulZeroClassOfSemiring.{0} Int Int.instSemiring))))))
+            (∀ (z : Nivat.Lattice),
+              @Eq.{u_1 + 1} A
+                (c
+                  (@HAdd.hAdd.{0, 0, 0} Nivat.Lattice Nivat.Lattice Nivat.Lattice
+                    (@instHAdd.{0} Nivat.Lattice (@Prod.instAdd.{0, 0} Int Int Int.instAdd Int.instAdd)) z h))
+                (c z))
+theorem Nivat.nivat.{u_1} : ∀ {A : Type u_1} [Finite A] (c : Nivat.Configuration A) (m n : ℕ),
+  0 < m →
+    0 < n → Nivat.complexity c (Nivat.rectangle m n) ≤ m * n → ∃ h, h ≠ 0 ∧ ∀ (z : Nivat.Lattice), c (z + h) = c z :=
+fun {A} [Finite A] c m n hm hn hlow =>
+  Exists.casesOn (Nivat.exists_rational_model c) fun d h =>
+    And.casesOn h fun hd right =>
+      And.casesOn right fun hcomplexity hperiod =>
+        Exists.casesOn
+          (Nivat.nivat_rational d hd m n hm hn
+            (Eq.mpr (id (congrArg (fun _a => _a ≤ m * n) (hcomplexity (Nivat.rectangle m n)))) hlow))
+          fun h h_1 => And.casesOn h_1 fun hh hp => Exists.intro h ⟨hh, (hperiod h).mp hp⟩
+theorem Nivat.nivat_rational : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c →
+    ∀ (m n : ℕ), 0 < m → 0 < n → Nivat.complexity c (Nivat.rectangle m n) ≤ m * n → Nivat.Periodic c :=
+fun c hc m n hm hn hlow =>
+  have hmain := fun N =>
+    Nat.strong_induction_on N fun N ih c_1 hc m_1 n_1 harea hm hn hlow =>
+      if hp : Nivat.Periodic c_1 then hp
+      else
+        Exists.casesOn
+          (Nivat.Algebra.exists_nonzero_annihilator c_1 hc (Nivat.rectangle m_1 n_1)
+            (Eq.mpr
+              (id (congrArg (LE.le (Nivat.complexity c_1 (Nivat.rectangle m_1 n_1))) (Nivat.card_rectangle m_1 n_1)))
+              hlow))
+          fun f h =>
+          And.casesOn h fun hf hfann =>
+            Exists.casesOn (Nivat.Dynamics.periodic_difference_of_nonzero_annihilator c_1 hc hp f hf hfann) fun x h =>
+              Exists.casesOn h fun y h =>
+                Exists.casesOn h fun e h =>
+                  Exists.casesOn h fun q h =>
+                    And.casesOn h fun _hxfin right =>
+                      And.casesOn right fun _hyfin right =>
+                        And.casesOn right fun hx right =>
+                          And.casesOn right fun hy right =>
+                            And.casesOn right fun hd right =>
+                              And.casesOn right fun hq right =>
+                                And.casesOn right fun hperiod hbelow =>
+                                  Exists.casesOn (Nivat.Algebra.exact_line_in_basis e hd hq hperiod hbelow) fun φ h =>
+                                    And.casesOn h fun _hmonic right =>
+                                      And.casesOn right fun _hdegree right =>
+                                        And.casesOn right fun hdiv hexact =>
+                                          have hv := fun hz =>
+                                            have h :=
+                                              AddEquiv.injective e (Eq.trans hz (Eq.symm (AddEquiv.map_zero e)));
+                                            (have this := of_decide_eq_true (id (Eq.refl true));
+                                              this)
+                                              h;
+                                          let Φ := (Nivat.Algebra.lineEval (e (1, 0))) φ;
+                                          have hΦ :=
+                                            Nivat.line_filter_ne_zero_of_period_divisor✝ (e (1, 0)) hv q hq φ hdiv;
+                                          Exists.casesOn
+                                            (Nivat.Descent.exists_smaller_low_complexity_rectangle c_1 hc x y hx hy hd Φ
+                                              hΦ hexact m_1 n_1 hlow)
+                                            fun m' h =>
+                                            Exists.casesOn h fun n' h =>
+                                              And.casesOn h fun hm' right => And.casesOn right fun hn' right => ⋯;
+  hmain (m * n) c hc m n rfl hm hn hlow
+@NivatSubmission.nivat.{u_1} : ∀ {A : Type u_1} [Finite.{u_1 + 1} A] (c : Prod.{0, 0} Int Int → A),
+  (∃ m n,
+      And (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) m)
+        (And (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n)
+          (@LE.le.{0} Nat instLENat
+            (@Set.ncard.{u_1}
+              (↥(@Finset.product.{0, 0} Int Int
+                    (@Finset.Ico.{0} Int
+                      (@PartialOrder.toPreorder.{0} Int
+                        (@ConditionallyCompletePartialOrderSup.toPartialOrder.{0} Int
+                          (@ConditionallyCompletePartialOrder.toConditionallyCompletePartialOrderSup.{0} Int
+                            (@ConditionallyCompleteLattice.toConditionallyCompletePartialOrder.{0} Int
+                              (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice.{0} Int
+                                Int.instConditionallyCompleteLinearOrder)))))
+                      Int.instLocallyFiniteOrder (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                      (@Nat.cast.{0} Int instNatCastInt m))
+                    (@Finset.Ico.{0} Int
+                      (@PartialOrder.toPreorder.{0} Int
+                        (@ConditionallyCompletePartialOrderSup.toPartialOrder.{0} Int
+                          (@ConditionallyCompletePartialOrder.toConditionallyCompletePartialOrderSup.{0} Int
+                            (@ConditionallyCompleteLattice.toConditionallyCompletePartialOrder.{0} Int
+                              (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice.{0} Int
+                                Int.instConditionallyCompleteLinearOrder)))))
+                      Int.instLocallyFiniteOrder (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                      (@Nat.cast.{0} Int instNatCastInt n))) →
+                A)
+              (@Set.range.{u_1, 1}
+                (↥(@Finset.product.{0, 0} Int Int
+                      (@Finset.Ico.{0} Int
+                        (@PartialOrder.toPreorder.{0} Int
+                          (@ConditionallyCompletePartialOrderSup.toPartialOrder.{0} Int
+                            (@ConditionallyCompletePartialOrder.toConditionallyCompletePartialOrderSup.{0} Int
+                              (@ConditionallyCompleteLattice.toConditionallyCompletePartialOrder.{0} Int
+                                (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice.{0} Int
+                                  Int.instConditionallyCompleteLinearOrder)))))
+                        Int.instLocallyFiniteOrder (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                        (@Nat.cast.{0} Int instNatCastInt m))
+                      (@Finset.Ico.{0} Int
+                        (@PartialOrder.toPreorder.{0} Int
+                          (@ConditionallyCompletePartialOrderSup.toPartialOrder.{0} Int
+                            (@ConditionallyCompletePartialOrder.toConditionallyCompletePartialOrderSup.{0} Int
+                              (@ConditionallyCompleteLattice.toConditionallyCompletePartialOrder.{0} Int
+                                (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice.{0} Int
+                                  Int.instConditionallyCompleteLinearOrder)))))
+                        Int.instLocallyFiniteOrder (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                        (@Nat.cast.{0} Int instNatCastInt n))) →
+                  A)
+                (Prod.{0, 0} Int Int) fun t z =>
+                c
+                  (@HAdd.hAdd.{0, 0, 0} (Prod.{0, 0} Int Int) (Prod.{0, 0} Int Int) (Prod.{0, 0} Int Int)
+                    (@instHAdd.{0} (Prod.{0, 0} Int Int) (@Prod.instAdd.{0, 0} Int Int Int.instAdd Int.instAdd))
+                    (@Subtype.val.{1} (Prod.{0, 0} Int Int)
+                      (fun x =>
+                        @Membership.mem.{0, 0} (Prod.{0, 0} Int Int) (Finset.{0} (Prod.{0, 0} Int Int))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Prod.{0, 0} Int Int)) (Prod.{0, 0} Int Int)
+                            (@Finset.instSetLike.{0} (Prod.{0, 0} Int Int)))
+                          (@Finset.product.{0, 0} Int Int
+                            (@Finset.Ico.{0} Int
+                              (@PartialOrder.toPreorder.{0} Int
+                                (@ConditionallyCompletePartialOrderSup.toPartialOrder.{0} Int
+                                  (@ConditionallyCompletePartialOrder.toConditionallyCompletePartialOrderSup.{0} Int
+                                    (@ConditionallyCompleteLattice.toConditionallyCompletePartialOrder.{0} Int
+                                      (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice.{0} Int
+                                        Int.instConditionallyCompleteLinearOrder)))))
+                              Int.instLocallyFiniteOrder (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                              (@Nat.cast.{0} Int instNatCastInt m))
+                            (@Finset.Ico.{0} Int
+                              (@PartialOrder.toPreorder.{0} Int
+                                (@ConditionallyCompletePartialOrderSup.toPartialOrder.{0} Int
+                                  (@ConditionallyCompletePartialOrder.toConditionallyCompletePartialOrderSup.{0} Int
+                                    (@ConditionallyCompleteLattice.toConditionallyCompletePartialOrder.{0} Int
+                                      (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice.{0} Int
+                                        Int.instConditionallyCompleteLinearOrder)))))
+                              Int.instLocallyFiniteOrder (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                              (@Nat.cast.{0} Int instNatCastInt n)))
+                          x)
+                      z)
+                    t)))
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) m n)))) →
+    ∃ h,
+      And
+        (@Ne.{1} (Prod.{0, 0} Int Int) h
+          (@Prod.mk.{0, 0} Int Int (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+            (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))))
+        (∀ (z : Prod.{0, 0} Int Int),
+          @Eq.{u_1 + 1} A
+            (c
+              (@HAdd.hAdd.{0, 0, 0} (Prod.{0, 0} Int Int) (Prod.{0, 0} Int Int) (Prod.{0, 0} Int Int)
+                (@instHAdd.{0} (Prod.{0, 0} Int Int) (@Prod.instAdd.{0, 0} Int Int Int.instAdd Int.instAdd)) z h))
+            (c z))
+EXIT_CODE=0
+$ python3 scripts/check_axioms.py scripts/Audit.lean logs/axioms.log
+Nivat.exists_rational_model: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.Algebra.act_mul: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.Algebra.finiteRange_act: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.Algebra.support_mul_subset_rectangle_iff: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.Descent.multiplierMap_injective: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.Descent.localFilter_transpose: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.Descent.translatedSpan_eq_ker: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.Descent.translatedSpan_finrank_add: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.Descent.finite_fiber_budget: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.Descent.exact_complexity_descent: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.Descent.exists_smaller_low_complexity_rectangle: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.Dynamics.exists_halfPlane_pair: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.Dynamics.halfPlane_pair_of_finiteRange_not_periodic: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.Algebra.exists_nonzero_annihilator: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.Algebra.exists_product_differences_of_annihilator: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.difference_eq_zero_of_iterate_of_bounded: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.Dynamics.exists_tangent_period_of_nonzero_annihilator: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.Dynamics.periodic_difference_of_nonzero_annihilator: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.Algebra.exact_line_in_basis: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.two_factors: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.two_factors_nonparallel: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.two_periodic_summands: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.TwoFactors.periodic_of_deterministic_successor_bounded: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.TwoFactors.morse_hedlund: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.TwoFactors.periodic_of_periodic_forcing: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.TwoFactors.exists_shapeWindow: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.TwoFactors.ShapeWindow.normalize: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.TwoFactors.boundaryRule_of_small_cost: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.TwoFactors.finite_strip_dichotomy: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.TwoFactors.common_inner_period: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.TwoFactors.periodic_of_rows_boundaryRule: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.TwoFactors.directional_period_of_short_window: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.periodic_of_parallel_mixed_difference: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.nivat_rational: ['Classical.choice', 'Quot.sound', 'propext']
+Nivat.nivat: ['Classical.choice', 'Quot.sound', 'propext']
+NivatSubmission.nivat: ['Classical.choice', 'Quot.sound', 'propext']
+Allowed axiom dependencies confirmed for 36 declarations.
+This screens Lean output; it does not replace kernel checking or statement inspection.
+EXIT_CODE=0
+$ lake env lean scripts/RawStatements.lean
+'NivatAudit.finite_alphabet_rectangle_period' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NivatAudit.rational_mixed_difference_period' depends on axioms: [propext, Classical.choice, Quot.sound]
+EXIT_CODE=0
+$ python3 scripts/check_axioms.py scripts/RawStatements.lean logs/raw-statements.log
+NivatAudit.finite_alphabet_rectangle_period: ['Classical.choice', 'Quot.sound', 'propext']
+NivatAudit.rational_mixed_difference_period: ['Classical.choice', 'Quot.sound', 'propext']
+Allowed axiom dependencies confirmed for 2 declarations.
+This screens Lean output; it does not replace kernel checking or statement inspection.
+EXIT_CODE=0
+$ lake env leanchecker --verbose Nivat
+replaying Nivat
+replaying Nivat.Algebra.LineErosion
+replaying Nivat.Algebra.ProductDifferences
+replaying Nivat.Algebra.LowComplexity
+replaying Nivat.Algebra.ExactLine
+replaying Nivat.Algebra.Action
+replaying Nivat.Algebra.RationalScaling
+replaying Nivat.Algebra.RectangleSupport
+replaying Nivat.Descent.ExactDescent
+replaying Nivat.Descent.FiberBudget
+replaying Nivat.TwoFactors.BoundaryCounting
+replaying Nivat.TwoFactors.WindowNormalization
+replaying Nivat.TwoFactors.PeriodicRows
+replaying Nivat.TwoFactors.FiniteState
+replaying Nivat.TwoFactors.WindowCriterion
+replaying Nivat.TwoFactors.StripStates
+replaying Nivat.TwoFactors.Window
+replaying Nivat.TwoFactors.BoundaryPeriod
+replaying Nivat.TwoFactors.Main
+replaying Nivat.Core.BoundedDifferences
+replaying Nivat.Core.Lattice
+replaying Nivat.Core.Patterns
+replaying Nivat.Core.Reindex
+replaying Nivat.Core.Basic
+replaying Nivat.Core.Alphabet
+replaying Nivat.Dynamics.PeriodicDifference
+replaying Nivat.Dynamics.HalfPlanePair
+replaying Nivat.Dynamics.OrbitClosure
+replaying Nivat.Main
+EXIT_CODE=0
+$ lake env leanchecker --verbose Solution
+replaying Solution
+EXIT_CODE=0
+$ python3 scripts/source_audit.py
+All 29 project modules are covered by the acyclic root import.
+All 377 explicit declarations have docstrings with paper locations.
+All cited LaTeX labels exist in paper/nivat.tex.
+No proof placeholders or additional trust mechanisms found in project source.
+Two-factor project imports are confined to Core and TwoFactors:
+Nivat.Core.Basic
+Nivat.Core.BoundedDifferences
+Nivat.Core.Lattice
+Nivat.Core.Patterns
+Nivat.Core.Reindex
+Nivat.TwoFactors.BoundaryCounting
+Nivat.TwoFactors.BoundaryPeriod
+Nivat.TwoFactors.FiniteState
+Nivat.TwoFactors.Main
+Nivat.TwoFactors.PeriodicRows
+Nivat.TwoFactors.StripStates
+Nivat.TwoFactors.Window
+Nivat.TwoFactors.WindowCriterion
+Nivat.TwoFactors.WindowNormalization
+These source checks supplement the Lean build, theorem-type audit and kernel replay.
+EXIT_CODE=0

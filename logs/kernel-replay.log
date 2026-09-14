@@ -1,0 +1,31 @@
+$ lake env leanchecker --verbose Nivat
+replaying Nivat
+replaying Nivat.Algebra.LineErosion
+replaying Nivat.Algebra.ProductDifferences
+replaying Nivat.Algebra.LowComplexity
+replaying Nivat.Algebra.ExactLine
+replaying Nivat.Algebra.Action
+replaying Nivat.Algebra.RationalScaling
+replaying Nivat.Algebra.RectangleSupport
+replaying Nivat.Descent.ExactDescent
+replaying Nivat.Descent.FiberBudget
+replaying Nivat.TwoFactors.BoundaryCounting
+replaying Nivat.TwoFactors.WindowNormalization
+replaying Nivat.TwoFactors.PeriodicRows
+replaying Nivat.TwoFactors.FiniteState
+replaying Nivat.TwoFactors.WindowCriterion
+replaying Nivat.TwoFactors.StripStates
+replaying Nivat.TwoFactors.Window
+replaying Nivat.TwoFactors.BoundaryPeriod
+replaying Nivat.TwoFactors.Main
+replaying Nivat.Core.BoundedDifferences
+replaying Nivat.Core.Lattice
+replaying Nivat.Core.Patterns
+replaying Nivat.Core.Reindex
+replaying Nivat.Core.Basic
+replaying Nivat.Core.Alphabet
+replaying Nivat.Dynamics.PeriodicDifference
+replaying Nivat.Dynamics.HalfPlanePair
+replaying Nivat.Dynamics.OrbitClosure
+replaying Nivat.Main
+EXIT_CODE=0

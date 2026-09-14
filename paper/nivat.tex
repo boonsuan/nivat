@@ -1,0 +1,716 @@
+\documentclass[11pt,a4paper,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[hidelinks,unicode]{hyperref}
+\hypersetup{pdftitle={Pattern complexity and Nivat's conjecture},pdfsubject={Rectangular pattern complexity and polynomial annihilators},pdfauthor={}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\LL}{\mathcal L}
+\newcommand{\mon}[1]{\boldsymbol X^{#1}}
+\newcommand{\De}{\Delta}
+\newcommand{\restr}[2]{\left.#1\right|_{#2}}
+\DeclareMathOperator{\Ann}{Ann}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Pat}{Pat}
+\DeclareMathOperator{\spanQ}{span_{\Q}}
+\numberwithin{equation}{section}
+\setlength{\emergencystretch}{2em}
+\allowdisplaybreaks[1]
+\title[Pattern complexity and Nivat's conjecture]{Pattern complexity and Nivat's conjecture}
+% Author metadata is omitted; no authorship or affiliation is asserted.
+\date{September 14, 2026}
+\subjclass[2020]{37B10, 68R15}
+\keywords{Nivat's conjecture, rectangular complexity, polynomial annihilators, symbolic dynamics}
+\begin{document}
+\begin{abstract}
+We prove Nivat's conjecture: a finite-alphabet configuration on $\Z^2$ with at most $mn$ distinct $m\times n$ patterns has a nonzero period. The proof reduces the area of a rectangle on which this complexity bound holds. Its main estimate concerns a linear combination of translates of the configuration. The corresponding map on rectangular patterns loses some coordinates, but, under an exact annihilator hypothesis, it identifies at least as many input patterns as the number of lost coordinates. We obtain this hypothesis from the difference of two orbit-closure points that agree on a half-plane. A minimal polynomial in the direction parallel to the boundary generates the entire annihilator ideal of this difference. The reduction ends with a configuration annihilated by two difference operators. We include a proof of periodicity in this case, following the boundary-extension method of Cyr--Kra and Szabados and using a finite recurrence to extend periodicity from a strip.
+\end{abstract}
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+Let $A$ be a finite alphabet and let $c:\Z^2\to A$ be a configuration. For a finite set $D\subset\Z^2$, its set of occurring patterns is
+\[
+ \Pat_c(D)=\{(c(z+u))_{u\in D}:z\in\Z^2\},
+ \qquad P_c(D)=|\Pat_c(D)|.
+\]
+Write
+\[
+ R_{m,n}=\{0,\ldots,m-1\}\times\{0,\ldots,n-1\},
+ \qquad P_c(m,n)=P_c(R_{m,n}).
+\]
+We call $c$ \emph{periodic} if there is an $h\in\Z^2\setminus\{0\}$ such that $c(z+h)=c(z)$ for every $z$. Only one period vector is required.
+
+The Morse--Hedlund theorem says that a bi-infinite word is periodic if and only if, for some $n$, it has at most $n$ distinct words of length $n$~\cite{MH}. Nivat's conjecture is the analogous implication for rectangles in two dimensions.
+
+\begin{theorem}\label{thm:main}
+Let $c:\Z^2\to A$ be a configuration over a finite alphabet. If $P_c(m,n)\le mn$ for some positive integers $m,n$, then $c$ is periodic.
+\end{theorem}
+
+Our proof uses two consequences of a low pattern count. After a rational labeling of the alphabet, the occurring patterns satisfy an affine relation; taking a difference gives a polynomial annihilator. This is the starting point of the algebraic approach of Kari and Szabados~\cite{KS}. There is also a combinatorial consequence: if adjoining a boundary adds too few patterns, some boundary values are uniquely determined. This observation underlies the generating-set and balanced-set arguments of Cyr and Kra~\cite{CK}. Szabados used these methods to prove Nivat's conjecture for sums of two periodic configurations~\cite{Sz}.
+
+Kari and Szabados already relate linear dependence of patterns to polynomial annihilators~\cite[proofs of Lemmas~6 and~32]{KS}. Here we use this relation for differences of patterns with the same polynomial image. The resulting estimate accounts for every coordinate lost when the polynomial is applied to a rectangle, and makes a reduction in area possible. We describe it after fixing notation. Section~\ref{sec:twofactor} then gives the two-periodic-summand argument in the form needed to complete the reduction.
+
+\subsection{Notation}
+An injective labeling of $A$ by rational numbers preserves pattern counts and periods. Except where stated otherwise, configurations below have finite range in $\Q$. This class is closed under rational linear combinations and translations.
+
+For $u\in\Z^2$, let
+\[
+ (T^u c)(z)=c(z+u),\qquad \De_u=T^u-I.
+\]
+These shift and difference operators commute. Set
+\[
+ \LL=\Q[X^{\pm1},Y^{\pm1}],\qquad
+ \mon u=X^{u_1}Y^{u_2}.
+\]
+A Laurent polynomial $f=\sum_u f_u\mon u$ acts by
+\[
+ (f(T)c)(z)=\sum_u f_uc(z+u).
+\]
+The sum is finite. We write $\supp f=\{u:f_u\ne0\}$ and
+\[
+ \Ann(c)=\{f\in\LL:f(T)c=0\}
+\]
+for the support of $f$ and the annihilator ideal of $c$, respectively. Thus $h\ne0$ is a period of $c$ exactly when $\mon h-1\in\Ann(c)$. Our use of forward shifts fixes the sign convention for the polynomial action.
+
+A nonzero vector $v\in\Z^2$ is \emph{primitive} if $\gcd(|v_1|,|v_2|)=1$. Such a vector extends to a basis $v,w$ of $\Z^2$. Following~\cite{KS}, a \emph{line polynomial} is a Laurent polynomial whose support contains at least two points and lies on a line. Up to a monomial factor, it has the form $\phi(\mon v)$ for a primitive $v$ and a nonconstant $\phi\in\Q[Z]$ with $\phi(0)\ne0$.
+
+For later counting arguments, put
+\[
+ \delta_c(D)=P_c(D)-|D|.
+\]
+This is the discrepancy of the window $D$ in the terminology of~\cite[Section~2.2]{CK}. There is one pattern on the empty set, so $P_c(\varnothing)=1$. Translating a window does not change its complexity. Restriction from a larger window to a smaller one is a surjection between the corresponding sets of occurring patterns.
+
+Let $X_c$ be the closure of $\{T^u c:u\in\Z^2\}$ in the product space $A^{\Z^2}$, where $A=c(\Z^2)$ has the discrete topology. Every finite pattern of a point of $X_c$ occurs in $c$. Moreover,
+\begin{equation}\label{eq:inheritance}
+ f\in\Ann(c),\quad x,y\in X_c
+ \quad\Longrightarrow\quad f(T)x=f(T)y=f(T)(x-y)=0.
+\end{equation}
+Both assertions follow by taking limits on finitely many coordinates. The space $X_c$ is compact; sequential compactness can be proved by diagonal extraction over the countable lattice.
+
+\subsection{The complexity inequality and the reduction in area}
+Fix $0\ne\Phi\in\LL$ and a rectangle $R$, and let
+\begin{equation}\label{eq:erosion-definition}
+ S=\{z\in\Z^2:z+\supp\Phi\subseteq R\}.
+\end{equation}
+A pattern on $R$ determines the restriction of $\Phi(T)c$ to $S$. Therefore
+$P_{\Phi(T)c}(S)\le P_c(R)$. This inequality alone is insufficient: when $|S|<|R|$, it need not imply $P_{\Phi(T)c}(S)\le|S|$.
+
+We prove the stronger estimate
+\begin{equation}\label{eq:intro-descent}
+ P_{\Phi(T)c}(S)\le P_c(R)-|R|+|S|
+\end{equation}
+under the hypothesis that there are $x,y\in X_c$ with
+\[
+ d=x-y\ne0,\qquad \Ann(d)=(\Phi).
+\]
+Here $(\Phi)$ denotes the principal ideal generated by $\Phi$. To see why the hypothesis is relevant, let $F:\Q^R\to\Q^S$ be the map induced by $\Phi(T)$. Every translated restriction of $d$ is the difference of two occurring $R$-patterns with the same image under $F$. The exact ideal equality implies that these translated restrictions span \emph{all} of $\ker F$, whose dimension is $|R|-|S|$. A fiber containing $k$ patterns supplies at most $k-1$ generators for its differences. Summing over the fibers gives~\eqref{eq:intro-descent}.
+
+The rest of the argument constructs a line polynomial for which this ideal equality holds. A compactness argument gives distinct $x,y\in X_c$ agreeing on a half-plane. A theorem of Kari--Szabados provides a product of difference operators annihilating $d=x-y$; the form needed here is proved in Appendix~\ref{app:product}. On configurations vanishing sufficiently far into the half-plane, difference operators transverse to its boundary are injective. Cancelling those factors shows that $d$ has a period $qv$ parallel to the boundary. Section~\ref{sec:ideal} then proves
+\[
+ \Ann(d)=\bigl(\phi(\mon v)\bigr),\qquad \phi\mid Z^q-1,
+\]
+where $\phi$ is the monic polynomial of least degree satisfying $\phi(T^v)d=0$. The half-plane condition rules out additional annihilators involving the transverse shift.
+
+Choose a counterexample with a witnessing rectangle of least area, allowing all finite rational alphabets. For $\Phi=\phi(\mon v)$, the set $S$ in~\eqref{eq:erosion-definition} is a smaller rectangle. Inequality~\eqref{eq:intro-descent} makes it a low-complexity window for $c'=\Phi(T)c$. It cannot be empty, since that would give $1\le0$. Minimality therefore makes $c'$ periodic. If $t\ne0$ is one of its periods, the divisibility $\phi\mid Z^q-1$ gives
+\[
+ \De_t\De_{qv}c=0.
+\]
+Section~\ref{sec:twofactor} proves that this identity, together with the original rectangular complexity bound, forces $c$ to be periodic. Section~\ref{sec:completion} assembles these steps into the proof of Theorem~\ref{thm:main}.
+
+\section{Pattern complexity under a polynomial operator}\label{sec:descent}
+We first prove~\eqref{eq:intro-descent}. For a finite set $D$, identify $\Q^D$ with the Laurent polynomials supported in $D$ and use the pairing $\langle p,g\rangle_D=\sum_{z\in D}p_zg_z$. The rectangle assumption enters in determining which multiples of $\Phi$ can be supported in $R$.
+
+\begin{lemma}\label{lem:supported}
+Let $R$ be a finite axis-aligned rectangle, let $0\ne\Phi\in\LL$, and set
+$S=\{z:z+\supp\Phi\subseteq R\}$. Then
+\begin{equation}\label{eq:supported}
+ (\Phi)\cap\Q^R=\Phi\Q^S,
+ \qquad \dim_\Q\bigl((\Phi)\cap\Q^R\bigr)=|S|.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Multiplication by $\Phi$ sends $\Q^S$ into $\Q^R$. Conversely, suppose that $\Phi g$ is nonzero and supported in $R$. The minimum and maximum exponents in each coordinate add under multiplication. For example, regarding the factors as Laurent polynomials in $X$ over the integral domain $\Q[Y^{\pm1}]$ shows that their leading coefficients have nonzero product. Writing $\max_X f$ for the largest $X$-exponent in $\supp f$, we obtain
+\[
+ \max_X(\Phi g)=\max_X\Phi+\max_Xg.
+\]
+The same holds for the minimum exponent and for the $Y$ coordinate.
+
+Write the coordinate intervals of $R$ as $[a_j,b_j]\cap\Z$, and let $\alpha_j,\beta_j$ be the minimum and maximum $j$-coordinates of $\supp\Phi$. Every $z\in\supp g$ satisfies
+\[
+ a_j-\alpha_j\le z_j\le b_j-\beta_j\qquad(j=1,2).
+\]
+For a rectangle, these inequalities are exactly $z+\supp\Phi\subseteq R$. Hence $g\in\Q^S$. Multiplication by $\Phi$ is injective, so its image has dimension $|S|$. The same statements hold when $S$ is empty.
+\end{proof}
+
+\begin{theorem}\label{thm:descent}
+Let $c$ have finite rational range, and suppose that $x,y\in X_c$ satisfy
+\[
+ d=x-y\ne0,\qquad \Ann(d)=(\Phi)
+\]
+for some nonzero $\Phi\in\LL$. For a nonempty rectangle $R$, set
+$S=\{z:z+\supp\Phi\subseteq R\}$. Then
+\begin{equation}\label{eq:descent}
+ P_{\Phi(T)c}(S)-|S|\le P_c(R)-|R|.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Write $\Phi=\sum_u\Phi_u\mon u$. The induced linear map is
+\[
+ F:\Q^R\longrightarrow\Q^S,\qquad
+ F(p)(z)=\sum_u\Phi_u p(z+u).
+\]
+Its transpose is multiplication by $\Phi$: for $p\in\Q^R$ and $g\in\Q^S$,
+\[
+ \langle Fp,g\rangle_S
+ =\sum_{z\in S}\sum_u g_z\Phi_u p(z+u)
+ =\langle p,\Phi g\rangle_R.
+\]
+Consequently $F^{\mathsf T}$ is injective and
+\begin{equation}\label{eq:filter-dimension}
+ \dim\ker F=|R|-|S|.
+\end{equation}
+
+Let
+\[
+ V_R(d)=\spanQ\{\restr{T^u d}{R}:u\in\Z^2\}.
+\]
+A vector $b=(b_z)_{z\in R}$ is perpendicular to this space exactly when
+\[
+ \sum_{z\in R}b_zd(u+z)=0\qquad\text{for every }u\in\Z^2,
+\]
+that is, when its associated polynomial belongs to $\Ann(d)$. Lemma~\ref{lem:supported} therefore gives
+\[
+ V_R(d)^\perp=\Ann(d)\cap\Q^R
+ =(\Phi)\cap\Q^R=\Phi\Q^S=\operatorname{im}F^{\mathsf T}.
+\]
+Taking orthogonal complements yields
+\begin{equation}\label{eq:full-kernel}
+ V_R(d)=\ker F.
+\end{equation}
+
+It remains to compare this dimension with the number of occurring patterns. Put $\mathcal P=\Pat_c(R)$. Since polynomial operators commute with translations,
+\[
+ F(\mathcal P)=\Pat_{\Phi(T)c}(S).
+\]
+In each fiber choose a representative, and subtract it from every other pattern in that fiber. The resulting list has
+\[
+ |\mathcal P|-|F(\mathcal P)|=P_c(R)-P_{\Phi(T)c}(S)
+\]
+vectors and spans every difference between patterns in the same fiber.
+
+For each $u$, the patterns $\restr{T^u x}{R}$ and $\restr{T^u y}{R}$ occur in $c$. They have the same image under $F$, since $\Phi(T)d=0$. The span of the preceding list thus contains $V_R(d)=\ker F$. By~\eqref{eq:filter-dimension},
+\[
+ |R|-|S|\le P_c(R)-P_{\Phi(T)c}(S),
+\]
+as required.
+\end{proof}
+
+For $\Phi=X-1$, the map $F$ takes horizontal differences on an $m\times n$ rectangle, and its kernel consists of the patterns constant along each row. Its dimension is $n$, the number of sites lost on passing to an $(m-1)\times n$ rectangle. The proof works because the translated restrictions of $x-y$ span all of these row-constant patterns. Knowing only $\Phi(T)(x-y)=0$ would give an inclusion in the kernel, not the equality needed to count $n$ independent directions.
+
+\begin{corollary}\label{cor:line-descent}
+In Theorem~\ref{thm:descent}, suppose
+\[
+ \Phi=\phi(\mon v),\qquad
+ \phi(Z)=a_0+a_1Z+\cdots+a_\ell Z^\ell,
+ \qquad a_0a_\ell\ne0,
+\]
+where $v\ne0$ and $\ell\ge1$. If $R=R_{m,n}$ and $P_c(R)\le mn$, then $S$ is a nonempty rectangle of smaller area and $P_{\Phi(T)c}(S)\le|S|$.
+\end{corollary}
+\begin{proof}
+The support of $\Phi$ contains $0$ and $\ell v$ and lies on the segment between them. Since $R$ is a rectangle,
+\[
+ S=R\cap(R-\ell v),\qquad
+ |S|=\max(0,m-\ell|v_1|)\max(0,n-\ell|v_2|).
+\]
+Theorem~\ref{thm:descent} gives $P_{\Phi(T)c}(S)\le|S|$. If $S$ were empty, this would say $1\le0$. At least one side length strictly decreases because $v\ne0$ and $\ell\ge1$.
+\end{proof}
+
+\section{Agreement on a half-plane}\label{sec:halfplane}
+We seek two points of $X_c$ to which Theorem~\ref{thm:descent} can be applied. First we construct distinct points that agree on a half-plane. The product-annihilator theorem then shows that their difference is periodic parallel to the boundary. Neither point need be periodic individually.
+
+\subsection{A compactness argument}
+The existence of half-plane agreement is a symbolic consequence of the results of Boyle and Lind~\cite[Theorem~3.7]{BL} and Einsiedler, Lind, Miles, and Ward~\cite[Lemma~2.9]{ELMW}. We give a direct proof that also places a disagreement at the origin.
+
+\begin{lemma}\label{lem:halfplane-pair}
+If a finite-alphabet configuration $c$ has infinitely many distinct translates, there are $x,y\in X_c$ and a unit vector $\nu\in\R^2$ such that
+\begin{equation}\label{eq:halfplane-pair}
+ x(0)\ne y(0),\qquad x(z)=y(z)\quad\text{when }\nu\cdot z<0.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For each positive integer $j$, choose distinct translates $x_j,y_j$ agreeing on the lattice points in the Euclidean ball of radius $j$. This is possible because there are only finitely many patterns on that ball. Let $p_j$ be a nearest disagreement and put $r_j=\|p_j\|>j$. A nearest disagreement exists because squared lattice norms are nonnegative integers.
+
+By diagonal extraction and compactness of the unit circle, pass to a subsequence such that
+\[
+ T^{p_j}x_j\longrightarrow x,\qquad
+ T^{p_j}y_j\longrightarrow y,\qquad
+ p_j/r_j\longrightarrow\nu,\quad \|\nu\|=1.
+\]
+Since the alphabet is finite, we may also fix the unequal pair of symbols at the shifted origin. Thus $x(0)\ne y(0)$.
+
+Fix $z$ with $\nu\cdot z<0$. For all sufficiently large $j$,
+\[
+ \|p_j+z\|^2-r_j^2
+ =2r_j\bigl((p_j/r_j)\cdot z\bigr)+\|z\|^2<0.
+\]
+By the choice of $p_j$, the configurations $x_j,y_j$ agree at $p_j+z$. Passing to the limit gives $x(z)=y(z)$.
+\end{proof}
+
+Geometrically, the translated agreement balls approach a half-plane with boundary through the fixed disagreement at the origin. The argument gives no agreement on that boundary; nor does it yet imply that the boundary has rational slope.
+
+\subsection{Polynomial annihilators}
+We recall the elementary implication from low complexity to an annihilator~\cite[Lemma~5]{KS}.
+
+\begin{lemma}\label{lem:ann-exists}
+If $c$ is rational-valued and $P_c(D)\le|D|$ for a nonempty finite set $D$, then $\Ann(c)\ne\{0\}$.
+\end{lemma}
+\begin{proof}
+Put $N=|D|$. The at most $N$ augmented vectors $(1,p)\in\Q^{N+1}$, for $p\in\Pat_c(D)$, have a nonzero common orthogonal vector $(\beta,(b_u)_{u\in D})$. Some $b_u$ is nonzero, since otherwise $\beta$ would also vanish. Hence
+\[
+ g=\sum_{u\in D}b_u\mon u\ne0,
+ \qquad g(T)c=-\beta\mathbf1,
+\]
+where $\mathbf1$ is the constant configuration with value one. For any $h\ne0$, the polynomial $(\mon h-1)g$ is nonzero and annihilates $c$.
+\end{proof}
+
+We use the following consequence of the Kari--Szabados product-annihilator theorem~\cite[Theorem~11 and Corollary~12]{KS}. Appendix~\ref{app:product} gives a proof of this version from their prime-dilation argument. Unlike the full statement of their corollary, it allows repeated directions.
+
+\begin{proposition}[Kari--Szabados]\label{prop:product}
+If a nonzero finite-range rational configuration $c$ has a nonzero annihilator, then
+\begin{equation}\label{eq:product-ann}
+ \De_{h_1}\cdots\De_{h_s}c=0
+\end{equation}
+for some $s\ge1$ and nonzero $h_1,\ldots,h_s\in\Z^2$.
+\end{proposition}
+
+For finite-range configurations, the removal of repeated factors below is a special case of~\cite[Lemmas~9--10]{KS}. The following bounded-sequence argument is all that we need.
+
+\begin{lemma}\label{lem:repeated}
+Let $e$ be a bounded rational configuration, let $h\ne0$, and let $s\ge1$. If $\De_h^s e=0$, then $\De_h e=0$.
+\end{lemma}
+\begin{proof}
+For each $z$, set $a_j=e(z+jh)$. If the $s$th difference of this bounded sequence is zero, its $(s-1)$st difference is constant. For $s\ge2$, a nonzero such constant would make the bounded $(s-2)$nd difference grow linearly. The constant is therefore zero. Repetition proves that the first difference vanishes.
+\end{proof}
+
+\subsection{A period parallel to the boundary}
+We use the half-plane cancellation argument of Kari and Moutot~\cite[Proposition~13 and the proof of Lemma~17]{KM}. It removes every difference factor transverse to the boundary; boundedness then deals with any repeated factors in the remaining direction.
+
+\begin{proposition}\label{prop:tangent-period}
+Suppose $d\ne0$ has finite rational range and a nonzero annihilator. If $d(z)=0$ whenever $\nu\cdot z<0$, where $\nu\ne0$, then there are a primitive $v\in\Z^2$ and $q\ge1$ such that
+\[
+ \nu\cdot v=0,\qquad T^{qv}d=d.
+\]
+\end{proposition}
+\begin{proof}
+Let $\mathcal V_\nu$ be the vector space of rational configurations $e$ for which, for some $b\in\R$,
+\[
+ e(z)=0\quad\text{whenever }\nu\cdot z<b.
+\]
+Allowing $b$ to depend on $e$ makes this space invariant under every shift. If $\nu\cdot h\ne0$, then $\De_h$ is injective on $\mathcal V_\nu$: an $h$-periodic configuration in this space vanishes, since every $h$-orbit enters its vanishing half-plane.
+
+Apply Proposition~\ref{prop:product} to $d$. The difference operators commute and preserve $\mathcal V_\nu$, so each factor transverse to $\nu^\perp$ can be cancelled by this injectivity. Some factor remains, since otherwise $d=0$. All remaining vectors lie on the line $\nu^\perp$. Choose a primitive lattice vector $v$ along it and write the resulting relation as
+\[
+ \prod_{i=1}^r(T^{q_i v}-I)d=0,
+ \qquad q_i\in\Z\setminus\{0\}.
+\]
+Let $q$ be a positive common multiple of the $|q_i|$. In $\Q[Z^{\pm1}]$, each $Z^{q_i}-1$ divides $Z^q-1$. Their product therefore divides $(Z^q-1)^r$, and $\De_{qv}^{\,r}d=0$. Lemma~\ref{lem:repeated} gives $\De_{qv}d=0$.
+\end{proof}
+
+Cancellation here takes place on $\mathcal V_\nu$, not on the space of all configurations, where a difference operator is certainly not injective. The argument is also specifically two-dimensional: all surviving directions belong to a single line. A surviving nonzero lattice vector shows that this line has rational slope.
+
+\begin{corollary}\label{cor:periodic-difference}
+If $c$ is a nonperiodic finite-range rational configuration with a nonzero annihilator, then there are $x,y\in X_c$ such that $d=x-y$ is nonzero, vanishes on an open half-plane, and has a period parallel to its boundary.
+\end{corollary}
+\begin{proof}
+Nonperiodicity makes all translates of $c$ distinct. Apply Lemma~\ref{lem:halfplane-pair}. By~\eqref{eq:inheritance}, the difference inherits an annihilator of $c$, so Proposition~\ref{prop:tangent-period} applies.
+\end{proof}
+
+\section{The annihilator ideal of the difference}\label{sec:ideal}
+A period $qv$ gives an annihilator $\mon{qv}-1$. Theorem~\ref{thm:descent}, however, requires a generator of the \emph{whole} annihilator ideal. The vanishing half-plane supplies the additional information: it prevents a recurrence in the transverse direction from introducing a relation not already forced by the minimal polynomial in direction $v$.
+
+\begin{theorem}\label{thm:exact-ideal}
+Let $d:\Z^2\to\Q$ be nonzero. Suppose that $T^{qv}d=d$, where $v$ is primitive and $q\ge1$, and that $d$ vanishes on an open half-plane with boundary parallel to $v$. Then there is a monic nonconstant $\phi\in\Q[Z]$ such that
+\begin{equation}\label{eq:exact-ideal}
+ \phi\mid Z^q-1,
+ \qquad \Ann(d)=\bigl(\phi(\mon v)\bigr).
+\end{equation}
+\end{theorem}
+\begin{proof}
+Complete $v$ to a lattice basis $v,w$, orient $w$ toward the other half-plane, and translate if necessary. In these coordinates we can write
+\[
+ d(a+q,b)=d(a,b),\qquad d(a,b)=0\quad(b<0).
+\]
+Translation leaves the annihilator unchanged. Let $Z,W$ denote the variables for shifts in the $v,w$ directions.
+
+Choose a monic polynomial $\phi(Z)$ of least degree among the nonzero polynomials annihilating $d$ in the first coordinate. Division of $Z^q-1$ by $\phi$ leaves an annihilating remainder of smaller degree, which must vanish. Thus $\phi\mid Z^q-1$. Since $d\ne0$, this polynomial is nonconstant; since $Z^q-1$ is square-free over $\Q$, so is $\phi$, and $\phi(0)\ne0$.
+
+We claim that every annihilator $F(Z,W)$ is divisible by $\phi$. After multiplication by a Laurent monomial, assume that $F$ is an ordinary polynomial. If some irreducible factor $\pi$ of $\phi$ does not divide $F$, put
+\[
+ e=(\phi/\pi)(T^v)d.
+\]
+This configuration is nonzero by minimality of $\phi$. It still vanishes on negative rows, and
+\[
+ \pi(T^v)e=0,\qquad F(T^v,T^w)e=0.
+\]
+The purpose of passing from $d$ to $e$ is that every polynomial in $Z$ not divisible by $\pi$ acts invertibly on the kernel of $\pi(T^v)$, by B\'ezout's identity.
+
+Write $F(Z,W)=\sum_j f_j(Z)W^j$, let $j_*$ be the largest index with $\pi\nmid f_{j_*}$, and let $b_0$ be the first nonzero row of $e$. Evaluate $F(T^v,T^w)e=0$ on row $b_0-j_*$. Terms with $j>j_*$ vanish because their coefficients are multiples of $\pi$; terms with $j<j_*$ vanish because they sample rows below $b_0$. Thus the nonzero row $u=e(\,\cdot\,,b_0)$ satisfies
+\[
+ f_{j_*}(T^v)u=0,\qquad \pi(T^v)u=0.
+\]
+Choose $A,B\in\Q[Z]$ with $A\pi+Bf_{j_*}=1$. Applying this identity to $u$ gives $u=0$, a contradiction.
+
+Every irreducible factor of $\phi$ therefore divides every coefficient of $F$ as a polynomial in $W$. Squarefreeness gives $\phi\mid F$. Restoring the Laurent monomial proves the same assertion in the Laurent ring. Conversely, every multiple of $\phi$ annihilates $d$. The change of lattice basis now yields~\eqref{eq:exact-ideal}.
+\end{proof}
+
+The minimal polynomial is necessary, not just a convenient normalization. For
+$d(i,j)=\mathbf1_{\{j\ge0\}}$, the theorem gives $\Ann(d)=(X-1)$, although $X^2-1$ also annihilates $d$. On an $m\times n$ rectangle with $m\ge2$, the translated restrictions of $d$ span an $n$-dimensional space. The kernel of the map induced by $X^2-1$ has dimension $2n$. Choosing the larger period polynomial would therefore destroy the equality~\eqref{eq:full-kernel} on which the pattern count depends.
+
+\begin{example}\label{ex:sharp}
+The boundary term in Theorem~\ref{thm:descent} can be attained. Let
+\[
+ d(i,j)=\mathbf1_{\{j\ge i\}},\qquad \Phi=XY-1.
+\]
+The zero configuration belongs to $X_d$, and Theorem~\ref{thm:exact-ideal} gives $\Ann(d)=(XY-1)$. On $R_{m,n}$, the values of $j-i$ range over $m+n-1$ consecutive integers. Moving the threshold across these levels gives $m+n$ patterns, including the two constant ones. Since $\Phi(T)d=0$ and $|S|=(m-1)(n-1)$,
+\[
+ P_d(m,n)-P_{\Phi(T)d}(S)=m+n-1
+ =mn-(m-1)(n-1)=|R|-|S|.
+\]
+\end{example}
+
+\section{The case of two difference operators}\label{sec:twofactor}
+We prove the result needed when the polynomial image of a minimal-area counterexample is periodic.
+
+\begin{theorem}\label{thm:twofactor}
+Let $c:\Z^2\to\Q$ have finite range. Suppose that
+\[
+ P_c(m,n)\le mn,\qquad \De_h\De_t c=0
+\]
+for some $m,n\ge1$ and nonzero $h,t\in\Z^2$. Then $c$ is periodic. If $h,t$ are nonparallel, a nonzero integer multiple of one of them is a period.
+\end{theorem}
+
+A sum of configurations with periods $h,t$ satisfies this mixed-difference identity. Szabados proved the corresponding two-periodic-summand theorem~\cite[Theorem~1]{Sz}. The argument below follows his proof: we retain the boundary selection, the ambiguous-extension count, and the finite description of strips, with their sources indicated at the relevant lemmas. The change is the periodicity extension in Lemma~\ref{lem:row-lifting}: the mixed-difference identity and a finite recurrence replace the general strip-extension result of~\cite[Lemma~3 and Appendix~A.2]{Sz}.
+
+Here is the plan for nonparallel $h,t$. We find two translates agreeing on a sufficiently wide strip but differing on its next row, unless a multiple of $t$ is already a period. Low complexity supplies a local unique-extension rule on that boundary. The disagreement forces so few patterns inside the strip that Morse--Hedlund gives periodicity there. The local rule then extends periodicity to a few more rows. Only finitely many rows are needed: a difference of $c$ is $t$-periodic, and their common period consequently extends to the plane.
+
+\subsection{One-dimensional lemmas}
+\begin{lemma}\label{lem:finite-states}
+Let $s:\Z\to A$ have finite range. Suppose that
+\[
+ s_i=s_j\quad\Longrightarrow\quad s_{i+1}=s_{j+1}
+ \qquad(i,j\in\Z).
+\]
+Then $s$ has a positive period at most $|s(\Z)|$. The same conclusion holds with $i-1,j-1$ in place of $i+1,j+1$.
+\end{lemma}
+\begin{proof}
+Successor defines a map on the finite set $s(\Z)$. It is surjective, since every occurrence has a predecessor, and hence is a permutation. The sequence follows one cycle of that permutation. Reversing the indices proves the other version.
+\end{proof}
+
+For completeness, we give the usual extension-count proof of the form of Morse--Hedlund used below; compare~\cite[Section~2.1]{CK}.
+
+\begin{corollary}[Morse--Hedlund]\label{cor:morse}
+If a finite-range bi-infinite word has at most $n$ words of length $n$, where $n\ge1$, then it has a positive period at most $n$.
+\end{corollary}
+\begin{proof}
+Let $p(j)$ count its length-$j$ words, with $p(0)=1$. The counts are nondecreasing. If all $n$ increases up to $p(n)$ were strict, then $p(n)\ge n+1$. Hence $p(j+1)=p(j)$ for some $0\le j<n$. Restriction of occurring $(j+1)$-words to their first $j$ symbols is therefore bijective. Those $j$ symbols determine the following symbol, so the successive $(j+1)$-words satisfy the hypothesis of Lemma~\ref{lem:finite-states}. There are $p(j+1)\le n$ such words. Their period is a period of the original word.
+\end{proof}
+
+The next lemma is the finite-memory version with a periodic parameter. We state the unique-extension property only for inputs that occur; no rule on unused inputs is needed.
+
+\begin{lemma}\label{lem:forcing}
+Let $a:\Z\to A$ have finite range, and let $\eta:\Z\to E$ be periodic. Suppose that, for some $k\ge0$,
+\[
+ \eta_i=\eta_j,\quad a_{i+\ell}=a_{j+\ell}\ (0\le\ell<k)
+ \quad\Longrightarrow\quad a_{i+k}=a_{j+k}.
+\]
+Then $a$ is periodic.
+\end{lemma}
+\begin{proof}
+If $p\ge1$ is a period of $\eta$, the sequence
+\[
+ s_i=(i\bmod p,a_i,a_{i+1},\ldots,a_{i+k})
+\]
+has finite range and a uniquely determined successor. Indeed, equality of two such states gives equality of $\eta$ at the next indices and of the $k$ symbols needed there, and the hypothesis gives the one new symbol. Apply Lemma~\ref{lem:finite-states}. This also covers $k=0$.
+\end{proof}
+
+The output need not inherit a prescribed period of the parameter. For example, a constant parameter can accompany the recurrence $a_{i+1}=1-a_i$, whose nonconstant binary solutions have period two. We shall take common multiples of the finitely many row periods that arise, rather than try to preserve a prescribed period at each step.
+
+\subsection{Unique extension across part of a boundary}
+Fix a primitive $v$ and a complementary vector $w$, so that $v,w$ is a basis of $\Z^2$. The set $\{iv+jw:i\in\Z\}$ will be called row $j$. Points on a row are ordered by the integer $i$. These coordinates describe subsets of the original lattice; a rectangle in the original coordinates need not be a rectangle in $(i,j)$ coordinates.
+
+The following is a variant of the edge-removal construction in~\cite[Lemma~2]{Sz}, followed by the unique-extension step from the proof of~\cite[Lemma~4]{Sz}. We delete a shorter extreme row at each stage. The interpolation argument of~\cite[Lemma~2.11]{CK} then bounds the lengths of the remaining rows, as needed for Morse--Hedlund.
+
+\begin{lemma}\label{lem:boundary-window}
+Suppose $P_c(R)\le|R|$ for a nonempty rectangle $R$. After choosing the sign of $w$ and translating a subset of $R$, there is a finite set $B$ with bottom row
+\[
+ E=\{0,v,\ldots,(e-1)v\},\qquad e\ge1,
+\]
+and top row $H\ge0$ such that, with $C=B\setminus E$,
+\begin{equation}\label{eq:boundary-cost}
+ P_c(B)\le|B|,\qquad r:=P_c(B)-P_c(C)<e.
+\end{equation}
+If $H>0$, each integer row from $0$ to $H$ contains at least $e-1$ consecutive points of $B$. Furthermore, for some $0\le k<e$, put
+\begin{equation}\label{eq:boundary-rule-domain}
+ D_k=C\cup\{0,v,\ldots,(k-1)v\},
+\end{equation}
+where the second set is empty for $k=0$. Then, for every $u,u'\in\Z^2$,
+\begin{equation}\label{eq:boundary-rule}
+ \restr{T^u c}{D_k}=\restr{T^{u'}c}{D_k}
+ \quad\Longrightarrow\quad c(u+kv)=c(u'+kv).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Starting from $R$, repeatedly delete the nonempty extreme row with fewer sites, choosing either in a tie. Each remaining set is the set of lattice points in the real rectangle intersected with a closed strip. Its nonempty rows are segments of consecutive lattice sites.
+
+Suppose that the current extreme rows have indices $j_-<j_+$ and tangential intervals $[\alpha_-,\beta_-]$ and $[\alpha_+,\beta_+]$. If the shorter row has $e$ sites, both interval lengths are at least $e-1$. For $j_-<j<j_+$, let $\lambda=(j-j_-)/(j_+-j_-)$. Convexity puts the interval
+\[
+ [(1-\lambda)\alpha_-+\lambda\alpha_+,\,
+   (1-\lambda)\beta_-+\lambda\beta_+]
+\]
+in row $j$ of the real set. Its length is at least $e-1$, so it contains at least $e-1$ consecutive integers. They give points of the current window, proving the row-length bound at each deletion step.
+
+The discrepancy begins at $\delta_c(R)\le0$ and ends at $\delta_c(\varnothing)=1$. At the first step from nonpositive to positive discrepancy, write the deletion as $B\to C=B\setminus E$. Then
+\[
+ 0<\delta_c(C)-\delta_c(B)
+ =e-\bigl(P_c(B)-P_c(C)\bigr),
+\]
+which proves~\eqref{eq:boundary-cost}. Reverse $w$ if necessary to place the deleted row below the others, and translate its first point to the origin.
+
+For $0\le i\le e$, let $D_i=C\cup\{0,v,\ldots,(i-1)v\}$. The $e$ nonnegative integer increments $P_c(D_{i+1})-P_c(D_i)$ sum to $r<e$. Some increment is zero. At that index $k$, restriction from occurring $D_{k+1}$-patterns to occurring $D_k$-patterns is a bijection. This is~\eqref{eq:boundary-rule}.
+\end{proof}
+
+The row-length bound is $e-1$, not $e$: the endpoints of the interpolated interval need not be integers. In the $(v,w)$ coordinates, the set
+\[
+ \{(0,0),(1,0),(1,1),(1,2),(2,2)\}
+\]
+illustrates the loss. Its extreme rows have two sites each, but its middle row has only one.
+
+\subsection{Two translates agreeing on a strip}
+Assume in the next lemmas that
+\begin{equation}\label{eq:two-normalized}
+ h=qv,\qquad t=av+Mw,\qquad q,M\ge1,\quad a\in\Z,
+ \qquad \De_h\De_t c=0.
+\end{equation}
+The identity says that $\De_h c$ is $t$-periodic. Thus the differences between the translates $T^{jt}c$ are $h$-periodic. As in Szabados's proof~\cite[Section~6]{Sz}, a finite block consequently distinguishes their restrictions to an infinite strip. We express the resulting alternative using Lemma~\ref{lem:finite-states}.
+
+\begin{lemma}\label{lem:strip-states}
+For every $W\ge M$, either a nonzero integer multiple of $t$ is a period of $c$, or there are translates $x,y$ of $c$ with
+\begin{equation}\label{eq:strip-pair}
+ \De_h(x-y)=0,\qquad x=y\text{ on rows }1,\ldots,W,
+ \qquad x\ne y\text{ somewhere on row }0.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Let $S_W$ be the union of rows $1,\ldots,W$, and put
+\[
+ \sigma_j=\restr{T^{jt}c}{S_W},\qquad
+ F_W=\{iv+\ell w:0\le i<q,\ 1\le\ell\le W\}.
+\]
+For any $j,k$, the difference $T^{jt}c-T^{kt}c$ is $qv$-periodic. Its vanishing on $F_W$ is therefore equivalent to its vanishing on $S_W$. Restriction to $F_W$ is thus injective on the set $\{\sigma_j:j\in\Z\}$, which is consequently finite. The individual $\sigma_j$ need not be $qv$-periodic.
+
+If $\sigma_j=\sigma_k$ always implies $\sigma_{j-1}=\sigma_{k-1}$, Lemma~\ref{lem:finite-states} gives a positive period $p$ of $(\sigma_j)$. Since $W\ge M$, the strips $S_W+jt$ cover $\Z^2$. Equality of the strip restrictions at indices $j$ and $j+p$ then gives $T^{pt}c=c$ everywhere.
+
+Otherwise, choose $j,k$ with $\sigma_j=\sigma_k$ but $\sigma_{j-1}\ne\sigma_{k-1}$. Set $x_0=T^{jt}c$ and $y_0=T^{kt}c$. They agree on $S_W$ but differ on $S_W-t$, whose rows range from $1-M$ to $W-M$. Every positive row in that range already agrees. Let $s\in\{1-M,\ldots,0\}$ be the largest index of a differing row in this range, and put
+\[
+ x=T^{sw}x_0,\qquad y=T^{sw}y_0.
+\]
+They differ on row zero. The old rows $s+1,\ldots,0$ agree by the choice of $s$, and the old rows $1,\ldots,W$ agree by assumption. Since $s\le0$, this includes the old rows $s+1,\ldots,s+W$, giving the required agreement on the new rows $1,\ldots,W$. Their difference remains $h$-periodic.
+\end{proof}
+
+\subsection{Counting extensions and applying Morse--Hedlund}
+We adapt the argument of Cyr and Kra~\cite[Lemma~2.24]{CK}, also used by Szabados~\cite[Lemma~4]{Sz}. Grouping finitely many rows into one word converts the extension bound into a word-complexity bound. Here the periodic difference permits a single forward boundary rule. Fix $B$ and the notation of Lemma~\ref{lem:boundary-window}, with $H\ge1$.
+
+\begin{lemma}\label{lem:periodic-interior}
+Suppose that translates $x,y$ of $c$ agree on rows $1,\ldots,H$, differ on row zero, and have $qv$-periodic difference for some $q\ge1$. Then $r\ge1$, and $x$ restricted to rows $1,\ldots,H$ has a common period $pv$ with $1\le p\le r$.
+\end{lemma}
+\begin{proof}
+The two configurations cannot agree on $E+iv$ for any $i\in\Z$. Such agreement and~\eqref{eq:boundary-rule} would extend their boundary agreement indefinitely to the right. To obtain the next point, place $kv$ there: the preceding $k<e$ boundary values agree, and all values on the corresponding translate of $C$ agree. For $k=0$, no preceding boundary values are needed. Since the boundary difference is $qv$-periodic, vanishing on a right half-line would imply vanishing on the whole boundary, contrary to assumption.
+
+Thus every $C$-pattern of $x$ encountered under shifts by $iv$ has at least two distinct $B$-extensions in $c$. Let $\pi:\Pat_c(B)\to\Pat_c(C)$ be restriction. The number of patterns with two or more extensions is at most
+\[
+ \sum_{p\in\Pat_c(C)}\bigl(|\pi^{-1}(p)|-1\bigr)
+ =P_c(B)-P_c(C)=r.
+\]
+At least one such pattern occurs, so $r\ge1$. Since $r<e$, each row of $C$ has at least $e-1\ge r$ consecutive sites.
+
+To obtain one period for all these rows, regard them together as a word over a product alphabet. If $\alpha_jv+jw$ is the first site of row $j$ of $C$, define
+\[
+ b_i=\bigl(x((\alpha_j+i)v+jw)\bigr)_{j=1}^{H},\qquad i\in\Z.
+\]
+Every length-$r$ word of $b$ is a restriction of one of the translated $C$-patterns just counted. There are at most $r$ such words. Corollary~\ref{cor:morse} gives a period $p\le r$ for $b$, and each coordinate gives the period $pv$ on its entire row.
+\end{proof}
+
+The argument uses only a forward unique-extension rule. Agreement propagates to a half-line, and the periodic difference then extends it to the entire boundary. This is the point at which the mixed-difference hypothesis enters the boundary count.
+
+\subsection{Extending row periods}
+\begin{lemma}\label{lem:row-lifting}
+Assume~\eqref{eq:two-normalized} and the unique-extension property~\eqref{eq:boundary-rule}, with $H\ge1$. If rows $1,\ldots,H$ of $c$ are individually periodic in direction $v$, then a nonzero integer multiple of $h$ is a period of $c$.
+\end{lemma}
+\begin{proof}
+Suppose that the $H$ rows immediately above row $j$ are periodic. Set
+\[
+ a_i=c(iv+jw),\qquad \eta_i=\restr{T^{iv+jw}c}{C}.
+\]
+A common positive period of those $H$ rows makes $\eta$ periodic. Property~\eqref{eq:boundary-rule} says exactly that $\eta_i$ and $a_i,\ldots,a_{i+k-1}$ determine $a_{i+k}$. Lemma~\ref{lem:forcing} shows that row $j$ is periodic as well.
+
+Starting from rows $1,\ldots,H$, repeat this argument downward until $M$ consecutive rows are periodic. This requires at most $\max(0,M-H)$ new rows. Choose a positive integer $p$ divisible by $q$ and by a period of each of those $M$ rows, and set $d=\De_{pv}c$. The configuration $d$ vanishes on the chosen rows. Writing $p=Lq$, we have
+\begin{equation}\label{eq:telescoping-lift}
+ d=\sum_{i=0}^{L-1}T^{iqv}\De_{qv}c.
+\end{equation}
+Every summand is $t$-periodic by~\eqref{eq:two-normalized}, so $d$ is $t$-periodic. Translation by $t$ changes the row index by $M$. Every site can therefore be moved along its $t$-orbit to one of the $M$ consecutive rows on which $d$ vanishes. Hence $d=0$ everywhere, and $pv=Lh$ is a nonzero period.
+\end{proof}
+
+Only finitely many row periods are combined. Individual periodicity of every row would not by itself imply a common period: for example,
+\[
+ c(i,j)=\mathbf1_{\{i\equiv0\pmod{|j|+2}\}}
+\]
+has no nonzero horizontal period. In the lemma, it is the preexisting $t$-periodicity of $\De_{qv}c$ that propagates a common period from finitely many rows.
+
+\begin{proof}[Proof of Theorem~\ref{thm:twofactor}]
+If $h,t$ are parallel, reverse one vector if necessary and take a common positive integer multiple $u=ah=bt$, with $a,b\ge1$. The telescoping expressions for $\De_u$ in terms of $\De_h$ and $\De_t$ give $\De_u^2c=0$. Lemma~\ref{lem:repeated} yields $\De_uc=0$.
+
+Suppose now that $h,t$ are nonparallel. Write $h=qv$ with $v$ primitive and $q\ge1$, and complete $v$ to a lattice basis. Apply Lemma~\ref{lem:boundary-window} to the witnessing rectangle to obtain $B$ and a sign of $w$. Reverse $t$ if necessary so that $t=av+Mw$ with $M>0$. This preserves the identity because $\De_{-t}=-T^{-t}\De_t$.
+
+If $H=0$, then $B=E$ and $P_c(E)\le e$. Every row word has at most $e$ words of length $e$. By Corollary~\ref{cor:morse}, each row has a period at most $e$, so $q(e!)v$ is a period of the whole configuration and a multiple of $h$.
+
+For $H\ge1$, choose $W\ge\max(H,M)$. Lemma~\ref{lem:strip-states} either gives a period that is a multiple of $t$, or gives translates $x,y$ satisfying~\eqref{eq:strip-pair}. In the latter case, Lemma~\ref{lem:periodic-interior} makes rows $1,\ldots,H$ of $x$ periodic. The mixed identity and unique-extension property hold for $x$, so Lemma~\ref{lem:row-lifting} gives it a period that is a multiple of $h$. A period of a translate is a period of $c$.
+\end{proof}
+
+\section{Proof of Nivat's conjecture}\label{sec:completion}
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Suppose a counterexample exists. After rationally labeling its alphabet, choose a nonperiodic finite-range rational configuration $c$ with a witnessing rectangle $R_{m,n}$ of least possible area $N=mn$. The minimum is taken over all finite rational alphabets.
+
+Lemma~\ref{lem:ann-exists} gives a nonzero annihilator of $c$. By Corollary~\ref{cor:periodic-difference}, there are $x,y\in X_c$ whose difference $d$ is nonzero, vanishes on a half-plane, and has a period $qv$ parallel to its boundary, with $v$ primitive. Theorem~\ref{thm:exact-ideal} gives
+\[
+ \Ann(d)=(\Phi),\qquad
+ \Phi=\phi(\mon v),\qquad \phi\mid Z^q-1,
+\]
+where $\phi$ is monic, nonconstant, and has nonzero constant term.
+
+The configuration $c'=\Phi(T)c$ still has finite rational range. Corollary~\ref{cor:line-descent} gives a nonempty rectangle $S$ of area less than $N$ with $P_{c'}(S)\le|S|$. Translating $S$ if needed, minimality of $N$ makes $c'$ periodic. Choose a nonzero period $t$ of $c'$. Then
+\[
+ \De_t\phi(T^v)c=0.
+\]
+Multiply by $\psi(T^v)$, where $\psi(Z)=(Z^q-1)/\phi(Z)$. The result is
+\[
+ \De_t\De_{qv}c=0.
+\]
+Theorem~\ref{thm:twofactor}, applied to $c$ and its original rectangular complexity bound, makes $c$ periodic, a contradiction.
+\end{proof}
+
+The two uses of the alphabet and rectangle in this argument are different. The alphabet may change under $\Phi(T)$, which is why the minimum ranges over all finite rational alphabets. The smaller rectangle remains in the original lattice coordinates, so no complexity assertion on a period sublattice is required.
+
+\appendix
+\section{A proof of the product-annihilator statement}\label{app:product}
+We prove Proposition~\ref{prop:product}. The arithmetic step is Lemma~7 of Kari and Szabados~\cite{KS}, and the resulting product is the one in their Theorem~11. Their Lemma~8 uses the dilation relations in a Vandermonde argument at common zeros. The identity below carries out the corresponding elimination directly in the Laurent-polynomial ring.
+
+\begin{proof}[Proof of Proposition~\ref{prop:product}]
+Scale $c$ and a nonzero annihilator separately so that both are integral, and write
+\[
+ f=\sum_{i=0}^{k-1}a_i\mon{u_i}
+\]
+with distinct $u_i$ and nonzero integers $a_i$. Since $c\ne0$, a monomial cannot annihilate it, so $k\ge2$. Let
+\[
+ K=\max_z|c(z)|\sum_i|a_i|,\qquad \rho=K!,\qquad
+ f_n=\sum_i a_i\mon{nu_i}\quad(n\ge1).
+\]
+The positive integer $K$ bounds every value of $f_n(T)c$, independently of $n$.
+
+If $f_n$ annihilates $c$ and $p>K$ is prime, reduction modulo $p$ gives
+\[
+ f_{np}\equiv f_n^{\,p}\pmod p.
+\]
+Thus every value of $f_{np}(T)c$ is divisible by $p$ and has absolute value at most $K<p$. It vanishes. Starting with $f_1=f$ and factoring an integer into primes shows that $f_n$ annihilates $c$ whenever $\gcd(n,\rho)=1$. In particular,
+\begin{equation}\label{eq:dilation-family}
+ f_{1+j\rho}\in\Ann(c)\qquad(j\ge0).
+\end{equation}
+
+Put $M_i=\mon{\rho u_i}$. The relations in~\eqref{eq:dilation-family} have the form
+$f_{1+j\rho}=\sum_i a_i\mon{u_i}M_i^j$. We can therefore take linear combinations of them using the coefficients of a polynomial that vanishes at $M_1,\ldots,M_{k-1}$. Namely, write
+\[
+ H(U)=\prod_{i=1}^{k-1}(U-M_i)=\sum_{j=0}^{k-1}H_jU^j,
+ \qquad H_j\in\LL.
+\]
+Then
+\begin{align}
+ \sum_{j=0}^{k-1}H_jf_{1+j\rho}
+ &=\sum_{i=0}^{k-1}a_i\mon{u_i}H(M_i)\notag\\
+ &=a_0\mon{u_0}\prod_{i=1}^{k-1}(M_0-M_i).
+ \label{eq:interpolation}
+\end{align}
+The left side annihilates $c$. The scalar and monomial factors on the right are units in $\LL$. Removing them gives the annihilator
+\[
+ \prod_{i=1}^{k-1}\bigl(\mon{\rho(u_i-u_0)}-1\bigr).
+\]
+All vectors $\rho(u_i-u_0)$ are nonzero, as required.
+\end{proof}
+
+For a trinomial $f=\alpha+\beta X+\gamma Y$, identity~\eqref{eq:interpolation} reads
+\[
+ f_{1+2\rho}-(X^\rho+Y^\rho)f_{1+\rho}+X^\rho Y^\rho f_1
+ =\alpha(1-X^\rho)(1-Y^\rho).
+\]
+No separation of the directions of the resulting binomials is needed in Proposition~\ref{prop:tangent-period}; boundedness removes repetitions after the transverse factors have been cancelled.
+
+\subsection*{Acknowledgement}
+An AI language model was used in developing the arguments, drafting the text, and reviewing the exposition and references.
+
+\begin{thebibliography}{ELMW}
+\bibitem[BL]{BL}
+M.~Boyle and D.~Lind,
+\emph{Expansive subdynamics},
+Trans. Amer. Math. Soc. \textbf{349} (1997), no.~1, 55--102.
+\href{https://doi.org/10.1090/S0002-9947-97-01634-6}{doi:10.1090/S0002-9947-97-01634-6}.
+
+\bibitem[CK]{CK}
+V.~Cyr and B.~Kra,
+\emph{Nonexpansive $\mathbb Z^2$-subdynamics and Nivat's conjecture},
+Trans. Amer. Math. Soc. \textbf{367} (2015), no.~9, 6487--6537.
+\href{https://doi.org/10.1090/S0002-9947-2015-06391-0}{doi:10.1090/S0002-9947-2015-06391-0}.
+Numbering refers to \href{https://arxiv.org/abs/1208.4090v2}{arXiv:1208.4090v2} (2013).
+
+\bibitem[ELMW]{ELMW}
+M.~Einsiedler, D.~Lind, R.~Miles, and T.~Ward,
+\emph{Expansive subdynamics for algebraic $\mathbb Z^d$-actions},
+Ergodic Theory Dynam. Systems \textbf{21} (2001), no.~6, 1695--1729.
+\href{https://doi.org/10.1017/S014338570100181X}{doi:10.1017/S014338570100181X}.
+
+\bibitem[KM]{KM}
+J.~Kari and E.~Moutot,
+\emph{Decidability and periodicity of low complexity tilings},
+Theory Comput. Syst. \textbf{67} (2023), 125--148.
+\href{https://doi.org/10.1007/s00224-021-10063-8}{doi:10.1007/s00224-021-10063-8}.
+
+\bibitem[KS]{KS}
+J.~Kari and M.~Szabados,
+\emph{An algebraic geometric approach to Nivat's conjecture},
+Inform. and Comput. \textbf{271} (2020), article 104481.
+\href{https://doi.org/10.1016/j.ic.2019.104481}{doi:10.1016/j.ic.2019.104481}.
+Numbered statements cited here refer to
+\href{https://arxiv.org/abs/1605.05929v1}{arXiv:1605.05929v1} (2016).
+
+\bibitem[MH]{MH}
+M.~Morse and G.~A.~Hedlund,
+\emph{Symbolic dynamics},
+Amer. J. Math. \textbf{60} (1938), no.~4, 815--866.
+\href{https://doi.org/10.2307/2371264}{doi:10.2307/2371264}.
+
+\bibitem[Sz]{Sz}
+M.~Szabados,
+\emph{Nivat's conjecture holds for sums of two periodic configurations},
+in \emph{SOFSEM 2018: Theory and Practice of Computer Science},
+Lecture Notes in Comput. Sci., vol.~10706, Springer, Cham, 2018, pp.~539--551.
+Numbered statements cited here refer to
+\href{https://arxiv.org/abs/1710.05360v1}{arXiv:1710.05360v1} (2017).
+\end{thebibliography}
+\end{document}

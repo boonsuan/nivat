@@ -1,0 +1,4 @@
+$ lake env lean scripts/RawStatements.lean
+'NivatAudit.finite_alphabet_rectangle_period' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NivatAudit.rational_mixed_difference_period' depends on axioms: [propext, Classical.choice, Quot.sound]
+EXIT_CODE=0

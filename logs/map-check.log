@@ -1,0 +1,317 @@
+Nivat.Algebra.act : Nivat.Laurent → Nivat.Configuration ℚ → Nivat.Configuration ℚ
+@Nivat.Algebra.exact_horizontal_line : ∀ {d : Nivat.Configuration ℚ},
+  d ≠ 0 →
+    ∀ {q : ℕ},
+      0 < q →
+        Nivat.IsPeriod d (↑q, 0) →
+          (∀ b < 0, Nivat.Algebra.RowZero d b) →
+            ∃ φ,
+              φ.Monic ∧
+                0 < φ.natDegree ∧
+                  φ ∣ Polynomial.X ^ q - 1 ∧
+                    ∀ (f : Nivat.Laurent), Nivat.Algebra.act f d = 0 ↔ (Nivat.Algebra.lineEval (1, 0)) φ ∣ f
+Nivat.Algebra.exact_line_in_basis : ∀ (e : Nivat.Lattice ≃+ Nivat.Lattice) {d : Nivat.Configuration ℚ},
+  d ≠ 0 →
+    ∀ {q : ℕ},
+      0 < q →
+        Nivat.IsPeriod d (e (↑q, 0)) →
+          (∀ b < 0, ∀ (a : ℤ), d (e (a, b)) = 0) →
+            ∃ φ,
+              φ.Monic ∧
+                0 < φ.natDegree ∧
+                  φ ∣ Polynomial.X ^ q - 1 ∧
+                    ∀ (f : Nivat.Laurent), Nivat.Algebra.act f d = 0 ↔ (Nivat.Algebra.lineEval (e (1, 0))) φ ∣ f
+Nivat.Algebra.exists_affine_annihilator : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c →
+    ∀ (D : Finset Nivat.Lattice),
+      Nivat.complexity c D ≤ D.card → ∃ g, g ≠ 0 ∧ g.coeff.support ⊆ D ∧ ∃ κ, Nivat.Algebra.act g c = fun x => κ
+Nivat.Algebra.exists_nonzero_annihilator : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c →
+    ∀ (D : Finset Nivat.Lattice), Nivat.complexity c D ≤ D.card → ∃ f, f ≠ 0 ∧ Nivat.Algebra.act f c = 0
+@Nivat.Algebra.exists_product_differences_of_annihilator : ∀ {c : Nivat.Configuration ℚ},
+  Nivat.FiniteRange c →
+    c ≠ 0 →
+      ∀ {f : Nivat.Laurent},
+        f ≠ 0 →
+          Nivat.Algebra.act f c = 0 →
+            ∃ hs,
+              hs ≠ [] ∧
+                (∀ h ∈ hs, h ≠ 0) ∧ Nivat.Algebra.act (List.map (fun h => Nivat.Algebra.monomial h - 1) hs).prod c = 0
+Nivat.Algebra.exists_smaller_rectangle_of_annihilator : ∀ (Φ : Nivat.Laurent) (hΦ : Φ ≠ 0) (d : Nivat.Configuration ℚ),
+  d ≠ 0 →
+    Nivat.Algebra.act Φ d = 0 →
+      ∀ (m n : ℕ),
+        (Nivat.Algebra.erodedWindow Φ hΦ (Nivat.rectangle m n)).Nonempty →
+          ∃ m' n' o,
+            0 < m' ∧
+              0 < n' ∧
+                m' * n' < m * n ∧
+                  Nivat.Algebra.erodedWindow Φ hΦ (Nivat.rectangle m n) =
+                    Finset.image (fun z => z + o) (Nivat.rectangle m' n')
+Nivat.Algebra.support_mul_subset_rectangle_iff : ∀ (Φ : Nivat.Laurent) (hΦ : Φ ≠ 0) (g : Nivat.Laurent) (m n : ℕ),
+  (Φ * g).coeff.support ⊆ Nivat.rectangle m n ↔ g.coeff.support ⊆ Nivat.Algebra.erodedWindow Φ hΦ (Nivat.rectangle m n)
+Nivat.Configuration : Type u_1 → Type u_1
+Nivat.Descent.exact_complexity_descent : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c →
+    ∀ (x y : Nivat.Configuration ℚ),
+      (∀ (D : Finset Nivat.Lattice), Nivat.patternAt x D 0 ∈ Nivat.patterns c D) →
+        (∀ (D : Finset Nivat.Lattice), Nivat.patternAt y D 0 ∈ Nivat.patterns c D) →
+          ∀ (Φ : Nivat.Laurent) (hΦ : Φ ≠ 0),
+            (∀ (f : Nivat.Laurent), Nivat.Algebra.act f (x - y) = 0 ↔ Φ ∣ f) →
+              ∀ (m n : ℕ),
+                Nivat.complexity (Nivat.Algebra.act Φ c) (Nivat.Algebra.erodedWindow Φ hΦ (Nivat.rectangle m n)) +
+                    (Nivat.rectangle m n).card ≤
+                  Nivat.complexity c (Nivat.rectangle m n) +
+                    (Nivat.Algebra.erodedWindow Φ hΦ (Nivat.rectangle m n)).card
+Nivat.Descent.exists_smaller_low_complexity_rectangle : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c →
+    ∀ (x y : Nivat.Configuration ℚ),
+      (∀ (D : Finset Nivat.Lattice), Nivat.patternAt x D 0 ∈ Nivat.patterns c D) →
+        (∀ (D : Finset Nivat.Lattice), Nivat.patternAt y D 0 ∈ Nivat.patterns c D) →
+          x - y ≠ 0 →
+            ∀ (Φ : Nivat.Laurent),
+              Φ ≠ 0 →
+                (∀ (f : Nivat.Laurent), Nivat.Algebra.act f (x - y) = 0 ↔ Φ ∣ f) →
+                  ∀ (m n : ℕ),
+                    Nivat.complexity c (Nivat.rectangle m n) ≤ m * n →
+                      ∃ m' n',
+                        0 < m' ∧
+                          0 < n' ∧
+                            m' * n' < m * n ∧ Nivat.complexity (Nivat.Algebra.act Φ c) (Nivat.rectangle m' n') ≤ m' * n'
+@Nivat.Descent.finite_fiber_budget : ∀ {K : Type u_1} {V : Type u_2} {W : Type u_3} [inst : Field K]
+  [inst_1 : AddCommGroup V] [inst_2 : Module K V] (F : V → W) {P : Set V},
+  P.Finite → Module.finrank K ↥(Submodule.span K (Nivat.Descent.fiberDifferences F P)) + (F '' P).ncard ≤ P.ncard
+Nivat.Descent.localFilter : (Φ : Nivat.Laurent) →
+  (R S : Finset Nivat.Lattice) → (∀ z ∈ S, ∀ a ∈ Φ.coeff.support, z + a ∈ R) → (↥R → ℚ) →ₗ[ℚ] ↥S → ℚ
+Nivat.Descent.localFilter_transpose : ∀ (Φ : Nivat.Laurent) (R S : Finset Nivat.Lattice),
+  (∀ (g : Nivat.Laurent), (Φ * g).coeff.support ⊆ R ↔ g.coeff.support ⊆ S) →
+    ∀ (hS : ∀ z ∈ S, ∀ a ∈ Φ.coeff.support, z + a ∈ R),
+      (Nivat.Descent.localFilter Φ R S hS).dualMap ∘ₗ ↑(dotProductEquiv ℚ ↥S) =
+        ↑(dotProductEquiv ℚ ↥R) ∘ₗ Nivat.Descent.multiplierMap Φ R S
+Nivat.Descent.multiplierMap : Nivat.Laurent → (R S : Finset Nivat.Lattice) → (↥S → ℚ) →ₗ[ℚ] ↥R → ℚ
+Nivat.Descent.multiplierMap_injective : ∀ (Φ : Nivat.Laurent),
+  Φ ≠ 0 →
+    ∀ (R S : Finset Nivat.Lattice),
+      (∀ (g : Nivat.Laurent), (Φ * g).coeff.support ⊆ R ↔ g.coeff.support ⊆ S) →
+        Function.Injective ⇑(Nivat.Descent.multiplierMap Φ R S)
+Nivat.Descent.translatedSpan_eq_ker : ∀ (d : Nivat.Configuration ℚ) (Φ : Nivat.Laurent) (R S : Finset Nivat.Lattice),
+  (∀ (f : Nivat.Laurent), Nivat.Algebra.act f d = 0 ↔ Φ ∣ f) →
+    (∀ (g : Nivat.Laurent), (Φ * g).coeff.support ⊆ R ↔ g.coeff.support ⊆ S) →
+      ∀ (hS : ∀ z ∈ S, ∀ a ∈ Φ.coeff.support, z + a ∈ R),
+        Nivat.Descent.translatedSpan d R = (Nivat.Descent.localFilter Φ R S hS).ker
+Nivat.Descent.translatedSpan_finrank_add : ∀ (d : Nivat.Configuration ℚ) (Φ : Nivat.Laurent),
+  Φ ≠ 0 →
+    ∀ (R S : Finset Nivat.Lattice),
+      (∀ (f : Nivat.Laurent), Nivat.Algebra.act f d = 0 ↔ Φ ∣ f) →
+        (∀ (g : Nivat.Laurent), (Φ * g).coeff.support ⊆ R ↔ g.coeff.support ⊆ S) →
+          Module.finrank ℚ ↥(Nivat.Descent.translatedSpan d R) + S.card = R.card
+Nivat.Dynamics.act_eq_zero_of_origin_language : ∀ (c x : Nivat.Configuration ℚ),
+  (∀ (D : Finset Nivat.Lattice), Nivat.patternAt x D 0 ∈ Nivat.patterns c D) →
+    ∀ (f : Nivat.Laurent), Nivat.Algebra.act f c = 0 → Nivat.Algebra.act f x = 0
+@Nivat.Dynamics.exists_halfPlane_pair : ∀ {A : Type u_1} [inst : TopologicalSpace A] [DiscreteTopology A] [Finite A]
+  (X : Set (Nivat.Configuration A)),
+  X.Infinite →
+    IsClosed X →
+      (∀ (h : Nivat.Lattice), ∀ c ∈ X, Nivat.shift h c ∈ X) →
+        ∃ x ∈ X,
+          ∃ y ∈ X,
+            ∃ ν, ‖ν‖ = 1 ∧ x 0 ≠ y 0 ∧ ∀ (z : Nivat.Lattice), inner ℝ ν (Nivat.Dynamics.latticeReal z) < 0 → x z = y z
+Nivat.Dynamics.exists_tangent_period_of_nonzero_annihilator : ∀ (d : Nivat.Configuration ℚ),
+  Nivat.FiniteRange d →
+    d ≠ 0 →
+      ∀ (ν : ℝ × ℝ),
+        ν ≠ 0 →
+          (∀ (z : Nivat.Lattice), (Nivat.Dynamics.normalHom ν) z < 0 → d z = 0) →
+            ∀ (f : Nivat.Laurent),
+              f ≠ 0 →
+                Nivat.Algebra.act f d = 0 →
+                  ∃ e q,
+                    0 < q ∧
+                      (Nivat.Dynamics.normalHom ν) (e (1, 0)) = 0 ∧
+                        0 < (Nivat.Dynamics.normalHom ν) (e (0, 1)) ∧ Nivat.IsPeriod d (e (↑q, 0))
+@Nivat.Dynamics.halfPlane_pair_of_finiteRange_not_periodic : ∀ {A : Type u_1} (c : Nivat.Configuration A),
+  Nivat.FiniteRange c →
+    ¬Nivat.Periodic c →
+      ∃ x y ν,
+        Nivat.FiniteRange x ∧
+          Nivat.FiniteRange y ∧
+            ν.1 ^ 2 + ν.2 ^ 2 = 1 ∧
+              x 0 ≠ y 0 ∧
+                (∀ (D : Finset Nivat.Lattice), Nivat.patternAt x D 0 ∈ Nivat.patterns c D) ∧
+                  (∀ (D : Finset Nivat.Lattice), Nivat.patternAt y D 0 ∈ Nivat.patterns c D) ∧
+                    ∀ (z : Nivat.Lattice), ν.1 * ↑z.1 + ν.2 * ↑z.2 < 0 → x z = y z
+@Nivat.Dynamics.orbitClosure : {A : Type u_1} →
+  [TopologicalSpace A] → Nivat.Configuration A → Set (Nivat.Configuration A)
+Nivat.Dynamics.periodic_difference_of_nonzero_annihilator : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c →
+    ¬Nivat.Periodic c →
+      ∀ (f : Nivat.Laurent),
+        f ≠ 0 →
+          Nivat.Algebra.act f c = 0 →
+            ∃ x y e q,
+              Nivat.FiniteRange x ∧
+                Nivat.FiniteRange y ∧
+                  (∀ (D : Finset Nivat.Lattice), Nivat.patternAt x D 0 ∈ Nivat.patterns c D) ∧
+                    (∀ (D : Finset Nivat.Lattice), Nivat.patternAt y D 0 ∈ Nivat.patterns c D) ∧
+                      x - y ≠ 0 ∧
+                        0 < q ∧ Nivat.IsPeriod (x - y) (e (↑q, 0)) ∧ ∀ b < 0, ∀ (a : ℤ), (x - y) (e (a, b)) = 0
+@Nivat.IsPeriod : {A : Type u_1} → Nivat.Configuration A → Nivat.Lattice → Prop
+Nivat.Laurent : Type
+@Nivat.Periodic : {A : Type u_1} → Nivat.Configuration A → Prop
+@Nivat.TwoFactors.ShapeWindow.normalize : ∀ {A : Type u_1} {c : Nivat.Configuration A} {D₀ : Finset Nivat.Lattice}
+  (w : Nivat.TwoFactors.ShapeWindow c D₀), Nonempty (Nivat.TwoFactors.NormalizedWindow c)
+@Nivat.TwoFactors.boundaryRule_of_small_cost : ∀ {A : Type u_1} (c : Nivat.Configuration A),
+  Nivat.FiniteRange c →
+    ∀ (C : Finset Nivat.Lattice) (e : ℕ),
+      Nivat.complexity c (Nivat.TwoFactors.prefixWindow C e) < Nivat.complexity c C + e →
+        ∃ k < e, Nivat.TwoFactors.BoundaryRule c C k
+@Nivat.TwoFactors.common_inner_period : ∀ {A : Type u_1} (x : Nivat.Configuration A),
+  Nivat.FiniteRange x →
+    ∀ (C : Finset Nivat.Lattice) (H r : ℕ),
+      0 < r →
+        ∀ (α : Fin H → ℤ),
+          (∀ (j : Fin H) (t : Fin r), (α j + ↑↑t, ↑↑j + 1) ∈ C) →
+            (Nivat.TwoFactors.innerOrbit x C).ncard ≤ r →
+              ∃ p, 0 < p ∧ p ≤ r ∧ ∀ (j : Fin H), Function.Periodic (fun i => x (i, ↑↑j + 1)) ↑p
+Nivat.TwoFactors.every_edge_differs : ∀ (c : Nivat.Configuration ℚ) (C : Finset Nivat.Lattice) (k e q : ℕ),
+  k < e →
+    0 < q →
+      Nivat.TwoFactors.BoundaryRule c C k →
+        ∀ (u v : Nivat.Lattice),
+          (∀ (i : ℤ), Nivat.patternAt (Nivat.shift u c) C (i, 0) = Nivat.patternAt (Nivat.shift v c) C (i, 0)) →
+            Nivat.IsPeriod (Nivat.shift u c - Nivat.shift v c) (↑q, 0) →
+              (∃ i, Nivat.shift u c (i, 0) ≠ Nivat.shift v c (i, 0)) →
+                ∀ (i : ℤ),
+                  Nivat.patternAt (Nivat.shift u c) (Nivat.TwoFactors.rowPrefix e) (i, 0) ≠
+                    Nivat.patternAt (Nivat.shift v c) (Nivat.TwoFactors.rowPrefix e) (i, 0)
+@Nivat.TwoFactors.exists_shapeWindow : ∀ {A : Type u_1} (c : Nivat.Configuration A),
+  Nivat.FiniteRange c →
+    ∀ (D₀ : Finset Nivat.Lattice),
+      Nivat.TwoFactors.LatticeConvex D₀ → Nivat.complexity c D₀ ≤ D₀.card → Nonempty (Nivat.TwoFactors.ShapeWindow c D₀)
+@Nivat.TwoFactors.finite_strip_dichotomy : ∀ {A : Type u_1} [inst : AddCommGroup A] (c : Nivat.Configuration A),
+  Nivat.FiniteRange c →
+    ∀ (q W : ℕ),
+      0 < q →
+        ∀ (a M : ℤ),
+          0 < M →
+            M ≤ ↑W →
+              Nivat.difference (↑q, 0) (Nivat.difference (a, M) c) = 0 →
+                (∃ p, 0 < p ∧ Nivat.IsPeriod c (p • (a, M))) ∨
+                  ∃ u v,
+                    (∀ (z : Nivat.Lattice), 1 ≤ z.2 → z.2 ≤ ↑W → Nivat.shift u c z = Nivat.shift v c z) ∧
+                      (∃ i, Nivat.shift u c (i, 0) ≠ Nivat.shift v c (i, 0)) ∧
+                        Nivat.IsPeriod (Nivat.shift u c - Nivat.shift v c) (↑q, 0) ∧ ∃ k, v - u = k • (a, M)
+@Nivat.TwoFactors.innerOrbit_budget : ∀ {A : Type u_1} (c : Nivat.Configuration A),
+  Nivat.FiniteRange c →
+    ∀ (C : Finset Nivat.Lattice) (e : ℕ) (u v : Nivat.Lattice),
+      (∀ (i : ℤ), Nivat.patternAt (Nivat.shift u c) C (i, 0) = Nivat.patternAt (Nivat.shift v c) C (i, 0)) →
+        (∀ (i : ℤ),
+            Nivat.patternAt (Nivat.shift u c) (Nivat.TwoFactors.rowPrefix e) (i, 0) ≠
+              Nivat.patternAt (Nivat.shift v c) (Nivat.TwoFactors.rowPrefix e) (i, 0)) →
+          (Nivat.TwoFactors.innerOrbit (Nivat.shift u c) C).ncard + Nivat.complexity c C ≤
+            Nivat.complexity c (Nivat.TwoFactors.prefixWindow C e)
+@Nivat.TwoFactors.morse_hedlund : ∀ {A : Type u_1} (a : ℤ → A),
+  (Set.range a).Finite →
+    ∀ (k : ℕ), 0 < k → Nivat.TwoFactors.wordComplexity a k ≤ k → ∃ p, 0 < p ∧ p ≤ k ∧ Function.Periodic a ↑p
+@Nivat.TwoFactors.periodic_of_deterministic_predecessor_bounded : ∀ {A : Type u_1} (s : ℤ → A),
+  (Set.range s).Finite →
+    (∀ (i j : ℤ), s i = s j → s (i - 1) = s (j - 1)) → ∃ p, 0 < p ∧ p ≤ (Set.range s).ncard ∧ Function.Periodic s ↑p
+@Nivat.TwoFactors.periodic_of_deterministic_successor_bounded : ∀ {A : Type u_1} (s : ℤ → A),
+  (Set.range s).Finite →
+    (∀ (i j : ℤ), s i = s j → s (i + 1) = s (j + 1)) → ∃ p, 0 < p ∧ p ≤ (Set.range s).ncard ∧ Function.Periodic s ↑p
+@Nivat.TwoFactors.periodic_of_periodic_forcing : ∀ {A : Type u_1} {F : Type u_2} (a : ℤ → A) (f : ℤ → F),
+  (Set.range a).Finite →
+    ∀ (p k : ℕ),
+      0 < p →
+        Function.Periodic f ↑p →
+          (∀ (i j : ℤ), f i = f j → (∀ (r : Fin k), a (i + ↑↑r) = a (j + ↑↑r)) → a (i + ↑k) = a (j + ↑k)) →
+            ∃ q, 0 < q ∧ Function.Periodic a ↑q
+Nivat.TwoFactors.periodic_of_rows_boundaryRule : ∀ (x : Nivat.Configuration ℚ),
+  Nivat.FiniteRange x →
+    ∀ (C : Finset Nivat.Lattice) (k H : ℕ),
+      0 < H →
+        (∀ u ∈ C, 1 ≤ u.2 ∧ u.2 ≤ ↑H) →
+          Nivat.TwoFactors.BoundaryRule x C k →
+            ∀ (q : ℕ),
+              0 < q →
+                ∀ (a M : ℤ),
+                  0 < M →
+                    Nivat.difference (↑q, 0) (Nivat.difference (a, M) x) = 0 →
+                      (∀ (j : ℤ), 1 ≤ j → j ≤ ↑H → Nivat.TwoFactors.RowPeriodic x j) →
+                        ∃ L, 0 < L ∧ Nivat.IsPeriod x (↑(L * q), 0)
+@Nivat.complexity : {A : Type u_1} → Nivat.Configuration A → Finset Nivat.Lattice → ℕ
+@Nivat.complexity_affine_reindex : ∀ {A : Type u_1} (c : Nivat.Configuration A) (s : Nivat.Lattice ≃ Nivat.Lattice)
+  (t : Nivat.Lattice ≃+ Nivat.Lattice),
+  (∀ (z u : Nivat.Lattice), s (z + u) = s z + t u) →
+    ∀ (D : Finset Nivat.Lattice), Nivat.complexity (c ∘ ⇑s) D = Nivat.complexity c (Finset.map s.toEmbedding D)
+@Nivat.difference : {A : Type u_1} → [AddCommGroup A] → Nivat.Lattice → Nivat.Configuration A → Nivat.Configuration A
+Nivat.difference_eq_zero_of_iterate : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c → ∀ (h : Nivat.Lattice) (s : ℕ), 0 < s → (Nivat.difference h)^[s] c = 0 → Nivat.difference h c = 0
+Nivat.difference_eq_zero_of_iterate_of_bounded : ∀ (c : Nivat.Configuration ℚ) (B : ℚ),
+  (∀ (z : Nivat.Lattice), |c z| ≤ B) →
+    ∀ (h : Nivat.Lattice) (s : ℕ), 0 < s → (Nivat.difference h)^[s] c = 0 → Nivat.difference h c = 0
+@Nivat.discrepancy : {A : Type u_1} → Nivat.Configuration A → Finset Nivat.Lattice → ℤ
+Nivat.exists_lattice_basis_for_nonzero : ∀ (h : Nivat.Lattice), h ≠ 0 → ∃ q, 0 < q ∧ ∃ e, e (↑q, 0) = h
+@Nivat.exists_rational_model : ∀ {A : Type u_1} [Finite A] (c : Nivat.Configuration A),
+  ∃ d,
+    Nivat.FiniteRange d ∧
+      (∀ (D : Finset Nivat.Lattice), Nivat.complexity d D = Nivat.complexity c D) ∧
+        ∀ (h : Nivat.Lattice), Nivat.IsPeriod d h ↔ Nivat.IsPeriod c h
+@Nivat.nivat : ∀ {A : Type u_1} [Finite A] (c : Nivat.Configuration A) (m n : ℕ),
+  0 < m → 0 < n → Nivat.complexity c (Nivat.rectangle m n) ≤ m * n → ∃ h, h ≠ 0 ∧ ∀ (z : Nivat.Lattice), c (z + h) = c z
+Nivat.nivat_rational : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c → ∀ (m n : ℕ), 0 < m → 0 < n → Nivat.complexity c (Nivat.rectangle m n) ≤ m * n → Nivat.Periodic c
+@Nivat.patternAt : {A : Type u_1} → Nivat.Configuration A → (D : Finset Nivat.Lattice) → Nivat.Lattice → ↥D → A
+@Nivat.patterns : {A : Type u_1} → Nivat.Configuration A → (D : Finset Nivat.Lattice) → Set (↥D → A)
+Nivat.periodic_of_parallel_mixed_difference : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c →
+    ∀ (h t : Nivat.Lattice),
+      h ≠ 0 → t ≠ 0 → h.1 * t.2 = h.2 * t.1 → Nivat.difference h (Nivat.difference t c) = 0 → Nivat.Periodic c
+Nivat.periodic_of_periodic_line_filter : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c →
+    ∀ (m n : ℕ),
+      0 < m →
+        0 < n →
+          Nivat.complexity c (Nivat.rectangle m n) ≤ m * n →
+            ∀ (v : Nivat.Lattice),
+              v ≠ 0 →
+                ∀ (q : ℕ),
+                  0 < q →
+                    ∀ (φ : Polynomial ℚ),
+                      φ ∣ Polynomial.X ^ q - 1 →
+                        Nivat.Periodic (Nivat.Algebra.act ((Nivat.Algebra.lineEval v) φ) c) → Nivat.Periodic c
+Nivat.rationalLabel : (A : Type u_1) → [Finite A] → A ↪ ℚ
+Nivat.rectangle : ℕ → ℕ → Finset Nivat.Lattice
+@Nivat.shift : {A : Type u_1} → Nivat.Lattice → Nivat.Configuration A → Nivat.Configuration A
+Nivat.two_factors : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c →
+    ∀ (m n : ℕ),
+      0 < m →
+        0 < n →
+          ∀ (h t : Nivat.Lattice),
+            h ≠ 0 →
+              t ≠ 0 →
+                Nivat.complexity c (Nivat.rectangle m n) ≤ m * n →
+                  Nivat.difference h (Nivat.difference t c) = 0 → Nivat.Periodic c
+Nivat.two_factors_nonparallel : ∀ (c : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c →
+    ∀ (m n : ℕ),
+      0 < m →
+        0 < n →
+          ∀ (h t : Nivat.Lattice),
+            h ≠ 0 →
+              t ≠ 0 →
+                Nivat.complexity c (Nivat.rectangle m n) ≤ m * n →
+                  Nivat.difference h (Nivat.difference t c) = 0 →
+                    h.1 * t.2 ≠ h.2 * t.1 → ∃ k, k ≠ 0 ∧ (Nivat.IsPeriod c (k • h) ∨ Nivat.IsPeriod c (k • t))
+Nivat.two_periodic_summands : ∀ (c a b : Nivat.Configuration ℚ),
+  Nivat.FiniteRange c →
+    c = a + b →
+      ∀ (m n : ℕ),
+        0 < m →
+          0 < n →
+            ∀ (h t : Nivat.Lattice),
+              h ≠ 0 →
+                t ≠ 0 →
+                  Nivat.IsPeriod a h →
+                    Nivat.IsPeriod b t → Nivat.complexity c (Nivat.rectangle m n) ≤ m * n → Nivat.Periodic c

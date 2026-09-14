@@ -1,0 +1,3 @@
+$ lake env leanchecker --verbose Solution
+replaying Solution
+EXIT_CODE=0

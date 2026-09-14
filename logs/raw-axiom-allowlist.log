@@ -1,0 +1,6 @@
+$ python3 scripts/check_axioms.py scripts/RawStatements.lean logs/raw-statements.log
+NivatAudit.finite_alphabet_rectangle_period: ['Classical.choice', 'Quot.sound', 'propext']
+NivatAudit.rational_mixed_difference_period: ['Classical.choice', 'Quot.sound', 'propext']
+Allowed axiom dependencies confirmed for 2 declarations.
+This screens Lean output; it does not replace kernel checking or statement inspection.
+EXIT_CODE=0
