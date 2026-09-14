@@ -140,8 +140,14 @@ The project proof sources are unchanged. The prior checks under patched Lean
 **4.33.1** remain available at [immutable commit d1901c2](https://github.com/boonsuan/nivat/tree/d1901c2bb6ae776e587f2351df3ed586aa5312b8),
 including its [verification log](https://github.com/boonsuan/nivat/blob/d1901c2bb6ae776e587f2351df3ed586aa5312b8/logs/verification.log)
 and [Comparator/NanoDa report](https://github.com/boonsuan/nivat/blob/d1901c2bb6ae776e587f2351df3ed586aa5312b8/logs/palomar-check.json).
-The new 4.33.0 build and checker runs are pending; these retained results do not
-certify the compatibility branch's new toolchain.
+The new 4.33.0 clean build, theorem and axiom audits, Lean kernel replays, and
+local Comparator/NanoDa checks have also passed; see the
+[current verification log](logs/verification.log) and [checker report](logs/palomar-check.json).
+The [compatibility audit](logs/compatibility-audit.json) confirms that all 33
+tracked Lean files and the elaborated theorem/axiom outputs match the 4.33.1
+baseline. [Linux CI](https://github.com/boonsuan/nivat/actions/runs/34799652245)
+also passed the build, audits, confined Comparator, and both kernel checks at
+commit `50698318e864a3eee16e196ed4af22bb1709d568`.
 
 The proof audit checks elaborated theorem types, expanded definitions, and axiom
 dependencies. The proved declarations use only `propext`, `Classical.choice`,
@@ -159,9 +165,9 @@ NanoDa, is described in [the Palomar preparation notes](docs/PALOMAR.md).
 
 [Challenge.lean](Challenge.lean), [Solution.lean](Solution.lean),
 [comparator.json](comparator.json), and [formalization.yaml](formalization.yaml)
-provide the submission interface. The Lean 4.33.0 compatibility checks are
-pending. The retained Lean 4.33.1 Comparator and NanoDa checks passed in
-explicitly unsandboxed macOS mode, as recorded in the immutable report above.
+provide the submission interface. The Lean 4.33.0 local Comparator and NanoDa
+checks passed in explicitly unsandboxed macOS mode. The retained Lean 4.33.1
+checks also passed, as recorded in the immutable report above.
 [GitHub Actions](https://github.com/boonsuan/nivat/actions/workflows/ci.yml) records
 the Linux checks. [docs/PALOMAR.md](docs/PALOMAR.md) contains the evidence,
 validation commands, and submission procedure. No Palomar review outcome or

@@ -1,7 +1,7 @@
 {
   "pins": {
     "schema_version": 1,
-    "project_toolchain": "leanprover/lean4:v4.33.1",
+    "project_toolchain": "leanprover/lean4:v4.33.0",
     "comparator_toolchain": "leanprover/lean4:v4.34.0-rc1",
     "rust_version": "1.90.0",
     "go_version": "1.24.0",
@@ -55,7 +55,7 @@
     ]
   },
   "host": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
-  "project_lake": "Lake version 5.0.0-src+819816b (Lean version 4.33.1)",
+  "project_lake": "Lake version 5.0.0-src+d8b1897 (Lean version 4.33.0)",
   "comparator_lake": "Lake version 5.0.0-src+3447a66 (Lean version 4.34.0-rc1)",
   "rustc": "rustc 1.90.0 (1159e78c4 2025-09-14)",
   "binaries": {
@@ -65,11 +65,11 @@
     },
     "lean4export": {
       "path": ".tools/lean4export/.lake/build/bin/lean4export",
-      "sha256": "e775ccfbe86c08fa9fea1ec1fe45c46ed168cf48236ff8ba429aa28b05c0623e"
+      "sha256": "7d12f30ebc3ca8ed960b5d751407b0c17e1f58b23b605edd6c1029a3d718d2ad"
     },
     "nanoda": {
       "path": ".tools/nanoda/target/release/nanoda_bin",
-      "sha256": "dc800f29a942e135a41ef6ff89fdce0924e342efb136af6bad42c6c84d85972a"
+      "sha256": "1073f0dddd25abd26580a8045a76bd50195f256c74d08a267acf72c12bb788b3"
     }
   }
 }

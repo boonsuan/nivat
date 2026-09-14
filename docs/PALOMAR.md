@@ -46,9 +46,14 @@ manifests; only their `lean-toolchain` files differ. The project's proof and
 paper sources are unchanged. The previous patched Lean **4.33.1** verification
 is retained at [immutable commit d1901c2](https://github.com/boonsuan/nivat/tree/d1901c2bb6ae776e587f2351df3ed586aa5312b8).
 That evidence remains available alongside the compatibility work. New 4.33.0
-build, axiom, kernel, Comparator, NanoDa, and Linux CI checks are **pending**;
-the prior evidence does not establish their outcome. Passing those checks would
-also not establish a Palomar intake or editorial result.
+local build, axiom, kernel, Comparator, and NanoDa checks have passed. Linux CI
+also passed at commit `50698318e864a3eee16e196ed4af22bb1709d568`.
+The [compatibility audit](../logs/compatibility-audit.json)
+confirms that all 33 tracked Lean files and the complete elaborated theorem and
+axiom outputs match the 4.33.1 baseline. The pinned Palomar
+[dependency-provenance helper](../logs/dependency-provenance.json) also accepted
+all nine packages. These local checks do not establish a Palomar intake or
+editorial result.
 
 ## Verification
 
@@ -124,6 +129,25 @@ compiler versions, and binary hashes. Comparator writes separate mode-labeled
 logs and a report under `.tools/`. These distinguish the local development
 check from Linux confinement. [STATUS.md](../STATUS.md) records observed results;
 a passing local check is not a Palomar mechanical report or editorial decision.
+
+## Current Lean 4.33.0 results — 14 September 2026
+
+The [clean verification run](../logs/verification.log) passed: 2502 Lake jobs,
+the 36-declaration principal axiom audit, both expanded semantic statements and
+their axiom audit, the Lean kernel replays, and the source checks. The permitted
+axioms remain `propext`, `Classical.choice`, and `Quot.sound`.
+
+The local command `bash scripts/palomar_check.sh --development-unsandboxed`
+passed in 40.4 seconds, including the statement comparison, NanoDa, and Lean
+kernel replay. Its [summary](../logs/palomar-check.log),
+[output](../logs/palomar-output.log), [report](../logs/palomar-check.json), and
+[tool manifest](../logs/palomar-tools.json) record the exact inputs and mode;
+all 36 compared proof/configuration hashes remained unchanged during the check.
+This macOS run used the explicit development process adapter. The separate
+[compatibility branch CI run](https://github.com/boonsuan/nivat/actions/runs/34799652245)
+passed on Ubuntu at commit `50698318e864a3eee16e196ed4af22bb1709d568`, including
+the build and axiom audits, Linux confinement, Comparator statement comparison,
+NanoDa, and Lean kernel replay.
 
 ## Retained Lean 4.33.1 results — 14 September 2026
 

@@ -1,18 +1,18 @@
 Mode: macos-development-unsandboxed
 Building Challenge
 WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Challenge
-⚠ [957/958] Replayed Challenge
+⚠ [957/958] Built Challenge (2.7s)
 warning: Challenge.lean:30:8: declaration uses `sorry`
 Build completed successfully (958 jobs).
-WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/hbsv/code/lean/nivat/.tools/lean4export/.lake/build/bin/lean4export Challenge -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind NivatSubmission.nivat propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/hbsv/code/lean/nivat-palomar-4.33.0/.tools/lean4export/.lake/build/bin/lean4export Challenge -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind NivatSubmission.nivat propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
 Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, NivatSubmission.nivat, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Challenge
 Building Solution
 WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Solution
 Build completed successfully (2500 jobs).
-WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/hbsv/code/lean/nivat/.tools/lean4export/.lake/build/bin/lean4export Solution -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind NivatSubmission.nivat propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/hbsv/code/lean/nivat-palomar-4.33.0/.tools/lean4export/.lake/build/bin/lean4export Solution -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind NivatSubmission.nivat propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
 Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, NivatSubmission.nivat, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Solution
 Running nanoda kernel on solution
-WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/hbsv/code/lean/nivat/.tools/nanoda/target/release/nanoda_bin /var/folders/gg/lqsjg7vd7h531mkscgtwbfb80000gn/T/tmp.DXeJtxmU
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/hbsv/code/lean/nivat-palomar-4.33.0/.tools/nanoda/target/release/nanoda_bin /var/folders/gg/lqsjg7vd7h531mkscgtwbfb80000gn/T/tmp.cs4dDS8d
 nanoda kernel accepts the solution
 Running Lean default kernel on solution.
 Lean default kernel accepts the solution

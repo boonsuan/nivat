@@ -1,23 +1,13 @@
 {
-  "mode": "macos-development-unsandboxed",
-  "scope": "Local Comparator and genuine Lean/NanoDa checking; not Palomar intake or editorial review.",
-  "started_utc": "2026-09-14T02:36:07.233000+00:00",
+  "scope": "Source identity and fully elaborated statement/axiom-output comparison; separate logs record the proof-kernel checks.",
+  "baseline_commit": "d1901c2bb6ae776e587f2351df3ed586aa5312b8",
+  "baseline_toolchain": "leanprover/lean4:v4.33.1",
+  "current_toolchain": "leanprover/lean4:v4.33.0",
   "status": "passed",
-  "command": [
-    "/Users/hbsv/.elan/toolchains/leanprover--lean4---v4.33.0/bin/lake",
-    "env",
-    "/Users/hbsv/code/lean/nivat-palomar-4.33.0/.tools/comparator/.lake/build/bin/comparator",
-    "/Users/hbsv/code/lean/nivat-palomar-4.33.0/comparator.json"
-  ],
-  "source_sha256": {
+  "unchanged_lean_source_count": 33,
+  "lean_sources_sha256": {
     "Challenge.lean": "71cdab884cf4a781808b05f381dae0023e1246239a2a74581fa11e4c7feb48c5",
-    "Solution.lean": "0e664b3ea2a2f748eb62825ac3b64924d2eb920d83da5a822b89b6127eecf609",
     "Nivat.lean": "82885d3ec77051fc68c6cb161ea69707c73b8b090ff47ec477f99c09097c0504",
-    "comparator.json": "0af333804195edef85c7e8f4d57609c023a764757e67a75ebdda533d0cd69f3b",
-    "lean-toolchain": "302cd63c54178885b89e669f33b38f12f4dd7ae7e5cac537b3203e3768d8fb2b",
-    "lakefile.toml": "b292ce1f293e2c26a8d6f31d16c5204e877418230c4546ecec31d871192180aa",
-    "lake-manifest.json": "2aecc98d8d5eaca739c9c8cad638b48d058667ce2a2c0763fafced5e3ac6d689",
-    "scripts/palomar_tools.json": "b534eebdf3b8d471ef0e5bc5efae8e7863af62e84f9ea15eca025869a1d6de74",
     "Nivat/Algebra/Action.lean": "f34de31d6a6e047d07c31bf66b1818d85e241882d835d1955c7cef5976ca9ca8",
     "Nivat/Algebra/ExactLine.lean": "6e5eb3a281e0d1868bb4c44a2d0d0f31cbfad3e8352cb0d04351e5054652590c",
     "Nivat/Algebra/LineErosion.lean": "b71ea5202ce93cf4851a77d5f0dda701e524a5a58d9ef8842a5bfac90141fc67",
@@ -45,15 +35,13 @@
     "Nivat/TwoFactors/StripStates.lean": "8cc212b00b8ade649565cfec16905081231c26332d91b8a50398ce470ba4e80f",
     "Nivat/TwoFactors/Window.lean": "91675619fb2c0b524d0cbecce1fd8faf786fa1a8afe32ebe8110d60347b91d81",
     "Nivat/TwoFactors/WindowCriterion.lean": "27c8fbad79f571ada9800d7a2e54de40d0705f185467fe8dc6c073c6a5743297",
-    "Nivat/TwoFactors/WindowNormalization.lean": "5554afc7e3f6946afc37dd047e3bb36b7f4d264879e9cdec07578e166f7a66f5"
+    "Nivat/TwoFactors/WindowNormalization.lean": "5554afc7e3f6946afc37dd047e3bb36b7f4d264879e9cdec07578e166f7a66f5",
+    "Solution.lean": "0e664b3ea2a2f748eb62825ac3b64924d2eb920d83da5a822b89b6127eecf609",
+    "scripts/Audit.lean": "d1eba75e144cd0a7029d52a9035f5a2fd8f169094c994b56fe3382e7a727cccf",
+    "scripts/RawStatements.lean": "b32a5ff641e3d9e33fdf5b6b97d983c62f38e7bf96cf6b17121bfc8014774e54"
   },
-  "source_manifest_sha256": "111d984bbb90788ed3b8941abae01eaf522bb7991595c46f0a0005a763bae9fc",
-  "tool_manifest_sha256": "e20338c12171e9ca2269ce85104f6e3e3d24bfac8f607ac99eaa17f6889795e0",
-  "log": ".tools/palomar-comparator-macos-development-unsandboxed.log",
-  "exit_code": 0,
-  "nanoda_accepted": true,
-  "lean_replay_accepted": true,
-  "comparator_accepted": true,
-  "compared_sources_unchanged": true,
-  "elapsed_seconds": 40.4
+  "identical_audit_outputs_sha256": {
+    "logs/axioms.log": "b7740616d5d42a862bf27a5b960a960626fc0c23d484d4beac6fdaa0838612ef",
+    "logs/raw-statements.log": "2ed1b628aa7c3924892c0266271fbd0f0b4edbe9ff91e9457737e0d464af6220"
+  }
 }

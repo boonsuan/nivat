@@ -1,0 +1,274 @@
+{
+  "all_packages_allowlisted": true,
+  "allowed_roots": [
+    {
+      "include_pinned_manifest_closure": true,
+      "official_ref": "refs/heads/master",
+      "repository": "leanprover-community/mathlib4",
+      "repository_aliases": [],
+      "trust_level": "high"
+    },
+    {
+      "accepted_revisions": [
+        "221bb56a017bb794421eac4fa543d7a5e85add75"
+      ],
+      "include_pinned_manifest_closure": true,
+      "official_ref": "refs/heads/main",
+      "repository": "TauCetiProject/TauCeti",
+      "repository_aliases": [
+        "FormalFrontier/TauCeti"
+      ],
+      "trust_level": "qualified"
+    },
+    {
+      "include_pinned_manifest_closure": true,
+      "official_ref": "refs/heads/main",
+      "repository": "leanprover/cslib",
+      "repository_aliases": [],
+      "trust_level": "qualified"
+    }
+  ],
+  "branch_mathlib_is_original_parent": true,
+  "branch_project": "/Users/hbsv/code/lean/nivat-palomar-4.33.0",
+  "dependency_comparison": {
+    "branch_packages": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "url": "https://github.com/leanprover-community/mathlib4.git"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "url": "https://github.com/leanprover-community/plausible"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "url": "https://github.com/leanprover-community/LeanSearchClient"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "url": "https://github.com/leanprover-community/import-graph"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "url": "https://github.com/leanprover-community/ProofWidgets4"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "url": "https://github.com/leanprover-community/aesop"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "url": "https://github.com/leanprover-community/quote4"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "url": "https://github.com/leanprover-community/batteries"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "url": "https://github.com/leanprover/lean4-cli"
+      }
+    ],
+    "changed": {
+      "mathlib": {
+        "branch": {
+          "name": "mathlib",
+          "repository": "leanprover-community/mathlib4",
+          "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+          "url": "https://github.com/leanprover-community/mathlib4.git"
+        },
+        "original": {
+          "name": "mathlib",
+          "repository": "leanprover-community/mathlib4",
+          "revision": "0df444a360eaa60ab8c11dca51a86af692955474",
+          "url": "https://github.com/leanprover-community/mathlib4.git"
+        }
+      }
+    },
+    "only_branch": [],
+    "only_original": [],
+    "unchanged_non_mathlib_packages": true
+  },
+  "elapsed_seconds": 0.602,
+  "finished_utc": "2026-09-14T02:35:44.557480+00:00",
+  "helper": {
+    "allowlist_sha256": "b10662ac82606ab996cc9e01c368a1526ab607bded951123bd42311b1039a57e",
+    "commit": "ef2fa1eadcb246c2346ddba39b52eaa53d4bb763",
+    "functions": [
+      "allowed_roots",
+      "manifest_packages",
+      "package_allowlist",
+      "reject_untrusted_package_artifacts"
+    ],
+    "module": "scripts/verify_submission.py",
+    "module_sha256": "ad5ac059305d5c1c5d07a25bc600a3bb6cab4d1feae5ad747408253a3c312d45",
+    "repository": "https://github.com/PalomarRegistry/PalomarSubmission.git",
+    "tracked_tree_clean": true,
+    "tracked_tree_clean_after": true
+  },
+  "lean_source_comparison": {
+    "changed": [],
+    "identical": true,
+    "only_branch": [],
+    "only_original": [],
+    "source_sha256": {
+      "Challenge.lean": "71cdab884cf4a781808b05f381dae0023e1246239a2a74581fa11e4c7feb48c5",
+      "Nivat.lean": "82885d3ec77051fc68c6cb161ea69707c73b8b090ff47ec477f99c09097c0504",
+      "Nivat/Algebra/Action.lean": "f34de31d6a6e047d07c31bf66b1818d85e241882d835d1955c7cef5976ca9ca8",
+      "Nivat/Algebra/ExactLine.lean": "6e5eb3a281e0d1868bb4c44a2d0d0f31cbfad3e8352cb0d04351e5054652590c",
+      "Nivat/Algebra/LineErosion.lean": "b71ea5202ce93cf4851a77d5f0dda701e524a5a58d9ef8842a5bfac90141fc67",
+      "Nivat/Algebra/LowComplexity.lean": "fbe493c723e4922609b860d594ae4d171adadaf5b308a56c1c377641f92e8922",
+      "Nivat/Algebra/ProductDifferences.lean": "859dc76f84bee0a69854c4f7aa4bb33f87a2d79b4daa1b4629312d1c2030299f",
+      "Nivat/Algebra/RationalScaling.lean": "02cf6a311a075f2c18aac4dd4a58b7938293d9ed7c095a24a1631ab3b8275d9a",
+      "Nivat/Algebra/RectangleSupport.lean": "98b4181c5dea6f34083e77a1b16b34e65088add3275619350eaf09a91446640d",
+      "Nivat/Core/Alphabet.lean": "d5ec6ebb8b48858be85647b5361e175010d6f9116d87e086e1efce39e677ccf0",
+      "Nivat/Core/Basic.lean": "1ffd0277c59d167a72cd7b9e076171433aaddf2fe25de598d836987d28607719",
+      "Nivat/Core/BoundedDifferences.lean": "069012fd20bf4fb19bc27fa078c1a46cb1bdabb8f36059fbfaed628af5a6abca",
+      "Nivat/Core/Lattice.lean": "65097764c616c1fb84b60d1c3162fefc602f727647418efa7f028e2b1ad92662",
+      "Nivat/Core/Patterns.lean": "d1feecb38a168a11f34bab507da2ff636127e7f1e5242e4dd9dbfd36f924c4ff",
+      "Nivat/Core/Reindex.lean": "3a2e6ede819b55cc1340bcf9c15b658a8cec7bc1c487156cc6f9731188166e0f",
+      "Nivat/Descent/ExactDescent.lean": "aea2cf4f5523d85e8b11991c0712295f0d5dfe2158fa1573f61181c10ba314af",
+      "Nivat/Descent/FiberBudget.lean": "6ef59e9d5f9cf22945380d0273a71cfb65137b0aa73ed1d583b106bdb43c8628",
+      "Nivat/Dynamics/HalfPlanePair.lean": "ddaa81a146ed9420052729a6facf3fe6ba34bc000a1918e4dd9c4d48796f9f4f",
+      "Nivat/Dynamics/OrbitClosure.lean": "a7b935bf181c8e205b3e11f3482be325d1508ddc0c1e6718e4158bf775e96e57",
+      "Nivat/Dynamics/PeriodicDifference.lean": "f69ba560508742ae0eabe582f23027613094f76c687d939031700423e708ea97",
+      "Nivat/Main.lean": "0a32992d07f1b2dbb39d5651fc151f1f9f4d003f571f9ce65557c9fa7c193850",
+      "Nivat/TwoFactors/BoundaryCounting.lean": "db5ae249826f740b8de72461f144954168aa014d826ce039d05d02081a9108d3",
+      "Nivat/TwoFactors/BoundaryPeriod.lean": "4f022899ba274b26a12e89570a74b1695e8093f99d9df5b1f406f20284bbe912",
+      "Nivat/TwoFactors/FiniteState.lean": "20ee568ec09f91f6a7ae78fa0eb282c51e888c15454fc7d6e72e12c4fafd1196",
+      "Nivat/TwoFactors/Main.lean": "73493f76b7973bc9c414efc90701bcd5818ba087b7377476dd956bb54e2b6ad0",
+      "Nivat/TwoFactors/PeriodicRows.lean": "5b72c407f5b1599ede5bc19e8ad01b988118d05821ee158b54c5881535b3b4de",
+      "Nivat/TwoFactors/StripStates.lean": "8cc212b00b8ade649565cfec16905081231c26332d91b8a50398ce470ba4e80f",
+      "Nivat/TwoFactors/Window.lean": "91675619fb2c0b524d0cbecce1fd8faf786fa1a8afe32ebe8110d60347b91d81",
+      "Nivat/TwoFactors/WindowCriterion.lean": "27c8fbad79f571ada9800d7a2e54de40d0705f185467fe8dc6c073c6a5743297",
+      "Nivat/TwoFactors/WindowNormalization.lean": "5554afc7e3f6946afc37dd047e3bb36b7f4d264879e9cdec07578e166f7a66f5",
+      "Solution.lean": "0e664b3ea2a2f748eb62825ac3b64924d2eb920d83da5a822b89b6127eecf609",
+      "scripts/Audit.lean": "d1eba75e144cd0a7029d52a9035f5a2fd8f169094c994b56fe3382e7a727cccf",
+      "scripts/RawStatements.lean": "b32a5ff641e3d9e33fdf5b6b97d983c62f38e7bf96cf6b17121bfc8014774e54"
+    },
+    "tracked_file_count_branch": 33,
+    "tracked_file_count_original": 33
+  },
+  "official_mathlib_ref": {
+    "fetched_commit": "2ff8073df352b7cb74638403c464ed5cd3f97ce2",
+    "fetched_ref": "refs/remotes/palomar-official/head",
+    "manifest_revision_is_official_ancestor": true,
+    "remote_url": "https://github.com/leanprover-community/mathlib4"
+  },
+  "original_mathlib_parents": [
+    "db584cd6d46c92f209a44c0f1c829460d327499d"
+  ],
+  "original_project": "/Users/hbsv/code/lean/nivat",
+  "package_checkouts": {
+    "Cli": {
+      "head": "6130a47896ce867c6a4a55373441e59e565bad0f",
+      "head_matches_manifest": true,
+      "tracked_tree_clean": true
+    },
+    "LeanSearchClient": {
+      "head": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+      "head_matches_manifest": true,
+      "tracked_tree_clean": true
+    },
+    "Qq": {
+      "head": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+      "head_matches_manifest": true,
+      "tracked_tree_clean": true
+    },
+    "aesop": {
+      "head": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+      "head_matches_manifest": true,
+      "tracked_tree_clean": true
+    },
+    "batteries": {
+      "head": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+      "head_matches_manifest": true,
+      "tracked_tree_clean": true
+    },
+    "importGraph": {
+      "head": "16f02aa7642864af59f1ff0e384a015994db9118",
+      "head_matches_manifest": true,
+      "tracked_tree_clean": true
+    },
+    "mathlib": {
+      "head": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "head_matches_manifest": true,
+      "tracked_tree_clean": true
+    },
+    "plausible": {
+      "head": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+      "head_matches_manifest": true,
+      "tracked_tree_clean": true
+    },
+    "proofwidgets": {
+      "head": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+      "head_matches_manifest": true,
+      "tracked_tree_clean": true
+    }
+  },
+  "preflight_note": "System python lacked PyYAML; reused existing .tools/metadata-venv with PyYAML 6.0.3. No installation or helper edits.",
+  "python": "/Users/hbsv/code/lean/nivat-palomar-4.33.0/.tools/metadata-venv/bin/python",
+  "scope": "Exact pinned Palomar dependency-provenance helper calls; no build, kernel check, sandbox or full submission execution.",
+  "started_utc": "2026-09-14T02:35:43.671668+00:00",
+  "status": "passed",
+  "toolchains": {
+    "branch": "leanprover/lean4:v4.33.0",
+    "original": "leanprover/lean4:v4.33.1"
+  },
+  "verified_allowlist": {
+    "Cli": [
+      "leanprover-community/mathlib4",
+      "high"
+    ],
+    "LeanSearchClient": [
+      "leanprover-community/mathlib4",
+      "high"
+    ],
+    "Qq": [
+      "leanprover-community/mathlib4",
+      "high"
+    ],
+    "aesop": [
+      "leanprover-community/mathlib4",
+      "high"
+    ],
+    "batteries": [
+      "leanprover-community/mathlib4",
+      "high"
+    ],
+    "importGraph": [
+      "leanprover-community/mathlib4",
+      "high"
+    ],
+    "mathlib": [
+      "leanprover-community/mathlib4",
+      "high"
+    ],
+    "plausible": [
+      "leanprover-community/mathlib4",
+      "high"
+    ],
+    "proofwidgets": [
+      "leanprover-community/mathlib4",
+      "high"
+    ]
+  }
+}

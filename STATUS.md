@@ -1,12 +1,11 @@
 # Status
 
-Compatibility validation is in progress on branch `palomar-lean-4.33.0`.
-Lean and mathlib now use their matching 4.33.0 releases. All project Lean
-sources are unchanged from the checked 4.33.1 revision
-`d1901c2bb6ae776e587f2351df3ed586aa5312b8`, which remains preserved on `main`.
-The new clean build, axiom/type audits, kernel checks and Linux CI are pending;
-the verification results below describe the earlier 4.33.1 build until replaced
-by newly observed evidence.
+The Lean 4.33.0 compatibility build has passed local and Linux verification.
+Lean and mathlib use matching 4.33.0 releases. All 33 tracked Lean source files
+and both fully elaborated statement/axiom reports are byte-identical to the
+checked 4.33.1 revision `d1901c2bb6ae776e587f2351df3ed586aa5312b8`, which
+retains the patched-kernel verification evidence. The clean build, axiom/type
+audits, Lean kernel replays, Comparator, NanoDa and Linux CI all passed.
 
 The proof development is complete: the Lean library and its public submission
 wrapper compile with no admitted proofs or unproved literature dependencies.
@@ -15,8 +14,9 @@ AI agents and checked through expanded theorem statements. No human expert
 review or mathematical digestion is claimed.
 
 The public repository is [boonsuan/nivat](https://github.com/boonsuan/nivat).
-Palomar submission of commit `d1901c2bb6ae776e587f2351df3ed586aa5312b8`
-stopped at dependency provenance, before proof checking; see the blocker below.
+The previous 4.33.1 Palomar submission stopped at dependency provenance. The
+4.33.0 pair now passes that exact check locally and is ready for a fresh
+service run; see the compatibility evidence below.
 No registration has been performed. The local submission-check results and
 procedure are recorded in [docs/PALOMAR.md](docs/PALOMAR.md).
 
@@ -49,14 +49,13 @@ docstring identifying its paper location. Every cited LaTeX label resolves.
 
 ## Observed verification
 
-`bash scripts/verify.sh --clean` completed with exit code 0. It rebuilt all
+Under Lean 4.33.0, `bash scripts/verify.sh --clean` completed with exit code 0. It rebuilt all
 29 library modules and the separate `Solution` module, retaining the pinned
 dependency cache. `lake build` finished successfully with 2502 jobs and no
 warnings. The default build excludes the independent Challenge, whose single
 intentional statement placeholder is not a proof-development gap.
 
-A final incremental `bash scripts/verify.sh` run also completed with exit code 0.
-The script ran these commands successfully:
+The clean verification script ran these commands successfully:
 
 ```sh
 lake build
@@ -72,8 +71,10 @@ python3 scripts/source_audit.py
 All 36 principal axiom reports and both fully expanded audit statements contain
 exactly `propext`, `Classical.choice`, and `Quot.sound`. The final theorem's
 fully elaborated type and its lattice, rectangle, pattern, complexity and
-period definitions were inspected. All 59 declarations named in the statement
-map also resolved in a separate Lean check.
+period definitions were inspected in the retained 4.33.1 audit. Both full
+statement/axiom reports are byte-identical under 4.33.0; see the
+[compatibility audit](logs/compatibility-audit.json). The retained 4.33.1
+statement-map check also resolved all 59 mapped declarations.
 
 Kernel replay passed for all 29 library modules and the separate Solution
 module. This uses Lean's own kernel implementation and the imported dependency
@@ -88,23 +89,24 @@ and the two-factor branch imports only Core and TwoFactors modules.
 The pinned Comparator accepted the exact Challenge/Solution statement and its
 axiom dependencies. The genuine independent NanoDa checker and Comparator’s
 Lean kernel replay both accepted the Solution export. The command
-`bash scripts/palomar_check.sh --development-unsandboxed` exited 0 on this Mac.
+`bash scripts/palomar_check.sh --development-unsandboxed` exited 0 on this Mac
+under Lean 4.33.0 in 40.4 seconds.
 This was explicitly unsandboxed macOS development verification; no Linux
 confinement or Palomar service check is claimed. The theorem statement and proof
 sources remained unchanged during the check.
 
-`.tools/metadata-venv/bin/python scripts/validate_metadata.py` and its `--offline`
-variant passed the pinned v0.4 schema and local Palomar requirements, including
-the MIT license, classifications, and source relationships. Seventeen targeted
-negative checks of the validator passed. The CI workflow was checked locally
-for YAML and shell syntax. Remote outcomes are recorded in
-[GitHub Actions](https://github.com/boonsuan/nivat/actions/workflows/ci.yml).
+`.tools/metadata-venv/bin/python scripts/validate_metadata.py --offline` passed
+the pinned v0.4 schema and local Palomar requirements. The unchanged validator
+also retains its earlier evidence from seventeen targeted negative checks.
+[Linux CI](https://github.com/boonsuan/nivat/actions/runs/34799652245) passed for
+compatibility commit `50698318e864a3eee16e196ed4af22bb1709d568`, including the
+build, both axiom allowlists, sandboxed Comparator, NanoDa and Lean replay.
 
 There are no unresolved Lean proof obligations. The maintainer authorized
 GitHub publication and the fresh Palomar submission. Final registration remains
 for the maintainer after reviewing Palomar's results.
 
-## Palomar dependency-provenance blocker — 14 September 2026
+## Palomar dependency compatibility — 14 September 2026
 
 [Palomar run 34798095200](https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/34798095200)
 reported `status: fail`, `stage: dependency-provenance`: mathlib revision
@@ -122,10 +124,15 @@ The same failure is already reported in
 Changing only the mathlib pin to the parent is not compatible with the ordinary
 cache workflow: `Cache.Requests.checkForToolchainMismatch` compares the project
 and mathlib toolchain files exactly and exits before downloading on a mismatch.
-No dependency or toolchain change has been made in response to this failure.
-The next obligation is to resolve acceptance of the official release with
-Palomar, or separately validate a complete migration to an accepted compatible
-toolchain/dependency pair, before retrying the submission.
+Both the project compiler and mathlib pin have therefore moved together to
+4.33.0. This changes no mathematical sources or non-mathlib dependency pins.
+The exact pinned Palomar helper accepted all nine packages through its
+`package_allowlist` check and artifact validation. The parent revision is an
+ancestor of the fetched official master. Helper hashes and source comparisons
+are in the [provenance report](logs/dependency-provenance.json).
+The next obligation is to retry Palomar with the verified compatibility commit
+and inspect the service's remaining checks; registration remains a separate
+maintainer decision.
 
 The repository's own
 [first Linux CI run](https://github.com/boonsuan/nivat/actions/runs/34796906668)
@@ -136,11 +143,13 @@ the ignored `.tools/palomar-run-34798095200/` directory.
 
 ## Reproducibility and evidence
 
-Lean is pinned to `leanprover/lean4:v4.33.1`; mathlib is pinned to
-`0df444a360eaa60ab8c11dca51a86af692955474`. The manifest locks transitive
+Lean is pinned to `leanprover/lean4:v4.33.0`; mathlib is pinned to
+`db584cd6d46c92f209a44c0f1c829460d327499d`. The manifest locks transitive
 revisions. Exact observed versions are in [docs/versions.json](docs/versions.json).
 
 - [Clean build](logs/clean-build.log)
+- [Identity with the checked 4.33.1 sources and theorem types](logs/compatibility-audit.json)
+- [Exact Palomar dependency-provenance check](logs/dependency-provenance.json)
 - [Theorem types and axiom reports](logs/axioms.log)
 - [Principal axiom allowlist](logs/axiom-allowlist.log)
 - [Fully expanded statements](logs/raw-statements.log)
