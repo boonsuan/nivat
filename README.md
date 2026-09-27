@@ -4,6 +4,8 @@ A Lean 4 + mathlib formalization of [*Pattern complexity and Nivat’s conjectur
 
 Registered in Palomar as [PALOMAR-2026-09-14-000003, version 1](https://palomar-registry.org/entry.html?id=PALOMAR-2026-09-14-000003&version=1), with mechanical verification and automated editorial review.
 
+**Update (27 September 2026):** An [expository rewrite of the proof](paper/exposition.pdf) ([LaTeX source](paper/exposition.tex)), with motivation and figures, has been written by Claude Opus 5.5. It presents the same argument, reorganized for readability, and maps each result to the original paper and the Lean declarations. Like the original, it is AI-written and has not been checked by a human expert. As far as I am aware, there is still no human-digested account of the proof.
+
 **Update (14 September 2026):** I have just become aware of [Bryna Kra’s guest post on Terence Tao’s blog](https://terrytao.wordpress.com/2026/09/13/deep-theorems-were-scarce-and-difficult-and-so-became-an-effective-mechanism-to-identify-deep-thought-ai-has-broken-this-system/), discussing Nivat’s conjecture and AI-generated mathematics. It went up around 3 hours before my first commit to this repository, though I completed the proof-generation and formalization work reported here before learning of the post. As emphasized below, GPT-6 Pro found the proof; I did not. My role was prompting the model and arranging formal verification. I am sharing the material because it may be useful and interesting to some people.
 
 **Disclaimer**
