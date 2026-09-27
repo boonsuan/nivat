@@ -348,7 +348,7 @@ Where can we find many pairs of patterns in the same fibre? Suppose that $x,y\in
 \]
 span $\Q^n$. If $g$ is the indicator function of $\{j\ge0\}$, they do: they include all the ``staircase'' vectors $(0,\ldots,0,1,\ldots,1)$. If $g$ is a nonzero constant, they span only a line, and we learn only that the number of patterns drops by at least one.
 
-The two cases differ in their annihilators. When $g$ is constant, $d$ is also annihilated by $Y-1$, which is supported in $R$ (if $n\ge2$) but is not a multiple of $X-1$. When $g$ is the step function, every annihilator of $d$ is a multiple of $X-1$ (this follows from Theorem~\ref{thm:exact-ideal} below). In general the translates of $d$ span $\ker F$ precisely when every annihilator of $d$ supported in $R$ is a multiple of $\Phi$. The hypothesis $\Ann(x-y)=(\Phi)$ guarantees this for every rectangle at once.\footnote{The constant-difference comparison in this subsection is not in the original paper, which makes the same point with a shorter remark after its Theorem~2.2.}
+The two cases differ in their annihilators. When $g$ is constant, $d$ is also annihilated by $Y-1$, which is supported in $R$ (if $n\ge2$) but is not a multiple of $X-1$. When $g$ is the step function, every annihilator of $d$ is a multiple of $X-1$ (this follows from Theorem~\ref{thm:exact-ideal} below). In general the translates of $d$ span $\ker F$ precisely when every annihilator of $d$ supported in $R$ is a multiple of $\Phi$ (this is Step~2 of Section~\ref{ssec:proofA}). The hypothesis $\Ann(x-y)=(\Phi)$ guarantees this for every rectangle at once.\footnote{The constant-difference comparison in this subsection is not in the original paper, which makes the same point with a shorter remark after its Theorem~2.2.}
 
 \subsection{Multiples of \texorpdfstring{$\Phi$}{Phi} supported in a rectangle}
 We identify $\Q^D$, the space of functions $D\to\Q$, with the space of Laurent polynomials supported in $D$, by $p\mapsto\sum_{z\in D}p(z)\mon z$. We need to know which multiples of $\Phi$ lie in $\Q^R$.
@@ -364,14 +364,14 @@ and this space has dimension $|S|$.
 \begin{proof}
 If $g\in\Q^S$, then every monomial of $\Phi g$ has exponent $z+u$ with $z\in S$ and $u\in\supp\Phi$, which lies in $R$. So $\Phi g\in\Q^R$.
 
-Conversely, suppose $g\in\LL$ is nonzero and $\Phi g\in\Q^R$. We use the fact that extreme exponents add under multiplication. Regard $\Phi$ and $g$ as Laurent polynomials in $X$ with coefficients in the integral domain $\Q[Y^{\pm1}]$. The product of their leading coefficients is nonzero, so the largest power of $X$ occurring in $\Phi g$ is the sum of the largest powers occurring in $\Phi$ and in $g$. The same holds for smallest powers and for the variable $Y$. With $[a_j,b_j]$ the coordinate intervals of $R$ and $\alpha_j,\beta_j$ as in Lemma~\ref{lem:erosion}, it follows that every $z\in\supp g$ satisfies $a_j-\alpha_j\le z_j\le b_j-\beta_j$ for $j=1,2$. By Lemma~\ref{lem:erosion}, this says $z\in S$. Hence $g\in\Q^S$.
+Conversely, suppose $g\in\LL$ is nonzero and $\Phi g\in\Q^R$. We use the fact that extreme exponents add under multiplication. Regard $\Phi$ and $g$ as Laurent polynomials in $X$ with coefficients in the integral domain $\Q[Y^{\pm1}]$. The product of their leading coefficients is nonzero, so the largest power of $X$ occurring in $\Phi g$ is the sum of the largest powers occurring in $\Phi$ and in $g$. The same holds for smallest powers and for the variable $Y$. With $[a_j,b_j]$ the coordinate intervals of $R$ and $\alpha_j,\beta_j$ as in Lemma~\ref{lem:erosion}, it follows that every $z\in\supp g$ satisfies $a_j-\alpha_j\le z_j\le b_j-\beta_j$ for $j=1,2$. For instance, the largest power of $X$ in $\Phi g$ is at most $b_1$ and equals $\beta_1$ plus the largest power of $X$ in $g$, so every $z\in\supp g$ has $z_1\le b_1-\beta_1$. By Lemma~\ref{lem:erosion}, this says $z\in S$. Hence $g\in\Q^S$.
 
 Finally, multiplication by $\Phi$ is injective because $\LL$ is an integral domain, so $\Phi\cdot\Q^S$ has dimension $|S|$.
 \end{proof}
 
 The rectangular shape of $R$ is essential in the converse direction, where the bounding box of $\supp g$ is compared with $R$. For other windows the lemma can fail. With $\Phi=1-X$ and $g=1+X+Y$, the product $\Phi g=1+Y-X^2-XY$ is supported in the four-point set $R=\{(0,0),(0,1),(1,1),(2,0)\}$. For this $R$ the set $S$ is $\{(0,1)\}$, which does not contain $\supp g$.\footnote{This example is not in the original paper.}
 
-\subsection{Proof of Proposition~\ref{prop:A}}
+\subsection{Proof of Proposition~\ref{prop:A}}\label{ssec:proofA}
 Let $d=x-y$. For finite $D$, equip $\Q^D$ with the standard pairing $\langle p,g\rangle_D=\sum_{z\in D}p(z)g(z)$.
 
 \emph{Step 1: the map on patterns and its kernel.} Write $\Phi=\sum_u\Phi_u\mon u$. Define
@@ -386,7 +386,7 @@ Its transpose is multiplication by $\Phi$. Indeed, for $p\in\Q^R$ and $g\in\Q^S$
 \[
  \langle Fp,g\rangle_S=\sum_{z\in S}\sum_u g(z)\Phi_u\,p(z+u)=\langle p,\Phi g\rangle_R.
 \]
-By Lemma~\ref{lem:supported}, the transpose $F^{\mathsf T}\colon g\mapsto\Phi g$ is injective with image $\Phi\cdot\Q^S$. So $F$ has rank $|S|$, and
+By Lemma~\ref{lem:supported}, the transpose $F^{\mathsf T}\colon g\mapsto\Phi g$ is injective with image $\Phi\cdot\Q^S$. A linear map and its transpose have the same rank, and the kernel of a map is the orthogonal complement of the image of its transpose. So $F$ has rank $|S|$, and
 \begin{equation}\label{eq:kernel-dim}
  \dim\ker F=|R|-|S|,\qquad (\ker F)^\perp=\operatorname{im}F^{\mathsf T}=\Phi\cdot\Q^S.
 \end{equation}
@@ -509,7 +509,7 @@ The idea is shown in Figure~\ref{fig:halfplane}. Take two translates of $c$ that
 \begin{proof}
 For each positive integer $j$, the ball $\{z:\|z\|\le j\}$ contains finitely many lattice points, so $c$ has only finitely many patterns on it. Since $c$ has infinitely many distinct translates, two of them, $x_j\ne y_j$, have the same pattern on this ball. Let $p_j$ be a site where they differ with $\|p_j\|$ as small as possible. Such a site exists because $\|z\|^2$ takes nonnegative integer values. Put $r_j=\|p_j\|$. Then $r_j>j$, and $x_j,y_j$ agree at every $z$ with $\|z\|<r_j$.
 
-Pass to a subsequence along which $T^{p_j}x_j\to x$ and $T^{p_j}y_j\to y$ pointwise, $p_j/r_j\to\nu$ for some unit vector $\nu$, and the pair of symbols $(x_j(p_j),y_j(p_j))$ is constant. This is possible because the alphabet is finite and the unit circle is compact. Then $x,y\in X_c$ and $x(0)\ne y(0)$.
+Pass to a subsequence along which $T^{p_j}x_j\to x$ and $T^{p_j}y_j\to y$ pointwise, $p_j/r_j\to\nu$ for some unit vector $\nu$, and the pair of symbols $(x_j(p_j),y_j(p_j))$ is constant. This is possible because the alphabet is finite and the unit circle is compact. Then $x,y\in X_c$, being limits of translates of $c$, and $x(0)\ne y(0)$.
 
 Now fix $z$ with $\nu\cdot z<0$. Then
 \[
@@ -601,7 +601,7 @@ Let $d\colon\Z^2\to\Q$ be nonzero, let $v$ be primitive and $q\ge1$, and suppose
 \[
  e=(\phi/\pi)(T^v)\,d.
 \]
-Then $e\ne0$, because $\phi/\pi$ has smaller degree than $\phi$, and $\phi$ has the least degree among polynomials in $Z$ annihilating $d$. Also $e$ vanishes on rows $b<0$, since $(\phi/\pi)(T^v)$ acts within rows. Moreover $\pi(T^v)e=\phi(T^v)d=0$ and $G(T)e=(\phi/\pi)(T^v)G(T)d=0$.
+Then $e\ne0$, because $\phi/\pi$ has smaller degree than $\phi$, and $\phi$ has the least degree among polynomials in $Z$ annihilating $d$. Also $e$ vanishes on rows $b<0$, since $(\phi/\pi)(T^v)$ acts within rows. Moreover $\pi(T^v)e=\phi(T^v)d=0$ and $G(T)e=(\phi/\pi)(T^v)G(T)d=0$, since the operators commute.
 
 Let $j_*$ be the largest index with $\pi\nmid f_{j_*}$, and let $b_0$ be the lowest nonzero row of $e$. It exists because $e\ne0$ and $e$ vanishes on all negative rows. Evaluate $G(T)e=0$ on row $b_0-j_*$ (Figure~\ref{fig:firstrow}). Here $(G(T)e)(av+(b_0-j_*)w)=\sum_j\bigl(f_j(T^v)e\bigr)(av+(b_0-j_*+j)w)$. For $j>j_*$ the term vanishes because $f_j$ is a multiple of $\pi$ and $\pi(T^v)e=0$. For $j<j_*$ it vanishes because it only involves row $b_0-j_*+j$, which lies below $b_0$ and where $e$ is zero. What remains says that the sequence $u(a)=e(av+b_0w)$, which is row $b_0$ of $e$ and is not identically zero, satisfies
 \[
@@ -609,7 +609,7 @@ Let $j_*$ be the largest index with $\pi\nmid f_{j_*}$, and let $b_0$ be the low
 \]
 where $\sigma$ is the shift on sequences. Since $\pi$ is irreducible and does not divide $f_{j_*}$, Bézout's identity gives $A,B\in\Q[Z]$ with $A\pi+Bf_{j_*}=1$. Applying this to $u$ gives $u=0$, a contradiction.
 
-So each irreducible factor $\pi$ of $\phi$ divides every $f_j$, hence divides $G$ in $\Q[Z,W]$. The irreducible factors of $\phi$ are pairwise non-associate, because $\phi$ is squarefree, and they remain prime in $\Q[Z,W]$. Therefore their product $\phi$ divides $G$. Undoing the monomial factor and the change of variables proves the theorem.
+So each irreducible factor $\pi$ of $\phi$ divides every $f_j$, hence divides $G$ in $\Q[Z,W]$. The irreducible factors of $\phi$ are pairwise non-associate, because $\phi$ is squarefree, and they remain prime in $\Q[Z,W]$, because $\Q[Z,W]/(\pi)\cong(\Q[Z]/(\pi))[W]$ is a polynomial ring over a field. Therefore their product $\phi$ divides $G$. Undoing the monomial factor and the change of variables proves the theorem.
 \end{proof}
 
 The theorem uses the \emph{minimal} polynomial $\phi$, not the period polynomial $Z^q-1$. This choice is forced. For $d(i,j)=1$ if $j\ge0$ and $0$ otherwise, the theorem gives $\Ann(d)=(X-1)$, although $X^2-1$ also annihilates $d$. On an $m\times n$ rectangle with $m\ge2$, the translates of $d$ span a space of dimension $n$, while the kernel of the map induced by $X^2-1$ has dimension $2n$. With $X^2-1$ in place of $X-1$, the equality~\eqref{eq:full-kernel} would fail.
@@ -688,7 +688,7 @@ Let $s\colon\Z\to\Sigma$ be a sequence with finite range such that $s_i=s_j$ imp
 \end{lemma}
 
 \begin{proof}
-The hypothesis says that $\tau(s_i)=s_{i+1}$ defines a map $\tau$ on the finite set $s(\Z)$. It is surjective, since $s_i=\tau(s_{i-1})$, and hence bijective. Therefore $s_i=\tau^i(s_0)$ for all $i\in\Z$, and $s$ has period equal to the length of the cycle of $\tau$ through $s_0$. The second version follows by reversing the indices.
+The hypothesis says that $\tau(s_i)=s_{i+1}$ defines a map $\tau$ on the finite set $s(\Z)$. It is surjective, since $s_i=\tau(s_{i-1})$, and hence bijective. Therefore $s_i=\tau^i(s_0)$ for all $i\in\Z$ (for negative $i$, use $\tau^{-1}$), and $s$ has period equal to the length of the cycle of $\tau$ through $s_0$. The second version follows by reversing the indices.
 \end{proof}
 
 \begin{corollary}[Morse--Hedlund]\label{cor:morse}
@@ -786,7 +786,7 @@ Let $R$ be a rectangle with $P_c(R)\le|R|$, and let $v$ be primitive. Then, for 
 \end{figure}
 
 \begin{proof}
-\emph{Removing rows.} The rows of $R$ in the $(v,w)$ coordinates are its intersections with the lines $\{\rc ij:i\in\R\}$. Starting from $R$, repeatedly delete whichever of the two extreme nonempty rows (the lowest and the highest) has fewer sites, choosing either in case of a tie, until nothing is left. Each set obtained along the way consists of the lattice points in a convex set $K$: the real rectangle spanned by $R$, intersected with a closed strip between two lines parallel to $v$. So each of its rows is a set of consecutive sites.
+\emph{Removing rows.} The rows of $R$ in the $(v,w)$ coordinates are its intersections with the lines $\{\rc ij:i\in\R\}$. Starting from $R$, repeatedly delete whichever of the two extreme nonempty rows (the lowest and the highest) has fewer sites, choosing either in case of a tie, until nothing is left. Each set obtained along the way consists of the lattice points in a convex set $K$: the real rectangle spanned by $R$, intersected with a closed strip between two lines parallel to $v$. So each of its rows is a set of consecutive sites: row $j$ of $K$ is a segment, and the lattice points on the line through row $j$ are exactly the points $\rc ij$ with $i\in\Z$, because $v,w$ is a basis of $\Z^2$.
 
 \emph{Row lengths.} Consider a stage of this process whose extreme rows are $j_-<j_+$, occupying the sites $i\in[\alpha_-,\beta_-]$ and $i\in[\alpha_+,\beta_+]$ respectively, and suppose the shorter one has $e$ sites. Then $\beta_\pm-\alpha_\pm\ge e-1$. For $j_-<j<j_+$, write $\lambda=(j-j_-)/(j_+-j_-)$. By convexity, $K$ contains the real points $\rc ij$ with $i$ between $(1-\lambda)\alpha_-+\lambda\alpha_+$ and $(1-\lambda)\beta_-+\lambda\beta_+$. This is an interval of length at least $e-1$, so it contains at least $e-1$ integers. Hence every row between $j_-$ and $j_+$ contains at least $e-1$ sites.
 
@@ -796,7 +796,7 @@ Let $R$ be a rectangle with $P_c(R)\le|R|$, and let $v$ be primitive. Then, for 
 \]
 which is $r<e$. Choose the sign of $w$ so that $E$ is the lowest row of $B$, and translate so that $E$ starts at the origin. The other extreme row has at least $e$ sites, since $E$ was the shorter one, so part~(1) follows from the row-length bound.
 
-\emph{The rule.} For $0\le i\le e$, let $D_i=C\cup\{\rc00,\ldots,\rc{i-1}0\}$, so $D_0=C$ and $D_e=B$. The $e$ increments $P_c(D_{i+1})-P_c(D_i)$ are nonnegative integers with sum $r<e$, so one of them, say the $k$-th, is zero. Then restriction from $\Pat_c(D_{k+1})$ to $\Pat_c(D_k)$ is a bijection: each pattern on $D_k$ has exactly one extension to the site $\rc k0$. This is part~(3).
+\emph{The rule.} For $0\le i\le e$, let $D_i=C\cup\{\rc00,\ldots,\rc{i-1}0\}$, so $D_0=C$ and $D_e=B$. The $e$ increments $P_c(D_{i+1})-P_c(D_i)$ are nonnegative integers with sum $r<e$, so one of them, say the $k$-th, is zero. Then restriction from $\Pat_c(D_{k+1})$ to $\Pat_c(D_k)$, which is always surjective, is a bijection between sets of the same size: each pattern on $D_k$ has exactly one extension to the site $\rc k0$. This is part~(3).
 \end{proof}
 
 The bound in~(1) is $e-1$ and not $e$, because the endpoints of the interpolated intervals need not be integers. The set $\{\rc00,\rc10,\rc11,\rc12,\rc22\}$ shows this: its extreme rows have two sites each and its middle row has one. When $e=1$, part~(1) says nothing, and middle rows may even be empty. This case is harmless, because Lemma~\ref{lem:periodic-interior} will show that it cannot occur together with a strip pair.\footnote{The original paper leaves this degenerate case implicit.}
@@ -881,7 +881,7 @@ Since $C$ lies in rows $1,\ldots,H$, the pattern $\eta_i$ reads only rows $j+1,\
 \subsection{Proof of Proposition~\ref{prop:C}}
 If $h$ and $t$ are parallel, Lemma~\ref{lem:parallel} applies. Otherwise, set up the coordinates of Section~\ref{ssec:plan}, and apply Lemma~\ref{lem:boundary-window} to the rectangle $R_{m,n}$ to obtain $B$ and the sign of $w$. Then $t=\rc aM$ with $M\ne0$. If $M<0$, replace $t$ by $-t$, which preserves the hypothesis and the set of multiples of $t$.
 
-\emph{Case $H=0$.} Then $B=E$ is a single row, and $P_c(E)\le e$. The subwords of length $e$ of any row of $c$ are patterns of $c$ on translates of $E$, so each row has at most $e$ of them. By Corollary~\ref{cor:morse} every row has a period at most $e$, so $e!\,v$ is a period of every row, and $e!\,h=q\,e!\,v$ is a period of $c$.
+\emph{Case $H=0$.} Then $B=E$ is a single row, and $P_c(E)\le e$. The subwords of length $e$ of any row of $c$ are patterns of $c$ on translates of $E$, so each row has at most $e$ of them. By Corollary~\ref{cor:morse} every row has a period at most $e$, hence a period dividing $e!$. So $e!\,v$ is a period of every row, and $e!\,h=q\,e!\,v$ is a period of $c$.
 
 \emph{Case $H\ge1$.} Let $W=\max(H,M)$. By Lemma~\ref{lem:strip-states}, either a nonzero multiple of $t$ is a period of $c$, or there are translates $x,y$ of $c$ as in that lemma. In the second case, Lemma~\ref{lem:periodic-interior} shows that rows $1,\ldots,H$ of $x$ are periodic. The translate $x$ satisfies $\De_h\De_tx=0$ and the boundary rule, so Lemma~\ref{lem:row-lifting} gives $x$ a period that is a multiple of $h$. A period of a translate of $c$ is a period of $c$.\qed
 
@@ -907,11 +907,11 @@ with distinct $u_i$ and nonzero integers $a_i$. Since $c\ne0$ and a monomial act
 \]
 Then every value of every $f_n(T)c$ has absolute value at most $K$.
 
-\emph{Dilations.} Suppose $f_n$ annihilates $c$ and $p>K$ is prime. Modulo $p$, the Frobenius congruence and Fermat's little theorem give $f_n^{\,p}\equiv\sum_ia_i^p\mon{pnu_i}\equiv f_{np}$. So $f_{np}=f_n^{\,p}+p\,g$ for some integer Laurent polynomial $g$, and
+\emph{Dilations.} Suppose $f_n$ annihilates $c$ and $p>K$ is prime. Modulo $p$, the Frobenius congruence $(y_1+\cdots+y_k)^p\equiv y_1^p+\cdots+y_k^p$ (which follows from the case of two summands, since $\binom pi$ is divisible by $p$ for $0<i<p$) and Fermat's little theorem give $f_n^{\,p}\equiv\sum_ia_i^p\mon{pnu_i}\equiv f_{np}$. So $f_{np}=f_n^{\,p}+p\,g$ for some integer Laurent polynomial $g$, and
 \[
  f_{np}(T)c=f_n^{\,p-1}(T)\,f_n(T)c+p\,g(T)c=p\,g(T)c.
 \]
-Every value of $f_{np}(T)c$ is therefore divisible by $p$ and has absolute value at most $K<p$, so it is zero. Let $\rho=K!$. Every $n\ge1$ coprime to $\rho$ is a product of primes greater than $K$, so starting from $f_1=f$ we get $f_n\in\Ann(c)$ for all such $n$. In particular,
+Every value of $f_{np}(T)c$ is therefore divisible by $p$ and has absolute value at most $K<p$, so it is zero. Let $\rho=K!$. Every $n\ge1$ coprime to $\rho$ is a product of primes greater than $K$, so starting from $f_1=f$ and applying the previous step once for each prime factor, we get $f_n\in\Ann(c)$ for all such $n$. In particular,
 \[
  f_{1+j\rho}\in\Ann(c)\qquad(j\ge0).
 \]
